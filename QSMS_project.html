@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>DRS Training Portal</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<style>
+        /*
+        * 1. Global Padding Fix (Original in file)
+        */
+        body {
+            padding-top: 00px; 
+        }
+
+        /*
+        * 2. Custom Table & Responsiveness Styles
+        */
+
+        /* Generous horizontal padding on the table container (already provided by container-fluid/col structure) */
+        .course-table-container {
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 2px solid #eee;
+        }
+
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden; /* Important for border-radius */
+        }
+
+        /* Header Color: Maritime Blue */
+        .course-table th {
+            background-color: #005A9C; /* Maritime Blue */
+            color: white;
+            font-weight: 600;
+            padding: 12px 15px;
+            text-align: left;
+            border: none;
+        }
+
+        .course-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+            background-color: white;
+            white-space: nowrap; /* Prevent unnecessary wrapping on desktop */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Specific Column Widths (Desktop View) */
+        .course-table th:nth-child(1), .course-table td:nth-child(1) { width: 5%; }    /* Sl.No. */
+        .course-table th:nth-child(2), .course-table td:nth-child(2) { width: 52%; }   /* Course Name */
+        .course-table th:nth-child(3), .course-table td:nth-child(3) { width: 10%; }   /* Duration */
+        .course-table th:nth-child(4), .course-table td:nth-child(4) { width: 10%; }   /* Type */
+        .course-table th:nth-child(5), .course-table td:nth-child(5) { width: 13%; }   /* Suitable for */
+        .course-table th:nth-child(6), .course-table td:nth-child(6) { width: 10%; }   /* Action */
+
+        .course-table tr:hover td {
+            background-color: #f5f5f5;
+        }
+        
+        .action-button {
+            background-color: #007bff; /* Blue for View button */
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            text-align: center;
+            font-size: 13px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%; /* Full width in its 10% cell */
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+
+        /*
+        * 3. Custom Modal Styles (Essential for Canvas Preview)
+        */
+        .modal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            z-index: 1050; /* Above typical Bootstrap modals */
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .modal-container.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-container.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #aaa;
+            border: none;
+            background: none;
+            line-height: 1;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        /*
+        * 4. Responsiveness for Mobile Screens (Collapse Table)
+        */
+        @media screen and (max-width: 768px) {
+            .course-table thead {
+                display: none; /* Hide headers on smaller screens */
+            }
+
+            .course-table, .course-table tbody, .course-table tr, .course-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .course-table tr {
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                overflow: hidden;
+            }
+
+            .course-table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                border: none;
+                border-bottom: 1px dashed #eee;
+                white-space: normal; /* Allow text to wrap on mobile */
+            }
+
+            .course-table td:before {
+                /* Create the data label */
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+                color: #555;
+            }
+            
+            .course-table td:last-child {
+                border-bottom: none; /* Remove last border for clean look */
+                text-align: center;
+                padding-left: 15px;
+            }
+            
+            .action-button {
+                width: auto;
+                min-width: 120px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+ 
+<!-- header -->
+<!-- The navigation bar is included directly in this file for consistency across all pages. -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-lg-4 text-center text-lg-left">
+        <a class="text-color mr-3" href="#"><strong>SUPPORT</strong> +91 0123456789</a>
+        </div>
+      
+      <div class="col-lg-8 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="dashboard.html">Dashboard</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="mycourses.html">My Courses</a></li>
+          
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">login</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#signupModal">register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- navbar -->
+  <div class="navigation px-4 w-100">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownabout" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownabout">
+                <a class="dropdown-item" href="About_New.html">BMTI</a>
+                <a class="dropdown-item" href="QSMS_project.html">Project</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a class="dropdown-item" href="constr.html">Deck</a>
+                <a class="dropdown-item" href="constr.html">Engine</a>
+              </div>
+            </li>
+            <li class="nav-item @@events">
+              <a class="nav-link" href="constr.html">QSMS</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Deck
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="5_MSTR_JD_FINAL11.html">Master</a>
+                <a class="dropdown-item" href="constr.html">Chief Officer</a>
+                <a class="dropdown-item" href="constr.html">Second Officer</a>
+                <a class="dropdown-item" href="constr.html">Third Officer</a>
+                <a class="dropdown-item" href="constr.html">Junior Officer</a>
+                <a class="dropdown-item" href="constr.html">Cadet</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEngine" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Engine
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownEngine">
+                <a class="dropdown-item" href="constr.html">Chief Engineer</a>
+                <a class="dropdown-item" href="constr.html">1 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">2 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">3 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">4 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">Junior Engineer</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownETO" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ETO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownETO">
+                <a class="dropdown-item" href="constr.html">ETO</a>
+                <a class="dropdown-item" href="constr.html">Junior ETO</a>
+                <a class="dropdown-item" href="constr.html">Trainee ETO</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Others
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="constr.html">Reefer Technician</a>
+                <a class="dropdown-item" href="constr.html">Fitter</a>
+                <a class="dropdown-item" href="constr.html">AB</a>
+                <a class="dropdown-item" href="constr.html">OS</a>
+                <a class="dropdown-item" href="constr.html">Oiler</a>
+              </div>
+            </li>
+            <li class="nav-item @@contact">
+              <a class="nav-link" href="constr.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link bg-primary text-white rounded" href="constr.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+</header>
+
+<!-- /header -->
+<!-- Modal -->
+ 
+ 
+<!-- Course Detail Modal -->
+<div id="course-detail-modal" class="modal-container" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="close-button" onclick="closeModal()">&times;</button>
+        <h3 id="modal-title" class="mb-4 text-primary">Course Details</h3>
+
+        <div class="mb-2">
+            <strong>Sl. No.:</strong> <span id="modal-slno"></span>
+        </div>
+        <div class="mb-2">
+            <strong>Course Name:</strong> <span id="modal-name"></span>
+        </div>
+        <div class="mb-2">
+            <strong>Duration:</strong> <span id="modal-duration"></span>
+        </div>
+        <div class="mb-2">
+            <strong>Type:</strong> <span id="modal-type"></span>
+        </div>
+        <div class="mb-2">
+            <strong>Suitable for:</strong> <span id="modal-suitable"></span>
+        </div>
+
+        <hr>
+
+        <p class="h5 mb-3 text-muted">Course Description:</p>
+        <p id="modal-details" class="text-secondary"></p>
+
+        <button class="btn btn-primary mt-4" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="#">DRS Training Portal</a></li>
+           <li class="list-inline-item text-white h3 font-secondary nasted"> This page contains details of the entire project.</li>
+        </ul>
+        <p class="text-lighten">This project was developed for DRS Marine Services, Mumbai following the guidelines established by
+Reefership Marine Services, Costa Rica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+
+
+
+
+
+<!-- Do NOT Delete -->
+<section class="section-sm">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <!-- Use col-12 to ensure full width of the container-fluid is available, 
+           while maintaining the generous left/right padding provided by the Bootstrap container structure. -->
+      <div class="col-12 col-lg-10 col-xl-10"> 
+        
+            
+       
+       <section class="section-sm">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-10"> 
+        
+        
+       
+            
+       <h2 class="font-weight-bold mb-3 mt-5 text-dark">Executive Summary</h2>
+        <h3 class="h5 font-weight-bold text-primary mb-3">Overview</h3>
+        <p class="text-secondary mb-4">
+            The DRS Training Portal, a new secure digital platform designed under the guideline established by Reefership Marine Services, has been developed to strengthen our organization’s Quality and Safety Management Systems (QSMS). The portal provides authorized personnel with controlled access to essential Training materials, Operational forms, Critical checklists, Familiarisation forms and detailed Job profiles, all of which are central to our safety and quality procedures.
+        </p>
+        <p class="text-secondary mb-4">
+            The portal is distinctly divided into two separate sections: a public-facing component accessible to all and a secure password protected Training section reserved for authorized candidates. The public-facing area provides general information about the company, including a photo gallery, a list of available courses, etc., whereas the Training section contains a structured curriculum with rank-specific subsections and relevant training materials.
+        </p>
+
+        <h3 class="h5 font-weight-bold text-primary mb-3">Project Objectives</h3>
+        <p class="text-secondary">
+            The Training Portal's core objectives are designed to directly support and strengthen our SMS and QSMS frameworks:
+        </p>
+        <ul class="list-unstyled list-group-flush ml-3">
+            <li class="mb-2"><i class="ti-check text-success mr-2"></i> Secure Content Access: A robust login and access control mechanism that safeguards all proprietary training materials, ensuring full compliance with our SMS and QSMS platforms.</li>
+            <li class="mb-2"><i class="ti-check text-success mr-2"></i> Enhanced Learning & Assessment: Streamline the training process with a single system for distributing materials, conducting assessments and tracking learner progress, ensuring all results are auditable.</li>
+            <li class="mb-2"><i class="ti-check text-success mr-2"></i> Optimized User Management: To utilize a centralized backend that stores user credential and status management, ensuring data integrity and accountability.</li>
+            <li class="mb-2"><i class="ti-check text-success mr-2"></i> Automated Communications: Set up a system that sends out automatic emails. This helps administrators to stay informed and lets them quickly spot and address security issues.</li>
+            <li class="mb-2"><i class="ti-check text-success mr-2"></i> Global Accessibility: To establish a secure and efficient online portal that provides global access to training content, even on ships, directly supporting our commitment to Safety, Quality and excellence in Training.</li>
+        </ul>
+
+        <h3 class="h5 font-weight-bold text-primary mb-3 mt-4">Technology & Functionality</h3>
+        <p class="text-secondary mb-4">
+            The portal is built on a robust and efficient Google eco-system technology stack to ensure security and seamless operation:
+        </p>
+        <ul class="list-unstyled list-group-flush ml-3">
+            <li class="mb-2"><i class="ti-link text-info mr-2"></i> Web Sites: Serves as the public-facing interface and hosts all training materials.</li>
+            <li class="mb-2"><i class="ti-link text-info mr-2"></i> Apps Script: Powers the secure backend, managing user authentication, database and automated communications.</li>
+            <li class="mb-2"><i class="ti-link text-info mr-2"></i> e-Classroom Environment: Provides a seamless, integrated environment for delivering rank-specific quizzes and tracking learning progress.</li>
+        </ul>
+
+        <h2 class="font-weight-bold mb-3 mt-5 text-dark">Project Phases: A Systematic Approach</h2>
+        <p class="text-secondary mb-4">
+            The Training Portal project follows a structured, five-phase process that ensures a methodical and comprehensive outcome, transforming a strategic concept into a reliable compliance and training system.
+        </p>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4 class="h6 font-weight-bold text-info">Phase 1: Concept, Structure, & Flow</h4>
+                <p class="text-secondary small">This foundational phase defines the project's architecture and user experience. It involves creating the blueprint and developing the core Apps Script backend, setting up the database ensuring a scalable and robust framework for all subsequent phases.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h4 class="h6 font-weight-bold text-info">Phase 2: Content Integration</h4>
+                <p class="text-secondary small">This phase focuses on meticulously setting up the rank-specific classrooms and integrating all proprietary training materials into the portal and an e-Classroom environment. This critical process ensures all study materials are prepared, organized and linked to provide a seamless and secure learning experience with consistent, rank-specific content.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h4 class="h6 font-weight-bold text-info">Phase 3: Control Group Testing & Validation</h4>
+                <p class="text-secondary small">This quality assurance phase involves rigorous deployment to a global network of users, including sailing staff. Testers follow structured scenarios to identify and resolve bugs, ensuring the portal performs flawlessly under various real-world conditions, including low-bandwidth environments.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h4 class="h6 font-weight-bold text-info">Phase 4: Official Launch & Rollout</h4>
+                <p class="text-secondary small">This phase marks the official deployment of the portal to the entire organization. It involves a carefully managed rollout, providing hands-on training to key stakeholders and establishing support channels to ensure a smooth transition and rapid user adoption.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h4 class="h6 font-weight-bold text-info">Phase 5: Continuous Management & Support</h4>
+                <p class="text-secondary small">This is the long-term operational phase, which ensures the portal remains a living asset. It includes ongoing backend management, user administration, troubleshooting and continuous content updates to maintain relevance, mitigate risk and drive operational excellence.</p>
+            </div>
+        </div>
+        
+       
+<h2 class="font-weight-bold mb-3 mt-5 text-dark">Process Flow Chart</h2>
+        <div class="mb-5 text-center">
+            <img src="images/logos/Training_Flow.png" alt="Process Flow Chart" class="img-fluid w-100 d-block mx-auto">
+        </div>
+        <div class="mt-5 pt-3">
+
+
+
+        <div class="mt-5 pt-3">
+            <h2 class="font-weight-bold mb-3 text-dark">Phase – 1: Concept, Structure & Flow</h2>
+            
+            <h4 class="h6 font-weight-bold text-success mt-4">1.0.1 User Registration Module</h4>
+            <p class="text-secondary mb-2">
+                This module governs the secure and controlled entry into the training eco-system. Upon user registration, an email containing the submitted details and a system-generated password is sent directly to the administrator for manual validation against a Master Employee list. This crucial security measure ensures that only authorized personnel can proceed. Once approved, the system-generated password is sent to the user, granting them access.
+            </p>
+            
+            <h4 class="h6 font-weight-bold text-success mt-4">1.0.2 User Login Module</h4>
+            <p class="text-secondary mb-2">
+                The User Login Module manages user authentication. Upon successful login, the user is seamlessly redirected to the secure Training Site. For security and administrative monitoring, automated alerts are sent to the administrator for both successful authentications and failed login attempts, providing a real-time audit trail of access.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">1.1.0 Training Site</h4>
+            <p class="text-secondary mb-2">
+                We provide a highly secure and dynamic learning environment. The training site is built on a custom web platform that requires a unique session token for access. This critical security measure prevents direct, unauthenticated entry, even if the public URL is known. As a result, all proprietary training materials are delivered in a seamless, secure experience for every authenticated user.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">1.2.0 e-Classroom Integration for Learning Assessments</h4>
+            <p class="text-secondary mb-2">
+                Our portal seamlessly integrates with a dedicated e-Classroom environment for all assessments. This system uses rank-specific classrooms to ensure every individual only accesses content and quizzes relevant to their role, which is crucial for safety and compliance. By linking quizzes directly from the main portal, we create a streamlined learning path that moves from training to automatic evaluation effortlessly.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">1.3.0 Security Framework and Enhancements</h4>
+            <p class="text-secondary mb-2">
+                Security is fundamental to the portal. The system uses automated timestamped alerts for Registration, Duplicate entries, successful Logins, Login failures. This ensures a clear record for compliance, audits and risk management.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">1.4.0 Deployment and Database Management</h4>
+            <p class="text-secondary mb-2">
+                The portal's operational framework is designed for efficiency and streamlined administration. A secure Apps Script backend simplifies all user administration, database and email management, making the entire process seamless and smooth.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">1.5.0 Designated Project Nodes</h4>
+            <p class="text-secondary">
+                For Testing and Feedback, the following locations and user groups have been designated as project nodes:
+            </p>
+            <ol class="ml-3 text-secondary">
+                <li>Node 1: Dublin Office (Project Sponsor)</li>
+                <li>Node 2: RMS Office, Costa Rica (Regional Team)</li>
+                <li>Node 3: DRS Mumbai (Regional Team)</li>
+                <li>Node 4: NAESS Manila (Regional Team)</li>
+                <li>Node 5: Ships (Sailing Masters & Chief Engineers)</li>
+            </ol>
+        </div>
+
+        <div class="mt-5 pt-3">
+            <h2 class="font-weight-bold mb-3 text-dark">Phase – 2: Material Development & Content Integration</h2>
+            <p class="text-secondary mb-4">
+                Following the finalization of the portal's structure in Phase 1, Phase 2 focuses on populating the system with high-quality content that directly supports our SMS and QSMS objectives of Safety and Training.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">2.1 Content Acquisition & Transformation</h4>
+            <p class="text-secondary mb-2">
+                This sub-phase involves gathering and transforming existing and new training information into effective online formats. This includes:
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Comprehensive Data Collection: All existing and new training documents, manuals, checklists will be collected from various departments to ensure no critical content is overlooked.
+                </li>
+                <li>
+                    Material Conversion: “Raw” data will then be converted into diverse and engaging learning resources, such as interactive presentations, instructional videos with voiceovers, informative handouts, digital forms and checklists.
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">2.2 Content Organization & Quality Assurance</h4>
+            <p class="text-secondary mb-2">
+                This sub-phase ensures all materials are logically structured, diligently maintained and highly relevant.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Systematically Organized: All training materials will be logically organized within the e-classrooms by topic and rank. This ensures easy navigation and guarantees that content is both relevant to specific roles and compliant with Training requirements.
+                </li>
+                <li>
+                    Continuously Reviewed: A robust process will be established to regularly review and update all training materials. This guarantees the content always reflects the latest operational procedures, company regulations, and IMO standards.
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">2.3 Quiz & Assessment Development</h4>
+            <p class="text-secondary mb-2">
+                This sub-phase creates effective tools for evaluating understanding and competence, supporting the verification aspects of SMS and QSMS.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Quiz & e-Classroom: Quizzes are developed for each e-Classroom, directly aligned with learning objectives to test knowledge of safety and quality procedures. These quizzes are logically linked to their respective training materials, allowing for an immediate assessment after the learning.
+                </li>
+                <li>
+                    Assessment Formats: We utilize a variety of assessment types to ensure a thorough and accurate evaluation of a user's understanding and compliance with all training materials.
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">2.4 Anticipated Impact & Value</h4>
+            <p class="text-secondary mb-2">
+                The successful completion of Phase 2 directly contributes to:
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>Enhanced Training Effectiveness: High-quality learning materials will significantly improve knowledge retention and practical application.</li>
+                <li>Measurable Competence: Robust quizzes and assessments provide verifiable proof of understanding, which is essential for compliance and audit trails.</li>
+                <li>Global Accessibility & Standardization: Consistent, up-to-date content is available to all personnel, standardizing safety and quality education worldwide.</li>
+                <li>Reduced Training Discrepancies: Readily available, rank-relevant materials minimize inconsistent training and outdated information, which in turn reduces the potential for safety incidents.</li>
+            </ul>
+        </div>
+
+        <div class="mt-5 pt-3">
+            <h2 class="font-weight-bold mb-3 text-dark">Phase – 3: Control Group Testing & Validation</h2>
+            <p class="text-secondary mb-4">
+                Following content integration in Phase 2, Phase 3 focuses on rigorous control group testing. This critical stage validates the portal's functionality and effectiveness across all designated nodes and user types, ensuring a polished and reliable launch and sustained usage.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">3.1 Initial Stakeholder Testing</h4>
+            <p class="text-secondary mb-2">
+                The initial stage involves gathering invaluable feedback from key internal stakeholders to ensure high-level validation and strategic alignment.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Project Head: The project sponsor validates the overall concept, strategic alignment with SMS & QSMS goals and user flow, ensuring top-level endorsement.
+                </li>
+                <li>
+                    Designated Node: Dublin Office (Node 1).
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">3.2 Operational User Testing Groups</h4>
+            <p class="text-secondary mb-2">
+                This stage expands testing to operational nodes, including both shore-based and sea-going personnel, to assess real-world usability and technical performance.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Regional Teams: Designated teams from the RMS Office in Costa Rica (Node 2), DRS Mumbai (Node 3) and NAESS Manila (Node 4) will test performance, content accessibility and relevance from their regional perspectives, confirming global scalability.
+                </li>
+                <li>
+                    Experienced Sailing Officers: For real-world validation, an active sailing Captain and Chief Engineer will test the portal in a shipboard environment (Node 5). This will allow us to evaluate its performance under maritime conditions, focusing on connectivity, content usability and the efficiency of our forms.
+                </li>
+            </ul>
+            
+            <h4 class="h6 font-weight-bold text-success mt-4">3.3 Testing Parameters & Feedback Mechanism</h4>
+            <p class="text-secondary mb-2">
+                To ensure systematic and actionable feedback, clear parameters and tools are utilized.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Structured Test Scenarios: Testers execute specific scenarios (e.g., new user registration, accessing modules, completing quizzes) to thoroughly exercise all core functionalities.
+                </li>
+                <li>
+                    Usability & Content Review: Testers evaluate the clarity, accuracy and relevance of content, as well as navigating the site and overall user experience.
+                </li>
+                <li>
+                    Technical Performance Evaluation: Testing includes assessment of loading times, browser compatibility and responsiveness across different devices.
+                </li>
+                <li>
+                    Centralized Feedback System: A dedicated database or shared document is established for logging all issues, suggestions and feedback.
+                </li>
+                <li>
+                    Iterative Improvement Cycle: Reported issues are addressed and re-tested to ensure continuous refinement before launch.
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">3.4 Success Criteria for Phase 3</h4>
+            <p class="text-secondary mb-2">
+                The successful completion of Phase 3 is determined by:
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>Critical Bug Resolution: All critical errors are resolved.</li>
+                <li>High Usability Score: Positive feedback on ease of use and content relevance from a significant majority of testers.</li>
+                <li>Performance Validation: Confirmation that the portal performs acceptably across all designated nodes, including under varied connectivity.</li>
+                <li>Stakeholder Acceptance: Formal approval that the portal is ready for a wider launch.</li>
+            </ul>
+            <blockquote class="blockquote bg-light p-3 border-left border-primary text-secondary my-4">
+                <p class="mb-0">Phase 3 is more than just bug hunting; it validates the entire user journey and ensures that the Training Portal is a robust, reliable and user-centric solution that truly strengthens our SMS and QSMS frameworks and enhances Safety and Training.</p>
+            </blockquote>
+        </div>
+
+        <div class="mt-5 pt-3">
+            <h2 class="font-weight-bold mb-3 text-dark">Phase – 4: Official Launch & Rollout</h2>
+            <p class="text-secondary mb-4">
+                The official launch of the Training Portal is set for the third week of December 2025 in Mumbai, a culmination of rigorous planning and testing. This event represents a significant milestone in our commitment to providing our seafarers with accessible, high-quality Safety, Compliance and Training.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">4.1 The Launch Event: A Milestone for DRS (Mumbai), & RMS (Costa Rica)</h4>
+            <p class="text-secondary mb-2">
+                The launch event is a strategic declaration of our dedication to continuous improvement in personnel competence and operational excellence.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Inaugural Address & System Activation: The Designated Person Ashore (DPA) and Project Head from the Dublin Office (Node 1) will officially launch the portal, highlighting the strategic importance and top-level commitment to this initiative.
+                </li>
+                <li>
+                    Key Attendees: The event brings together vital stakeholders representing the project's designated operational nodes from the testing phase. This includes representatives from DRS Mumbai (Node 3), sailing staff (Deck and Engine) and the Project Administrator, putting focus on the portal's direct relevance and immediate applicability to their training & safety.
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">4.2 Initial Rollout Strategy</h4>
+            <p class="text-secondary mb-2">
+                A carefully managed initial rollout ensures a smooth transition and effective user adoption.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    User On-boarding & Familiarization: All attendees, especially the sailing staff, will receive hands-on demonstrations and guidance on navigating the portal, accessing training materials, completing quizzes and utilizing forms.
+                </li>
+                <li>
+                    Communication & Support: A comprehensive communication plan informs all authorized personnel globally about the portal's availability and how to access it. Dedicated support channels will be established to assist users with any queries.
+                </li>
+            </ul>
+            
+            <h4 class="h6 font-weight-bold text-success mt-4">4.3 Anticipated Outcomes of Launch</h4>
+            <p class="text-secondary mb-2">
+                The successful launch is expected to yield immediate and tangible benefits:
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Standardized Training: The portal provides a globally accessible, standardized platform for all safety and quality training, eliminating discrepancies in delivery and ensuring that seafarers and shore-based staff have immediate, on-demand access to crucial training information.
+                </li>
+                <li>
+                    Enhanced Compliance & Engagement: The portal's interactive nature, including videos and quizzes, is expected to drive higher engagement with training content, which will in turn significantly enhance compliance with SMS and QSMS requirements.
+                </li>
+            </ul>
+            <blockquote class="blockquote bg-light p-3 border-left border-primary text-secondary my-4">
+                <p class="mb-0">The launch of the Training Portal is the activation of a vital tool that will fundamentally strengthen our Safety Culture and Training quality across the entire organization.</p>
+            </blockquote>
+        </div>
+
+        <div class="mt-5 pt-3">
+            <h2 class="font-weight-bold mb-3 text-dark">Phase – 5: Continuous Management & Support</h2>
+            <p class="text-secondary mb-4">
+                This Phase marks the beginning of the portal's sustained operations, transforming it from a static platform into a living system. This continuous evolution ensures its lasting impact on our global operations, amplifying its value and strengthening our commitment to Safety, Compliance and Training.
+            </p>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">5.1 The Path to Continuous Improvement</h4>
+            <p class="text-secondary mb-2">
+                The dynamic nature of maritime regulations and operational advancements demands that our training capabilities never stagnate. This phase ensures the Training Portal remains a cutting-edge tool for our Training, by enabling:
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Operational Agility & Compliance: Content and system features are continuously adapted to meet new regulatory requirements and evolving fleet procedures. This ensures the portal remains aligned with our operations, safeguarding our reputation.
+                </li>
+                <li>
+                    Proactive Risk Mitigation: We will continuously update safety protocols and best practices, which directly contributes to proactive risk mitigation and encourages a robust safety culture.
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">5.2 Dedicated Project Administration</h4>
+            <p class="text-secondary mb-2">
+                The role of the Project Administrator transitions to a long-term management role. He will be the key person responsible for the portal's sustained effectiveness, which includes:
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Content Curation & Lifecycle Management: The ongoing process of sourcing, developing and integrating new training materials, as well as retiring outdated content.
+                </li>
+                <li>
+                    System Enhancement & Optimization: Continuous monitoring of user feedback and system performance drives phased improvements to keep the portal efficient and engaging.
+                </li>
+                <li>
+                    User Support & Engagement: Providing ongoing support for a global user base and actively promoting new modules to maximize the portal's impact.
+                </li>
+                <li>
+                    Performance Monitoring & Reporting: Regularly analysing training completion and user activity to provide tangible evidence of the portal's impact on competence and compliance.
+                </li>
+            </ul>
+
+            <h4 class="h6 font-weight-bold text-success mt-4">5.3 Direct Benefits for Our Sailing Staff</h4>
+            <p class="text-secondary mb-2">
+                For our most critical asset—our sailing staff—this phase ensures an unbroken chain of high-quality, relevant and accessible training.
+            </p>
+            <ul class="ml-3 text-secondary">
+                <li>
+                    Always Current Knowledge: Seafarers have consistent access to the latest safety procedures and regulatory updates.
+                </li>
+                <li>
+                    Continuous Skill Enhancement: The ability to introduce new training modules and refine existing ones ensures our staff's skills are continuously honed, adapting to new challenges and technologies in the maritime domain.
+                </li>
+                <li>
+                    Enhanced Onboard Safety Culture: A continuously updated and accessible portal encourages a culture of learning and preparedness, empowering every crew member with the knowledge to make safer decisions and uphold quality standards.
+                </li>
+            </ul>
+        </div>
+        
+        <div class="mt-5 pt-3">
+            <h2 class="font-weight-bold mb-3 text-dark">6.0 Conclusion</h2>
+            <p class="text-secondary mb-4">
+                The new Training Portal is a powerful digital tool that will ensure our Officers and Crew have the knowledge and skills needed to maintain our high standards of Safety and Quality. It's more than just a platform; it's a strategic investment in our people. By providing easy access to a constantly updated training system and by using the Google ecosystem to streamline our processes, we're not only improving compliance but also building a more resilient and secure future for our company.
+            </p>
+        </div>
+
+
+        </div>
+    </div>
+  </div>
+</section>     
+       
+       
+            
+
+</section>
+
+
+
+<!-- footer -->
+<footer>
+   <!-- copyright -->
+  <div class="copyright py-4 bg-footer w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+                  
+            <p class="mb-0" style="color: rgb(161, 161, 161);">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            © Powered by "Oasis Maritime Education"</p>
+        <p class="mb-0" style="color: rgba(255, 197, 71, 0.822); line-height: 1.3;">This project was developed for DRS Marine Services, Mumbai, following the guidelines established by
+Reefership Marine Services, Costa Rica.
+</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://dribbble.com/"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+
+<script>
+// Simple JavaScript to toggle the accordion (required to make it work)
+var acc = document.getElementsByClassName("accordion-header");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      content.style.paddingTop = '0';
+      content.style.paddingBottom = '0';
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.paddingTop = '18px';
+      content.style.paddingBottom = '18px';
+    } 
+  });
+}
+
+// =============================================
+// START: Custom Table/Modal Logic
+// =============================================
+
+    /**
+     * Utility function to generate placeholder text for modal details.
+     */
+    function generateRandomText() {
+        const sentences = [
+            "This comprehensive course covers all modern aspects of the subject, providing a solid foundation for professional practice.",
+            "Students will engage in hands-on projects, case studies, and practical exercises designed to simulate real-world scenarios.",
+            "The curriculum is updated regularly to reflect the latest industry standards and technological advancements.",
+            "Upon completion, graduates will be ready to pursue entry-level positions or advance their current careers.",
+            "Key topics include theoretical principles, advanced applications, and ethical considerations in the field.",
+            "The course utilizes a blend of video lectures, interactive quizzes, and peer-to-peer collaboration for optimal learning."
+        ];
+        // Combine a few random sentences to make a short, random description
+        return sentences.sort(() => 0.5 - Math.random()).slice(0, 3).join(' ');
+    }
+
+    /**
+     * Shows the modal and populates it with data from the clicked row (6 columns).
+     * @param {HTMLElement} button - The button element that was clicked.
+     */
+    function showModal(button) {
+        try {
+            // Find the parent table row (tr) of the clicked button
+            const row = button.closest('tr');
+            const cells = row.querySelectorAll('td');
+            
+            // Extract content based on the new 6-column structure
+            const slNo = cells[0].textContent;
+            const courseName = cells[1].textContent;
+            const duration = cells[2].textContent;
+            const type = cells[3].textContent;
+            const suitableFor = cells[4].textContent;
+            // Column 5 is the action button, so we stop here.
+
+            // Update the modal content
+            document.getElementById('modal-title').textContent = `${courseName}`;
+            document.getElementById('modal-slno').textContent = slNo;
+            document.getElementById('modal-name').textContent = courseName;
+            document.getElementById('modal-duration').textContent = duration;
+            document.getElementById('modal-type').textContent = type;
+            document.getElementById('modal-suitable').textContent = suitableFor;
+
+            // Fulfill instruction #10: Fill with Random text
+            document.getElementById('modal-details').textContent = generateRandomText();
+
+            // Show the modal
+            document.getElementById('course-detail-modal').classList.add('visible');
+        } catch (e) {
+            console.error("Error processing course data in showModal:", e);
+        }
+    }
+
+    /**
+     * Closes the modal. Can be called from the close button or backdrop click.
+     * @param {Event} [event] - The click event (optional).
+     */
+    function closeModal(event) {
+        const modal = document.getElementById('course-detail-modal');
+        // Check if the event exists and the click was directly on the backdrop (the modal element itself)
+        // OR if the function was called without an event (e.g., from the internal close button)
+        if (!event || event.target === modal) {
+            modal.classList.remove('visible');
+        }
+    }
+    
+// =============================================
+// END: Custom Table/Modal Logic
+// =============================================
+</script>
+
+</body>
+</html>
