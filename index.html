@@ -679,18 +679,41 @@ Safety Procedures & Risk Assessment.</p>
 <section class="section bg-cover" style="margin-bottom: 90px;" data-background="images/backgrounds/success-story.jpg">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 col-sm-4 position-relative success-video">
-        <a class="play-btn venobox" href="images/video/calm.mp4" data-vbtype="video">
+
+      <div id="video-placeholder" class="col-lg-6 col-sm-4 position-relative success-video" 
+           style="background-image: url('images/video/calm-poster.jpg'); 
+                  background-size: cover; 
+                  background-position: center; 
+                  min-height: 300px;">
+        
+        <a id="play-btn-local" class="play-btn" href="#">
           <i class="ti-control-play"></i>
         </a>
       </div>
-      <div class="col-lg-6 col-sm-8">
+
+      <div id="text-content" class="col-lg-6 col-sm-8">
         <div class="bg-white p-5">
           <h2 class="section-title">Safety, Quality and Training</h2>
-          <p class="text-justify">Our operations are governed by the International Safety Management (ISM) Company Quality Safety Management Systems (QSMS) Codes, ensuring absolute regulatory compliance and a culture of continuous improvement fleet-wide.</p>
+          <p class="text-justify">Our operations are governed by the International Safety Management (ISM) Company Quality Safety Management Systems(QSMS) Codes, ensuring absolute regulatory compliance and a culture of continuous improvement fleet-wide.</p>
           <p class="text-justify">We invest in continuous, practical Shipboard Training to guarantee that our crew is not only competent but proactively prepared. This commitment to highly trained personnel translates directly into maximum safety, efficiency, and operational integrity for every voyage.</p>
         </div>
       </div>
+      
+      <div id="video-player-container" class="ratio ratio-16x9 position-relative" style="display:none; margin-top: 15px;">
+        
+    <button id="close-video-btn" 
+            class="btn btn-dark text-white opacity-75 rounded-circle p-2 position-absolute top-0 end-0 m-2" 
+            aria-label="Close video" 
+            style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center;">
+        &times;
+    </button>
+
+    <video id="local-video" controls controlsList="nodownload" class="w-100 h-100">
+      <source src="images/video/calm.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+</div>
+
     </div>
   </div>
 </section>
@@ -800,6 +823,72 @@ Reefership Marine Services, Costa Rica.
     };
 </script>
 <!-- END: NEW INLINE SCRIPT FOR SLIDER SYNCHRONIZATION (FIXED) -->
+
+
+<!-- for vidoes -->
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const playBtn = document.getElementById('play-btn-local');
+    const closeBtn = document.getElementById('close-video-btn');
+    const placeholder = document.getElementById('video-placeholder');
+    const textContent = document.getElementById('text-content');
+    const videoContainer = document.getElementById('video-player-container');
+    const videoElement = document.getElementById('local-video');
+    const row = placeholder.closest('.row');
+
+    // FIX: Explicitly ensure the video player and close button are hidden on load
+    videoContainer.style.display = 'none';
+
+    // --- PLAY BUTTON LOGIC (Takeover) ---
+    playBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Hide original content
+        placeholder.style.display = 'none';
+        textContent.style.display = 'none';
+
+        // Adjust row spacing for clean takeover
+        if (row) {
+          row.style.setProperty('margin-left', '0');
+          row.style.setProperty('margin-right', '0');
+        }
+
+        // Show and resize video container to full width (col-12)
+        videoContainer.style.display = 'block';
+        videoContainer.classList.add('col-12');
+
+        // Start the video playback
+        // Added a short delay for robust browser handling
+        setTimeout(() => {
+          videoElement.play();
+        }, 100); 
+    });
+
+    // --- CLOSE BUTTON LOGIC (Restore) ---
+    closeBtn.addEventListener('click', function() {
+        // Pause and reset video position
+        videoElement.pause();
+        videoElement.currentTime = 0;
+
+        // Hide video container
+        videoContainer.style.display = 'none';
+        videoContainer.classList.remove('col-12');
+
+        // Restore original content
+        placeholder.style.display = 'block';
+        textContent.style.display = 'block';
+
+        // Restore row spacing
+        if (row) {
+          row.style.removeProperty('margin-left');
+          row.style.removeProperty('margin-right');
+        }
+    });
+});
+</script>
+
+
 
 </body>
 </html>
