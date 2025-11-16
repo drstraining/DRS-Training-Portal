@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>DRS Training Portal Ver 1.0</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!--  Plugins Needed for the Project  -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<style>
+        body {
+            padding-top: 00px; 
+        }
+        /* New Scroll to Top Button Style */
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; /* Initially hidden by jQuery */
+            z-index: 1000;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background-color: #007bff; /* Primary color */
+            color: #fff;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #scroll-to-top:hover {
+            background-color: #0056b3; /* Darker on hover */
+        }
+
+
+
+
+        
+    </style>
+
+
+
+<!-- CUSTOM STYLES FOR ACCORDION REFERENCE -->
+<style>
+       /* Optional: Styling to make the tabs stand out a bit */
+       .nav-tabs .nav-link.active {
+           border-color: #dee2e6 #dee2e6 #fff;
+           font-weight: 600;
+       }
+       /* Styling for hidden rows */
+       .hidden-row {
+           display: none;
+       }
+
+       /* --- START: Interactive Styles (Area 2) --- */
+       /* 1. Interactive Tab System */
+       .nav-tabs .nav-link {
+           transition: all 0.3s ease;
+           border-bottom: 3px solid transparent !important; /* Base for underline */
+       }
+       .nav-tabs .nav-link.active {
+           border-color: #dee2e6 #dee2e6 #fff;
+           font-weight: 600;
+           border-bottom: 3px solid #007bff !important; /* Active underline */
+           background-color: #f8f9fa; /* Slight background change on active */
+       }
+       .tab-content {
+           /* Subtle shadow for the container */
+           box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+           transition: opacity 0.4s ease-in-out; /* Fade transition for content */
+       }
+       /* Ensure tab content fades in */
+       .tab-pane {
+           opacity: 0;
+           transition: opacity 0.4s ease-in-out;
+       }
+       .tab-pane.active.show {
+           opacity: 1;
+       }
+
+       /* 2. Table & Row Interactions */
+       .table-hover tbody tr:hover {
+           background-color: #f1f1f1; /* Light hover color */
+           /* transform: scale(1.005); -- REMOVED to prevent horizontal scrollbar on hover */
+           box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+           transition: all 0.2s ease-in-out;
+           /* Added pointer to indicate clickability for the new feature */
+           cursor: pointer; 
+       }
+
+       /* The following button styles have been removed as per the plan */
+       /*
+       .btn-course-view {
+           transition: all 0.2s ease;
+           box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+       }
+       .btn-course-view:hover {
+           box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5);
+           transform: translateY(-1px);
+       }
+       .btn-course-view:active {
+           transform: translateY(1px);
+           box-shadow: none;
+       }
+       */
+
+       /* 3. Load More Button Spinner Container */
+       /* Style for the button text placeholder when loading */
+       .btn-load-more.loading .btn-text {
+           visibility: hidden;
+           opacity: 0;
+       }
+       /* Center and show spinner */
+       .btn-load-more.loading .spinner-border {
+           display: inline-block;
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+       }
+       .spinner-border {
+           display: none; /* Initially hidden */
+       }
+       /* --- END: Interactive Styles (Area 2) --- */
+/* --- for modal --- */
+/* Registration Modal (Bootstrap + custom CSS compatible) */
+#registrationModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none; /* initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#registrationModal .modal-box {
+    width: 30%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+#registrationModal .modal-header {
+    background: #cfe3ff; /* light blue */
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#registrationModal .modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+#registrationModal .modal-body {
+    padding: 20px;
+}
+#registrationModal .modal-footer {
+    padding: 12px 20px;
+    background: #f5f5f5;
+    text-align: right;
+}
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+/* --- for modal --- */
+
+
+
+</style>
+</head>
+
+<body>
+  
+
+<!-- header -->
+<!-- The navigation bar is included directly in this file for consistency across all pages. -->
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-lg-4 text-center text-lg-left">
+        <a class="text-color mr-3" href="callto:YOUR_SUPPORT_NUMBER">SUPPORT +91 0123456789</a>
+        </div>
+      
+      <div class="col-lg-8 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="dashboard.html">Dashboard</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="mycourses.html">My Courses</a></li>
+          
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">login</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#signupModal">register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- navbar -->
+  <div class="navigation px-4 w-100">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownabout" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownabout">
+                <a class="dropdown-item" href="About_New.html">BMTI</a>
+                <a class="dropdown-item" href="QSMS_project.html">Project</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Deck</a>
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Engine</a>
+              </div>
+            </li>
+          
+            
+<li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                QSMS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="QSMS_Company_Policy.html">Company Policy</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More....</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+              </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Deck
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="5_JD_MSTR.html">Master</a>
+                <a class="dropdown-item" href="5_JD_CO.html">Chief Officer</a>
+                <a class="dropdown-item" href="constr.html">Second Officer</a>
+                <a class="dropdown-item" href="constr.html">Third Officer</a>
+                <a class="dropdown-item" href="constr.html">Junior Officer</a>
+                <a class="dropdown-item" href="constr.html">Cadet</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEngine" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Engine
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownEngine">
+                <a class="dropdown-item" href="5_JD_CHENG.html">Chief Engineer</a>
+                <a class="dropdown-item" href="constr.html">1 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">2 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">3 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">4 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">Junior Engineer</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownETO" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ETO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownETO">
+                <a class="dropdown-item" href="constr.html">ETO</a>
+                <a class="dropdown-item" href="constr.html">Junior ETO</a>
+                <a class="dropdown-item" href="constr.html">Trainee ETO</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Others
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="constr.html">Reefer Technician</a>
+                <a class="dropdown-item" href="constr.html">Fitter</a>
+                <a class="dropdown-item" href="constr.html">AB</a>
+                <a class="dropdown-item" href="constr.html">OS</a>
+                <a class="dropdown-item" href="constr.html">Oiler</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Help
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="5_FAQ_Template.html">FAQ</a>
+                <a class="dropdown-item" href="constr.html">Contact</a>
+                
+              </div>
+            </li>
+            
+           <!-- <li class="nav-item @@contact">
+              <a class="nav-link" href="constr.html">Contact</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link bg-primary text-white rounded" href="constr.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+</header>
+
+
+ 
+ 
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="#">QSMS Courses </a></li>
+          <!-- <li class="list-inline-item text-white h3 font-secondary nasted"></li> -->
+        </ul>
+        <p class="text-lighten">Our five key goals: Safety, Vessel integrity, Environmental Protection and Regulatory Compliance</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+
+<!-- Do NOT Delete -->
+<section class="section-sm">
+  <div class="container-fluid">
+    <div class="row"> 
+      <div class="col-12"> <!-- Full width wrapper for content -->
+        
+        <!-- START: Constrained Block (Image and Header) - col-lg-10 col-xl-8 width -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-xl-8">
+            
+            <div class="row">
+              <div class="col-12">
+                
+              </div>
+              <!-- event image - Placeholder for page-specific image -->
+              <div class="col-12 mb-4">
+                <img src="images/events/event-single.jpg" alt="event thumb" class="img-fluid w-100">
+              </div>
+            </div>
+      
+            <!-- HEADER SECTION -->
+            <header class="pb-4 mb-4 border-bottom">
+                <h2 class="display-8 font-weight-bold text-gray-900 mb-1">Safety and Training</h2>
+                <p>These carefully curated selection of QSMS Value-Added Courses are designed to ensure that every Officer and Rating receives high-impact training. The curriculum emphasizes proactive safety management and working towards achieving a Zero Accident workplace.
+</p>
+            </header>
+          
+          </div> <!-- END: col-lg-10 col-xl-8 -->
+        </div> <!-- END: row justify-content-center -->
+       
+<!-- START OF SECTION 5.0: JOB RESPONSIBILITIES (EASY TO FIND) -->
+
+        <!-- START OF RESPONSIVE TABS & TABLE INSERTION (FULL WIDTH) -->
+        <div class="mb-5">
+            <h5 class="text-secondary mb-3">Select Department, click on the course you wish to do and submit the registration form </h5>
+            
+            <!-- Tab Navigation -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="deck-tab" data-toggle="tab" href="#deck" role="tab" aria-controls="deck" aria-selected="true">Deck</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="engine-tab" data-toggle="tab" href="#engine" role="tab" aria-controls="engine" aria-selected="false">Engine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="others-tab" data-toggle="tab" href="#others" role="tab" aria-controls="others" aria-selected="false">Others</a>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content border border-top-0 p-3" id="myTabContent">
+                
+                <!-- Deck Tab Pane -->
+                <div class="tab-pane fade show active" id="deck" role="tabpanel" aria-labelledby="deck-tab">
+                    <p class="mt-2 text-muted">Deck Department tasks and assignments.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Course ID</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Suitable For</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody id="deck-table-body">
+                                <!-- Deck Table Rows will be generated by script -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Load More Button Container for Deck -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary btn-load-more" data-target="deck" data-current-row-end="15">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <span class="btn-text">Load more - 16 to 30</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Engine Tab Pane -->
+                <div class="tab-pane fade" id="engine" role="tabpanel" aria-labelledby="engine-tab">
+                    <p class="mt-2 text-muted">Engine Department tasks and assignments.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Course ID</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Suitable For</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody id="engine-table-body">
+                                <!-- Engine Table Rows will be generated by script -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Load More Button Container for Engine -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary btn-load-more" data-target="engine" data-current-row-end="15">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <span class="btn-text">Load more - 16 to 30</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Others Tab Pane -->
+                <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="others-tab">
+                    <p class="mt-2 text-muted">General and miscellaneous vessel tasks.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Course ID</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Suitable For</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody id="others-table-body">
+                                <!-- Others Table Rows will be generated by script -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Load More Button Container for Others -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary btn-load-more" data-target="others" data-current-row-end="15">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <span class="btn-text">Load more - 16 to 30</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                // Global storage for all course data. Edit these arrays directly to manage your course content.
+                const ALL_TABLE_DATA = {};
+                const ROWS_PER_PAGE = 15;
+                const TOTAL_ROWS = 50;
+                
+                // =========================================================================================
+                // START: MANUALLY EDITABLE DATA ARRAYS
+                // You can edit the objects inside these arrays to change the course details.
+                // =========================================================================================
+                
+                ALL_TABLE_DATA.deck = [
+    {index: 1, courseId: 'DECK-1001', courseName: 'Bridge Team Management', duration: '3 Days', type: 'Online', suitableFor: '2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 2, courseId: 'DECK-1002', courseName: 'LSA & FFA', duration: '2 Days', type: 'Practical', suitableFor: '2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 3, courseId: 'DECK-1003', courseName: 'Safe Mooring Procedure', duration: '1 Day', type: 'Online', suitableFor: '2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 4, courseId: 'DECK-1004', courseName: 'Safe Anchoring Procedure', duration: '1 Day', type: 'Online', suitableFor: '2/O & 3/O', courseDescription: '2/O & 3/O', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 5, courseId: 'DECK-1005', courseName: 'Bridge Watchkeeping at Sea', duration: '1 Day', type: 'Online', suitableFor: '2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 6, courseId: 'DECK-1006', courseName: 'Comprehensive Guide to Safe Ship Access', duration: '1 Day', type: 'Online', suitableFor: 'C/O, 2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 7, courseId: 'DECK-1007', courseName: 'Passage Planning', duration: '1 Day', type: 'Online', suitableFor: '2/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 8, courseId: 'DECK-1008', courseName: 'Handling Various Emergencies at Sea', duration: '1 Day', type: 'Online', suitableFor: 'C/O, 2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 9, courseId: 'DECK-1009', courseName: 'COLREG + Quiz', duration: '--', type: '--', suitableFor: '2/O & 3/O', courseDescription: '', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 10, courseId: 'DECK-1010', courseName: 'ECDIS Essentials', duration: '--', type: '--', suitableFor: 'C/O, 2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 11, courseId: 'DECK-1011', courseName: 'PSC & Flag State Inspections', duration: '--', type: '--', suitableFor: 'C/O, 2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 12, courseId: 'DECK-1012', courseName: 'Container ship - A Practical Guide', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 13, courseId: 'DECK-1013', courseName: 'Heavy Weather Ship Safety', duration: '--', type: '--', suitableFor: 'C/O, 2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 14, courseId: 'DECK-1014', courseName: 'Guide to Pilot Ladder and Pilot Transfer', duration: '--', type: '--', suitableFor: 'C/O, 2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 15, courseId: 'DECK-1015', courseName: 'Chief Officers Voyage Planning & Handover', duration: '--', type: '--', suitableFor: 'C/O, 2/O & 3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 16, courseId: 'DECK-1016', courseName: 'Surface Preparation', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 17, courseId: 'DECK-1017', courseName: 'Bridging Course New 3/O', duration: '--', type: '--', suitableFor: '3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 18, courseId: 'DECK-1018', courseName: 'Bridging Course 3/O to 2/O', duration: '--', type: '--', suitableFor: '3/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 19, courseId: 'DECK-1019', courseName: 'Bridging Course 2/O to C/O', duration: '--', type: '--', suitableFor: '2/O', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 20, courseId: 'DECK-1020', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 21, courseId: 'DECK-1021', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 22, courseId: 'DECK-1022', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 23, courseId: 'DECK-1023', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 24, courseId: 'DECK-1024', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 25, courseId: 'DECK-1025', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 26, courseId: 'DECK-1026', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 27, courseId: 'DECK-1027', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 28, courseId: 'DECK-1028', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 29, courseId: 'DECK-1029', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 30, courseId: 'DECK-1030', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 31, courseId: 'DECK-1031', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 32, courseId: 'DECK-1032', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 33, courseId: 'DECK-1033', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 34, courseId: 'DECK-1034', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 35, courseId: 'DECK-1035', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 36, courseId: 'DECK-1036', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 37, courseId: 'DECK-1037', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 38, courseId: 'DECK-1038', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 39, courseId: 'DECK-1039', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 40, courseId: 'DECK-1040', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 41, courseId: 'DECK-1041', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 42, courseId: 'DECK-1042', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 43, courseId: 'DECK-1043', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 44, courseId: 'DECK-1044', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 45, courseId: 'DECK-1045', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 46, courseId: 'DECK-1046', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 47, courseId: 'DECK-1047', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 48, courseId: 'DECK-1048', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 49, courseId: 'DECK-1049', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 50, courseId: 'DECK-1050', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'}
+];
+
+                ALL_TABLE_DATA.engine = [
+    {index: 1, courseId: 'ENG-2001', courseName: 'LR 6G Certification', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 2, courseId: 'ENG-2002', courseName: 'Generator Overhauling', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 3, courseId: 'ENG-2003', courseName: 'Machinery Skill Enhancement', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 4, courseId: 'ENG-2004', courseName: 'Reefer Container Maintenance', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 5, courseId: 'ENG-2005', courseName: 'Lathe Skill (Basic)', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    
+    {index: 6, courseId: 'ENG-2006', courseName: 'Lathe Skill (Advance)', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 7, courseId: 'ENG-2007', courseName: 'MARPOL', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 8, courseId: 'ENG-2008', courseName: 'Welding (Basic)', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 9, courseId: 'ENG-2009', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 10, courseId: 'ENG-2010', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 11, courseId: 'ENG-2011', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 12, courseId: 'ENG-2012', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 13, courseId: 'ENG-2013', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 14, courseId: 'ENG-2014', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 15, courseId: 'ENG-2015', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 16, courseId: 'ENG-2016', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 17, courseId: 'ENG-2017', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 18, courseId: 'ENG-2018', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 19, courseId: 'ENG-2019', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 20, courseId: 'ENG-2020', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 21, courseId: 'ENG-2021', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 22, courseId: 'ENG-2022', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 23, courseId: 'ENG-2023', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 24, courseId: 'ENG-2024', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 25, courseId: 'ENG-2025', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 26, courseId: 'ENG-2026', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 27, courseId: 'ENG-2027', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 28, courseId: 'ENG-2028', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 29, courseId: 'ENG-2029', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 30, courseId: 'ENG-2030', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 31, courseId: 'ENG-2031', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 32, courseId: 'ENG-2032', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 33, courseId: 'ENG-2033', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 34, courseId: 'ENG-2034', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 35, courseId: 'ENG-2035', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 36, courseId: 'ENG-2036', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 37, courseId: 'ENG-2037', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 38, courseId: 'ENG-2038', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 39, courseId: 'ENG-2039', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 40, courseId: 'ENG-2040', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 41, courseId: 'ENG-2041', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 42, courseId: 'ENG-2042', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 43, courseId: 'ENG-2043', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 44, courseId: 'ENG-2044', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 45, courseId: 'ENG-2045', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 46, courseId: 'ENG-2046', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 47, courseId: 'ENG-2047', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 48, courseId: 'ENG-2048', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 49, courseId: 'ENG-2049', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 50, courseId: 'ENG-2050', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'}
+];
+
+                ALL_TABLE_DATA.others = [
+    {index: 1, courseId: 'OTH-3001', courseName: 'ISPS & Ship Safety Awareness', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 2, courseId: 'OTH-3002', courseName: 'Enclosed Space Entry on vessels', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 3, courseId: 'OTH-3003', courseName: 'Safe Working Practice', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 4, courseId: 'OTH-3004', courseName: 'Understanding Effective Risk Assessment in Marine Operations', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 5, courseId: 'OTH-3005', courseName: 'Ship Certificates - A guide to statutory Compliance', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 6, courseId: 'OTH-3006', courseName: 'Mental Health and Stress Management at Sea', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 7, courseId: 'OTH-3007', courseName: 'Handling Fatigue at Sea', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 8, courseId: 'OTH-3008', courseName: 'Drug and Alcohol on Ships', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 9, courseId: 'OTH-3009', courseName: 'Managing Social Media on ships', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 10, courseId: 'OTH-3010', courseName: 'Effective and Proper Reporting to Company', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 11, courseId: 'OTH-3011', courseName: 'Standard Maritime English', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 12, courseId: 'OTH-3012', courseName: 'Handlign Newly Promoted Junior Officers', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 13, courseId: 'OTH-3013', courseName: 'Skill Enhancement Plumbing & Carpentry', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 14, courseId: 'OTH-3014', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 15, courseId: 'OTH-3015', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 16, courseId: 'OTH-3016', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 17, courseId: 'OTH-3017', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 18, courseId: 'OTH-3018', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 19, courseId: 'OTH-3019', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 20, courseId: 'OTH-3020', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 21, courseId: 'OTH-3021', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 22, courseId: 'OTH-3022', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 23, courseId: 'OTH-3023', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 24, courseId: 'OTH-3024', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 25, courseId: 'OTH-3025', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 26, courseId: 'OTH-3026', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 27, courseId: 'OTH-3027', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 28, courseId: 'OTH-3028', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 29, courseId: 'OTH-3029', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 30, courseId: 'OTH-3030', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 31, courseId: 'OTH-3031', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 32, courseId: 'OTH-3032', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 33, courseId: 'OTH-3033', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 34, courseId: 'OTH-3034', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 35, courseId: 'OTH-3035', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 36, courseId: 'OTH-3036', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 37, courseId: 'OTH-3037', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 38, courseId: 'OTH-3038', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 39, courseId: 'OTH-3039', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 40, courseId: 'OTH-3040', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 41, courseId: 'OTH-3041', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 42, courseId: 'OTH-3042', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 43, courseId: 'OTH-3043', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 44, courseId: 'OTH-3044', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 45, courseId: 'OTH-3045', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+
+    {index: 46, courseId: 'OTH-3046', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 47, courseId: 'OTH-3047', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 48, courseId: 'OTH-3048', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 49, courseId: 'OTH-3049', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'},
+    {index: 50, courseId: 'OTH-3050', courseName: '--', duration: '--', type: '--', suitableFor: '--', courseDescription: '--', viewHtml: '<i class="ti-eye text-info text-lg"></i>'}
+];
+                // =========================================================================================
+                // END: MANUALLY EDITABLE DATA ARRAYS
+                // =========================================================================================
+
+                
+                /**
+                 * Updates the button text to show the range of the next set of rows to be loaded.
+                 */
+                function updateLoadMoreButtonText(button, currentEnd) {
+                    if (!button) return;
+
+                    const nextRowStart = currentEnd + 1;
+                    const nextRowEnd = Math.min(currentEnd + ROWS_PER_PAGE, TOTAL_ROWS);
+                    
+                    // We check against TOTAL_ROWS here defensively, though handleLoadMore also checks.
+                    if (nextRowStart > TOTAL_ROWS) {
+                        button.style.display = 'none';
+                        return;
+                    }
+                    
+                    // Update button text for the next load action (using the btn-text span)
+                    button.querySelector('.btn-text').innerText = `Load more - ${nextRowStart} to ${nextRowEnd}`;
+                }
+
+
+                /**
+ * Renders a specific page of data or the initial view.
+ */
+function renderTable(department, data) { 
+    const tableBody = document.getElementById(`${department}-table-body`);
+    const loadMoreButton = document.querySelector(`.btn-load-more[data-target="${department}"]`);
+    
+    if (!tableBody) return;
+
+    const readableDepartment =
+        department === "deck" ? "Deck" :
+        department === "engine" ? "Engine" :
+        department === "others" ? "Others" : "";
+
+    let html = '';
+    data.forEach((row, index) => {
+        const isHidden = index >= ROWS_PER_PAGE;
+        const hiddenClass = isHidden ? 'hidden-row' : '';
+        
+        html += `
+            <tr class="data-row ${hiddenClass} clickable-row"
+                data-row-index="${index}"
+                data-course-id="${row.courseId}"
+                data-course-name="${row.courseName}"
+                data-department="${readableDepartment}"
+                data-type="${row.type}"
+                data-suitable-for="${row.suitableFor}"
+                data-duration="${row.duration}"
+                data-course-description="${row.courseDescription || ''}">
+                
+                <th scope="row">${row.index}</th>
+                <td>${row.courseId}</td>
+                <td>${row.courseName}</td>
+                <td>${row.duration}</td>
+                <td>${row.type}</td>
+                <td>${row.suitableFor}</td>
+                <td class="text-center">${row.viewHtml}</td>
+            </tr>
+        `;
+    });
+
+    tableBody.innerHTML = html;
+
+    updateLoadMoreButtonText(loadMoreButton, ROWS_PER_PAGE);
+}
+                
+                
+
+                /**
+                 * Handles the click event for the Load More button. (Updated for loading indicator)
+                 */
+                async function handleLoadMore(event) {
+                    const button = event.currentTarget;
+                    const department = button.getAttribute('data-target');
+                    let currentEnd = parseInt(button.getAttribute('data-current-row-end'), 10);
+                    
+                    // START: Loading Indicator Logic (Area 2.C)
+                    // Add loading class to show spinner and hide text
+                    button.classList.add('loading');
+                    // Show spinner
+                    button.querySelector('.spinner-border').style.display = 'inline-block';
+
+                    // Simulate API/data fetch delay for visual effect (500ms)
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    // END: Loading Indicator Logic
+
+                    // Calculate the index of the last row to be displayed after this click
+                    const newEnd = Math.min(currentEnd + ROWS_PER_PAGE, TOTAL_ROWS);
+
+                    // Find and display the next batch of hidden rows
+                    const tableBody = document.getElementById(`${department}-table-body`);
+                    if (tableBody) {
+                        for (let i = currentEnd; i < newEnd; i++) { 
+                            const row = tableBody.querySelector(`.data-row[data-row-index="${i}"]`);
+                            if (row) {
+                                row.classList.remove('hidden-row');
+                            }
+                        }
+                    }
+
+                    // Update the attribute to the new end point
+                    button.setAttribute('data-current-row-end', newEnd);
+
+                    // START: Hide Loading Indicator Logic
+                    // Hide spinner and remove loading class
+                    button.classList.remove('loading');
+                    button.querySelector('.spinner-border').style.display = 'none';
+                    // END: Hide Loading Indicator Logic
+
+                    // Check if all rows are loaded
+                    if (newEnd >= TOTAL_ROWS) {
+                        button.style.display = 'none';
+                    } else {
+                        // Update button text for the next load action
+                        updateLoadMoreButtonText(button, newEnd);
+                    }
+                }
+                
+                // *** MODIFICATION 3.A: NEW ROW CLICK HANDLER FUNCTION ***
+            function handleRowClick(event) {
+    const row = event.target.closest('.clickable-row');
+    if (!row) return;
+
+    if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') return;
+
+    const course = {
+        courseId: row.getAttribute("data-course-id"),
+        courseName: row.getAttribute("data-course-name"),
+        department: row.getAttribute("data-department"),
+        type: row.getAttribute("data-type"),
+        suitableFor: row.getAttribute("data-suitable-for"),
+        duration: row.getAttribute("data-duration"),
+        courseDescription: row.getAttribute("data-course-description") || ""
+    };
+
+    openRegistrationModal(course);
+}
+
+
+
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    // The data is now defined above in the ALL_TABLE_DATA object.
+                    
+                    // 1. Initial Render (Displays first page and sets up buttons)
+                    renderTable('deck', ALL_TABLE_DATA.deck);
+                    renderTable('engine', ALL_TABLE_DATA.engine);
+                    renderTable('others', ALL_TABLE_DATA.others);
+
+                    // 2. Attach Load More Click Handlers
+                    document.querySelectorAll('.btn-load-more').forEach(button => {
+                        button.addEventListener('click', handleLoadMore);
+                    });
+                    
+                    // *** MODIFICATION 3.B: Attach Row Click Handlers ***
+                    // We attach the listener to the table body (tbody) for delegation
+                    document.querySelectorAll('tbody').forEach(tbody => {
+                        // Only attach listener to the tables we generated data for
+                        if (tbody.id.endsWith('-table-body')) {
+                            tbody.addEventListener('click', handleRowClick);
+                        }
+                    });
+                });
+            </script>
+            
+        </div>
+        <!-- END OF RESPONSIVE TABS & TABLE INSERTION -->
+        
+
+    </div>    
+   </div>    
+ </div>    
+</div>        
+        
+ 
+
+</section>
+
+
+<!-- Scroll to Top Button -->
+<a href="#" id="scroll-to-top" title="Go to top">
+    <i class="ti-arrow-up"></i>
+</a>
+
+
+<!-- footer -->
+<footer>
+   <!-- copyright -->
+  <div class="copyright py-4 bg-footer w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+                  
+            <p class="mb-0" style="color: rgb(161, 161, 161);">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            © Powered by "Oasis Maritime Education"</p>
+        <p class="mb-0" style="color: rgba(255, 197, 71, 0.822); line-height: 1.3;">This project was developed for DRS Marine Services, Mumbai, following the guidelines established by
+Reefership Marine Services, Costa Rica.
+</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://dribbble.com/"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<!-- Custom Script for Accordion Functionality -->
+<!-- JAVASCRIPT & SCRIPTING -->
+<script>
+// Helper function to cleanly close an accordion element
+function closeContent(header, content) {
+    if (header) header.classList.remove('active');
+    if (content) {
+        content.style.maxHeight = '0px';
+        content.style.padding = '0 18px';
+        content.style.overflowY = 'hidden';
+    }
+}
+
+// Function to collapse all accordions on load (Goal 3)
+function collapseAll() {
+    var allContents = document.querySelectorAll('.accordion-content');
+    var allHeaders = document.querySelectorAll('.accordion-header');
+    allContents.forEach(function(content) {
+        // Find the corresponding header and close
+        var header = content.previousElementSibling;
+        closeContent(header, content);
+    });
+}
+
+// Find all accordion headers in the entire document (top-level and nested)
+var allHeaders = document.querySelectorAll('.accordion-container .accordion-header');
+
+// Attach event listeners to all headers
+for (var i = 0; i < allHeaders.length; i++) {
+  allHeaders[i].addEventListener('click', function() {
+    var header = this;
+    var clickedContent = header.nextElementSibling;
+    
+    var chapterId = header.getAttribute('data-chapter');
+    
+    // Check if the chapter ID is '13' or '14' (Top-Level Chapters)
+    var isTopLevelChapter = (chapterId === '13' || chapterId === '14'); 
+    
+    // Check if the clicked content is currently visible
+    var isVisible = clickedContent.style.maxHeight !== '0px' && clickedContent.style.maxHeight !== '';
+
+    // If visible, hide it (Closing logic)
+    if (isVisible) {
+      closeContent(header, clickedContent);
+      
+      // If closing a main chapter, make sure all nested sub-topics are also explicitly closed
+      if (isTopLevelChapter) {
+          clickedContent.querySelectorAll('.accordion-header.active').forEach(function(nestedHeader) {
+              closeContent(nestedHeader, nestedHeader.nextElementSibling);
+          });
+      }
+      
+    } else {
+      // If hidden, expand it (Opening logic)
+      
+      // 1. Enforce only one Top-Level Chapter open (Goal 1)
+      if (isTopLevelChapter) {
+          var topLevelContents = document.querySelectorAll('.accordion-container > .accordion-content');
+          
+          topLevelContents.forEach(function(content) {
+              // Close the other main chapter if it is not the clicked content
+              if (content !== clickedContent && content.style.maxHeight !== '0px') {
+                  var otherHeader = content.previousElementSibling;
+                  closeContent(otherHeader, content);
+                  
+                  // Recursively collapse all nested sub-topics within the closing main chapter
+                  content.querySelectorAll('.accordion-header.active').forEach(function(nestedHeader) {
+                      closeContent(nestedHeader, nestedHeader.nextElementSibling);
+                  });
+              }
+          });
+      }
+      
+      // 2. Enforce only one Sub-Topic open within a chapter (Goal 2)
+      if (!isTopLevelChapter) {
+          // Find the parent container that holds all sub-topic siblings (the main chapter content area)
+          var parentContent = header.parentNode.parentNode;
+          
+          if (parentContent) {
+              // Select all sibling headers within that main chapter content area
+              var siblingContainers = parentContent.querySelectorAll('.accordion-container');
+
+              // Collapse all sibling sub-topics
+              siblingContainers.forEach(function(siblingContainer) {
+                  var siblingHeader = siblingContainer.querySelector('.accordion-header');
+                  var siblingContent = siblingContainer.querySelector('.accordion-content');
+
+                  // Only process if it's a sibling (not the clicked element itself) and it's currently open
+                  if (siblingHeader !== header && siblingContent.style.maxHeight !== '0px') {
+                      closeContent(siblingHeader, siblingContent);
+                  }
+              });
+          }
+      }
+
+      // Finally, open the clicked content
+      header.classList.add('active');
+      
+      if (isTopLevelChapter) {
+          // For the main Chapters (13 or 14), set fixed height and enable scrolling (450px)
+          clickedContent.style.maxHeight = "450px";
+          clickedContent.style.overflowY = "scroll"; 
+      } else {
+          // For all other accordions (nested sub-topics) - Use fixed height (275px) with scrollbar
+          clickedContent.style.maxHeight = "275px"; 
+          clickedContent.style.overflowY = "scroll"; 
+      }
+      
+      clickedContent.style.padding = "18px 18px";
+    }
+  });
+}
+
+// Ensure all content is collapsed on page load (Goal 3)
+window.onload = collapseAll;
+</script>
+
+<!-- New Script for Scroll-to-Top Button (Pure JS Fix for ReferenceError: $ is not defined) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollTopButton = document.getElementById('scroll-to-top');
+    const scrollThreshold = 300;
+
+    // Use a simple block/none display logic
+    function toggleVisibility() {
+        // Check if the scroll position is past the threshold
+        if (window.scrollY > scrollThreshold) {
+            // Show the button
+            scrollTopButton.style.display = 'block'; 
+        } else {
+            // Hide the button
+            scrollTopButton.style.display = 'none';
+        }
+    }
+
+    // Initialize visibility check
+    toggleVisibility();
+
+    // Event listener for scroll
+    window.addEventListener('scroll', toggleVisibility);
+
+    // Event listener for click (smooth scroll)
+    scrollTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Use native smooth scrolling for best performance and compatibility
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+<!-- Registration Modal Script-->
+<script>
+function openRegistrationModal(course) {
+    // courseName is inside the object → extract it
+    document.getElementById("registrationTitle").innerText =
+        "Registration Form — " + course.courseName;
+
+    document.getElementById("registrationModal").style.display = "flex";
+}
+</script>
+
+
+
+<!-- Registration Modal -->
+<!-- ==============================
+     REGISTRATION MODAL (40% WIDTH)
+     ============================== -->
+<!-- ======================================= -->
+<!--     REGISTRATION MODAL (40% WIDTH)      -->
+<!-- ======================================= -->
+
+<style>
+    /* Modal Overlay */
+    #registrationModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    /* Modal Box */
+    .reg-modal-box {
+        background: white;
+        width: 40vw;                /* 40% of viewport width */
+        max-width: 600px;
+        min-width: 380px;
+        padding: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    /* Header */
+    .reg-modal-header {
+        background: #e7f1ff;       /* Light BLUE */
+        padding: 16px 20px;
+        border-bottom: 1px solid #cdddf5;
+    }
+
+    /* Title */
+    .reg-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* Body */
+    .reg-modal-body {
+        padding: 20px;
+        max-height: 60vh;
+        overflow-y: auto;          /* Enables scrolling if form is long */
+    }
+
+    /* Footer */
+    .reg-modal-footer {
+        padding: 14px 20px;
+        text-align: right;
+        border-top: 1px solid #eee;
+        background: #fafafa;
+    }
+
+    /* Inputs */
+    .reg-group {
+        margin-bottom: 14px;
+    }
+    .reg-group label {
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .reg-input {
+        width: 100%;
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+</style>
+
+
+<!-- ============================ -->
+<!--         MODAL HTML           -->
+<!-- ============================ -->
+<div id="registrationModal">
+    <div class="reg-modal-box">
+
+        <!-- HEADER -->
+        <div class="reg-modal-header">
+            <h2 id="registrationTitle" class="reg-title">Registration Form</h2>
+        </div>
+
+        <!-- BODY -->
+        <div class="reg-modal-body">
+
+            <!-- TOP SECTION -->
+            <div class="reg-group">
+                <label>Course Description</label>
+                <input id="regCourseDescription" class="reg-input" type="text" readonly>
+            </div>
+
+            <div class="reg-group">
+                <label>Course ID</label>
+                <input id="regCourseId" class="reg-input" type="text" readonly>
+            </div>
+
+            <div class="reg-group">
+                <label>Course Name</label>
+                <input id="regCourseName" class="reg-input" type="text" readonly>
+            </div>
+
+            <div class="reg-group">
+                <label>Department</label>
+                <input id="regDepartment" class="reg-input" type="text" readonly>
+            </div>
+
+            <div class="reg-group">
+                <label>Type</label>
+                <input id="regType" class="reg-input" type="text" readonly>
+            </div>
+
+            <div class="reg-group">
+                <label>Suitable For</label>
+                <input id="regSuitableFor" class="reg-input" type="text" readonly>
+            </div>
+
+            <div class="reg-group">
+                <label>Duration</label>
+                <input id="regDuration" class="reg-input" type="text" readonly>
+            </div>
+
+            <!-- BOTTOM SECTION -->
+            <hr style="margin: 18px 0;">
+
+            <div class="reg-group">
+                <label>Full Name</label>
+                <input id="regFullName" class="reg-input" type="text">
+            </div>
+
+            <div class="reg-group">
+                <label>Rank</label>
+                <input id="regRank" class="reg-input" type="text">
+            </div>
+
+            <div class="reg-group">
+                <label>Email</label>
+                <input id="regEmail" class="reg-input" type="email">
+            </div>
+
+            <div class="reg-group">
+                <label>Mobile</label>
+                <input id="regMobile" class="reg-input" type="text">
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="reg-modal-footer">
+            <button type="button" class="btn btn-secondary" id="regCloseBtn">Close</button>
+            <button type="button" class="btn btn-primary" id="regSubmitBtn">Submit</button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================ -->
+<!--         SCRIPT               -->
+<!-- ============================ -->
+<script>
+
+function openRegistrationModal(course) {
+
+    // Populate top section
+    document.getElementById("regCourseDescription").value = course.courseDescription || "";
+    document.getElementById("regCourseId").value          = course.courseId || "";
+    document.getElementById("regCourseName").value        = course.courseName || "";
+    document.getElementById("regDepartment").value        = course.department || "";
+    document.getElementById("regType").value              = course.type || "";
+    document.getElementById("regSuitableFor").value       = course.suitableFor || "";
+    document.getElementById("regDuration").value          = course.duration || "";
+
+    // Set header title
+    document.getElementById("registrationTitle").innerText =
+        "Registration Form — " + course.courseName;
+
+    // Open modal
+    document.getElementById("registrationModal").style.display = "flex";
+}
+
+// Close function
+function closeRegistrationModal() {
+    document.getElementById("registrationModal").style.display = "none";
+}
+
+// Make Close button work
+document.getElementById("regCloseBtn").addEventListener("click", closeRegistrationModal);
+
+</script>
+
+
+</body>
+</html>

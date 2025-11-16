@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>DRS Training Portal Ver 1.0</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!--  Plugins Needed for the Project  -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<style>
+        body {
+            padding-top: 00px; 
+        }
+    </style>
+
+
+<style>
+/* --- ICON ANIMATION STYLES --- */
+.faq-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s;
+  opacity: 0.8;
+}
+
+.faq-header:not(.collapsed) .faq-icon {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* Color codes by section */
+.faqA-icon { color: #003366; }   /* Navy – Safety */
+.faqB-icon { color: #4b0082; }   /* Indigo – Security */
+.faqC-icon { color: #00838f; }   /* Cyan/Teal – Training */
+.faqD-icon { color: #cc5500; }   /* Orange – Support */
+
+/* Chevron Icon Styling */
+.faq-toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-header:not(.collapsed) .faq-toggle-icon {
+  transform: rotate(180deg);
+}
+</style>
+
+</head>
+
+<body>
+  
+
+<!-- The navigation bar is included directly in this file for consistency across all pages. -->
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-lg-4 text-center text-lg-left">
+        <a class="text-color mr-3" href="callto:YOUR_SUPPORT_NUMBER">SUPPORT +91 0123456789</a>
+        </div>
+      
+      <div class="col-lg-8 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="dashboard.html">Dashboard</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="mycourses.html">My Courses</a></li>
+          
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">login</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#signupModal">register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- navbar -->
+  <div class="navigation px-4 w-100">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownabout" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownabout">
+                <a class="dropdown-item" href="About_New.html">BMTI</a>
+                <a class="dropdown-item" href="QSMS_project.html">Project</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Deck</a>
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Engine</a>
+              </div>
+            </li>
+          
+            
+<li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                QSMS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="QSMS_Company_Policy.html">Company Policy</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More....</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+              </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Deck
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="5_JD_MSTR.html">Master</a>
+                <a class="dropdown-item" href="5_JD_CO.html">Chief Officer</a>
+                <a class="dropdown-item" href="constr.html">Second Officer</a>
+                <a class="dropdown-item" href="constr.html">Third Officer</a>
+                <a class="dropdown-item" href="constr.html">Junior Officer</a>
+                <a class="dropdown-item" href="constr.html">Cadet</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEngine" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Engine
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownEngine">
+                <a class="dropdown-item" href="5_JD_CHENG.html">Chief Engineer</a>
+                <a class="dropdown-item" href="constr.html">1 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">2 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">3 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">4 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">Junior Engineer</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownETO" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ETO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownETO">
+                <a class="dropdown-item" href="constr.html">ETO</a>
+                <a class="dropdown-item" href="constr.html">Junior ETO</a>
+                <a class="dropdown-item" href="constr.html">Trainee ETO</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Others
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="constr.html">Reefer Technician</a>
+                <a class="dropdown-item" href="constr.html">Fitter</a>
+                <a class="dropdown-item" href="constr.html">AB</a>
+                <a class="dropdown-item" href="constr.html">OS</a>
+                <a class="dropdown-item" href="constr.html">Oiler</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Help
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="5_FAQ_Template.html">FAQ</a>
+                <a class="dropdown-item" href="constr.html">Contact</a>
+                
+              </div>
+            </li>
+            
+           <!-- <li class="nav-item @@contact">
+              <a class="nav-link" href="constr.html">Contact</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link bg-primary text-white rounded" href="constr.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+</header>
+
+
+ 
+ 
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="#">Frequently Asked Questions </a></li>
+          <!-- <li class="list-inline-item text-white h3 font-secondary nasted"></li> -->
+        </ul>
+        <p class="text-lighten">This section contains all essential questions you may have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+
+<!-- Do NOT Delete -->
+<section class="section-sm">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <!-- Content now wrapped inside this narrow, centered column -->
+        
+        <div class="row">
+          <div class="col-12">
+            
+          </div>
+          <!-- event image - Placeholder for page-specific image -->
+          <div class="col-12 mb-4">
+            <img src="images/events/event-single.jpg" alt="event thumb" class="img-fluid w-100">
+          </div>
+        </div>
+      
+     </head>
+        <!-- Using Bootstrap's responsive classes for layout -->
+  <!-- HEADER SECTION 
+        <header class="pb-4 mb-4 border-bottom">
+            <h2 class="display-8 font-weight-bold text-gray-900 mb-1"> Captain (Master)</h2>
+            <p class="h4 text-primary font-weight-semibold">5.0 Responsibility & Authority</p>
+            <p class="text-muted mt-2">Reporting to: Designated Vessel Manager (DVM) </stong></p>
+            </header>   -->      
+       
+<!-- START OF SECTION 5.0: JOB RESPONSIBILITIES (EASY TO FIND) -->
+        
+
+    </div>    
+   </div>    
+ </div>    
+    
+ <!-- =============================================== -->
+<!--                 FAQ – BEAUTIFUL VERSION         -->
+<!-- =============================================== -->
+
+<style>
+  /* FAQ ICON ROTATION */
+  .faq-toggle-icon {
+    transition: transform 0.25s ease;
+  }
+  .collapsed .faq-toggle-icon {
+    transform: rotate(0deg);
+  }
+  .faq-header:not(.collapsed) .faq-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Smooth slide animation */
+  .faq-card-body {
+    animation: fadeSlide 0.3s ease;
+  }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Section Titles */
+  .faq-section-title {
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin: 40px 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #003366;
+  }
+
+  /* FAQ Card Styling */
+  .faq-card {
+    border-radius: 12px !important;
+    border: 1px solid #dce8ff;
+  }
+  .faq-card-header {
+    background: #f4f8ff;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .faq-card-header:hover {
+    background: #e9f1ff;
+  }
+</style>
+
+<div class="container">
+  <h2 class="mb-4 text-primary font-weight-bold">FAQs</h2>
+
+  <!-- ====================================================== -->
+  <!--                 SECTION A – CORE MISSION               -->
+  <!-- ====================================================== -->
+  <!-- FAQ ACCORDION COMPLETE BLOCK (A–D) -->
+
+<!-- SECTION TITLE STYLE -->
+<style>
+.faq-section-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 25px 0 10px;
+  padding-left: 4px;
+  color: #003366;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-card-header {
+  background: #f8f9fc;
+  cursor: pointer;
+  border: 1px solid #e1e1e1;
+}
+
+.faq-card-body {
+  background: #ffffff;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.faq-toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-header.collapsed .faq-toggle-icon {
+  transform: rotate(0deg);
+}
+
+.faq-header:not(.collapsed) .faq-toggle-icon {
+  transform: rotate(180deg);
+}
+</style>
+
+<!-- =========================== -->
+<!--        SECTION A            -->
+<!-- =========================== -->
+<div class="faq-section-title">
+  <i class="fa fa-shield-alt"></i> A. The Core Mission – Safety, ISM & Confidence
+</div>
+
+<div id="faqA" class="accordion">
+
+  <!-- FAQ 1 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq1">
+      <div class="d-flex justify-content-between align-items-center">
+       <h6 class="mb-0">
+  <i class="fa fa-shield-alt faq-icon faqA-icon"></i>
+  1. What is the purpose of this training portal?
+</h6>
+ <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq1" class="collapse" data-parent="#faqA">
+      <div class="card-body faq-card-body">
+        The portal serves as an integrated learning environment designed to build confidence, streamline ISM compliance, and raise safety awareness across the fleet.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 2 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq2">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">2. What’s the difference between my mandatory Certification (CoC) and the Training provided here?
+?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq2" class="collapse" data-parent="#faqA">
+      <div class="card-body faq-card-body">
+        That’s a great question. Certification (like your CoC or endorsements) proves you've met a minimum STCW (Standards of Training, Certification and Watchkeeping for Seafarers) to hold your rank. Training, on the other hand, is about building practical competence and confidence. Certification is the license to drive, but our training is the continuous practice that ensures you can handle the stickiest situations without hesitation. You’re certified, but are you <strong>trained</strong> to handle the unexpected? That's what we focus on.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 3 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq3">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">3. Why is this Portal focused so intensely on Safety and reducing accidents?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq3" class="collapse" data-parent="#faqA">
+      <div class="card-body faq-card-body">
+        The maritime industry on the whole is trying to achieve "Zero Accidents". This Portal exists because the root cause of most accidents and incidents is human error, often due to lack of practical knowledge or preparedness. By focusing on targeted, recurrent training, we aim to eliminate confusion, improve decision-making speed and build a "Safety First" culture.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 4 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">4. Does this portal replace onboard training?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq4" class="collapse" data-parent="#faqA">
+      <div class="card-body faq-card-body">
+        No. It enhances onboard learning by standardizing content and making training accessible anytime, anywhere.
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- FAQ 5 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq5">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">5. What is the link between the ISM Code, our QSMS and this Training Portal?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq5" class="collapse" data-parent="#faqA">
+      <div class="card-body faq-card-body">
+        The ISM Code dictates the legal WHAT (mandatory safety). <br> Our SMS defines the company's HOW (documented procedures for compliance). <br> The QSMS (Quality & Safety Management System) is our enhanced commitment, integrating both safety and continuous quality improvement. <br> </p>      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 6 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq6">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">6. How will these courses actually help me when I’m faced with a sticky situation on board?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq6" class="collapse" data-parent="#faqA">
+      <div class="card-body faq-card-body">
+        The courses are designed around real-life scenarios, not just theory. The goal is to move knowledge from your head to your hands. When you face an emergency—a machinery breakdown, fire, or critical maneuver—you won’t have time to look up the procedure. Our training builds the automatic response, giving you the confidence and clarity to act decisively and correctly under pressure.
+</div>
+      </div>
+    </div>
+  
+    <!-- FAQ 7 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq7">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">7. Is this training mandatory for all Officers and Ratings?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq7" class="collapse" data-parent="#faqA">
+      <div class="card-body faq-card-body">
+       Yes. To maintain our operational standards and ensure compliance with the QSMS, all personnel are required to complete the training modules assigned to their rank and vessel type.
+      </div>
+    </div>
+  </div>
+ </div>
+
+<!-- =========================== -->
+<!--        SECTION B            -->
+<!-- =========================== -->
+<div class="faq-section-title">
+  <i class="fa fa-lock"></i> B. Portal Access – The 2-Step Security & Setup
+</div>
+
+<div id="faqB" class="accordion">
+
+  <!-- FAQ 8 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq8">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">8. How do I Register?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq8" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+      A communique will be sent by email to all vessels and personnel, with an access link. This link will take you to the landing page of the Portal. The registration process is as follows:</p>
+                            <ol class="list-decimal list-inside ml-4 mt-2 space-y-1">
+                                <li>Click on the button marked, "Go to Training".</li>
+                                <li>Fill up the registration form with your details (This is a single tabbed form - One tab to register and the other tab for Login).</li>
+                                <li>After approval from the administrator you will receive an email with a Login Password and ID.</li>
+                            </ol>
+                            <p class="mt-2">Use the Registration/Login page to enter your password and ID to enter the main Training Portal.</p>
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 9 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq9">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">9. Why is the login process so strict? Why do I have to register and then wait for an email?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq9" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+      We operate a tight, secure system for two critical reasons: <strong>Cyber Security</strong> and <strong>Content Integrity</strong>. We need to verify that you are an active employee before granting access to our proprietary QSMS and training materials. This two-step process ensures unauthorized access is impossible, protecting our digital assets and sensitive operational procedures.  
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 10 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq10">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">10. I’ve forgotten my password. How do I get a new one?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq10" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+        Write to the Administrator at "drstrainingresponse@gmail.com" with you Full Name, Rank & email id. The Subject line must start with: "Forgotten Password" followed by your full name.<br> You will receive  your password and login id via return mail shortly" </div>
+    </div>
+  </div>
+
+  <!-- FAQ 11 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq11">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">11. What can I do on the main Portal once I’m logged in?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq11" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+        The main Portal is your operational and administrative hub. Here you can:</p>
+                     
+                            <li>Access and understand how to fill out QSMS familiarization forms (The actual forms will be filled on the ship) </li>
+                            <li>View your Rank-Specific Job Description (JD).</li>
+                            <li>Use the ‘Courses’ menu to view and apply for training modules.</li>
+                            <li>Access this help/FAQ section.</li>
+ </div>
+    </div>
+  </div>
+
+  <!-- FAQ 12 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq12">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">12. Where are the Job Descriptions (JDs) and what are the reference links I keep seeing?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq12" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+        The JDs for every rank are located under the individual <strong>Department</strong> eg. The main menu of "Deck" will have JD of Master, C/Off, etc under the Rank submenu item. We have embedded direct, relevant links to reference materials <em>within</em> the JD page itself. This is designed so you can quickly clarify a procedure without having to leave the JD page, keeping your focus where it needs to be.
+</div>
+    </div>
+  </div>
+
+  <!-- FAQ 13 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq13">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">13. How do I complete my QSMS Familiarization Forms?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq13" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+        The QSMS Familiarization Forms are available under the dedicated Rank JD. These forms are mandatory steps after joining or changing vessels. The forms in the Portal are for making you familiar with them. Once you get on board you will fill them after actually going through the checklists. They cannot be submitted through the Portal.   </div>
+    </div>
+  </div>
+
+  <!-- FAQ 14 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq14">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">14. My rank is Third Officer (Deck), but I can also see the Job Description for a Chief Engineer. Why?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq14" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+        The main Portal contains introductory information, like Job Descriptions, for <em>all</em> ranks for transparency and general reference. However, the actual <strong>Training Classrooms</strong> are strictly restricted rank-wise and you will not be able to see the training content of any other rank.
+                   </div>
+    </div>
+  </div>
+
+  <!-- FAQ 15 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq15">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">15. My login doesn’t work. What should I do?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq15" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+        First, double-check that you are using the exact Login ID and Password provided in the confirmation email from the administrator. If the problem persists, please contact the administrator at: <strong>drstrainingresponse@gmail.com</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 16 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq16">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">16. Can I give my login password to someone else?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq16" class="collapse" data-parent="#faqB">
+      <div class="card-body faq-card-body">
+        You must never give you logID and Password to anyone, even from the same company. This not only compromises the security but will also compromise the Training content. The system is also designed to track frequent unauthorised logins and IP addresses. This will result in you being blocked from the Portal.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- =========================== -->
+<!--        SECTION C            -->
+<!-- =========================== -->
+<div class="faq-section-title">
+  <i class="fa fa-graduation-cap"></i> C. Training Access – Enrollment & The Classroom
+</div>
+
+<div id="faqC" class="accordion">
+
+  <!-- FAQ 17 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq17">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">17. I see the 'Courses' menu. If I apply, does that automatically enroll me?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq17" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+        No, not quite. The 'Courses' menu provides a list of available Deck, Engine, and Miscellaneous modules. Clicking "Apply" sends an enrollment request to the Training Administrator. This is the <strong>second step</strong> in our access process.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 18 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq18">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">18. What happens after I click ‘Apply’ for a course?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq18" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+       The Administrator will review your application to confirm the course is appropriate for your rank, experience, and current assignment. They will then contact you to finalize the enrollment and, if approved, send you a separate, unique <strong>Class ID and password</strong> for the Google Classroom platform.
+</div>
+    </div>
+  </div>
+
+  <!-- FAQ 19 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq19">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">19. Why do I need a separate Class ID and password for the training material?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq19" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+        This is a core component of our tight security model. The actual, proprietary training material (videos, quizzes, assessments) resides in specialized Google Classrooms. This second layer of authentication ensures that only specific, approved individuals—for example, only Third Officers—can access that rank's specific, sensitive content.
+       </div>
+    </div>
+  </div>
+
+  <!-- FAQ 20 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq20">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">20. My Rank is Chief Engineer. Can I access the training material for the Second Officer?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq20" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+        No, you cannot. All training content in the Google Classrooms is strictly controlled and rank-restricted. A Chief Engineer's Class ID will only grant access to Chief Engineer modules, ensuring focus and preventing accidental exposure to irrelevant or restricted material.
+       </div>
+    </div>
+  </div>
+
+  <!-- FAQ 21 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq21">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">21. What are the three types of training: Online, Workshop, and Hybrid?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq21" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+      <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Online:</strong> Fully self-paced training done through the Google Classroom, using videos, text, and online quizzes.</li>
+                            <li><strong>Workshop:</strong> Face-to-face, instructor-led sessions (either in-house or externally), typically for practical skill development.</li>
+                            <li><strong>Hybrid:</strong> A combination, where you complete the theoretical knowledge and quizzes online first, and may be followed by practical, hands-on Workshop session.
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 22 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq22">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">22. How much time will the Online courses take, and can I pause them?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq22" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+        The time commitment varies by module, but it will be clearly stated when you enroll. All online content is self-paced. You can log in and out as needed, and the platform will save your progress, allowing you to complete modules around your duties and watch hours.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 23 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq23">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">23. Do I need special software or equipment for the Google Classrooms?Do I need special software or equipment for the Google Classrooms?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq23" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+       No. You only need a stable internet connection and a standard web browser (Chrome, Firefox, etc.) or the free Google Classroom app on your mobile device. All material, including videos and quizzes, is accessible directly through the platform.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 24 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq24">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">24. How do I know when a new course is available for my rank?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq24" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+        New courses and refresher requirements will be announced via company email, and they will automatically appear on the Course List accessible through the main Portal.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 25 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq25">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">25.If I enroll in a Workshop or Hybrid course, how will I know the dates and location?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq25" class="collapse" data-parent="#faqC">
+      <div class="card-body faq-card-body">
+        Once the Administrator approves your application, they will contact you directly via email or phone to confirm the specific dates, times, and location details for the in-person component.
+       </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- =========================== -->
+<!--        SECTION D            -->
+<!-- =========================== -->
+<div class="faq-section-title">
+  <i class="fa fa-life-ring"></i> D. Confidence, Assessment & Support
+</div>
+
+<div id="faqD" class="accordion">
+
+  <!-- FAQ 26 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq26">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">26. How do the quizzes and final assessments work?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq26" class="collapse" data-parent="#faqD">
+      <div class="card-body faq-card-body">
+        The assessments are designed to test your practical understanding of the safety procedures, not just your ability to memorize facts. The quizzes are interactive and appear throughout the modules, while a final assessment ensures you've achieved the necessary standard before receiving credit for the course. Assessment results are system-generated and periodically verified by the Training Department.
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 27 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq27">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">27. Do I get a Certificate when I complete a course?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq27" class="collapse" data-parent="#faqD">
+      <div class="card-body faq-card-body">
+        Yes. Upon successful completion of a module (including achieving the passing grade on the final assessment), you will be issued a Certificate of Training Completion, which will be logged in your official training record.  </div>
+    </div>
+  </div>
+
+  <!-- FAQ 28 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq28">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">28. What happens if I fail an assessment?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq28" class="collapse" data-parent="#faqD">
+      <div class="card-body faq-card-body">
+        This training is about ensuring competence, so don’t worry! If you do not pass, you will be given guidance on the specific areas you need to revisit. You will then have a set number of attempts to retake the assessment after reviewing the material.
+       </div>
+    </div>
+  </div>
+
+  <!-- FAQ 29 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq29">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">29. Will my completed training records follow me to my next vessel?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq29" class="collapse" data-parent="#faqD">
+      <div class="card-body faq-card-body">
+       Absolutely. All your training and certification records are permanently stored in the company database and are linked to your employee profile, ensuring a continuous record of your professional development throughout your career with us.
+    </div>
+  </div>
+
+  <!-- FAQ 30 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq30">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">30. I have feedback or found an error in the training material. Who do I contact?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq30" class="collapse" data-parent="#faqD">
+      <div class="card-body faq-card-body">
+        We rely on your expertise! If you have suggestions or find an issue, please use the feedback mechanism found inside the Google Classroom module, or email please contact the administrator at: <strong>drstrainingresponse@gmail.com</strong>. <br>We constantly review and update content based on your valuable input.
+       </div>
+    </div>
+  </div>
+
+  <!-- FAQ 31 -->
+  <div class="card faq-card mb-2">
+    <div class="card-header faq-card-header faq-header collapsed" data-toggle="collapse" data-target="#faq31">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">31. Who do I contact for technical issues with the Portal or the Classroom?</h6>
+        <i class="fa fa-chevron-down faq-toggle-icon"></i>
+      </div>
+    </div>
+    <div id="faq31" class="collapse" data-parent="#faqD">
+      <div class="card-body faq-card-body">
+        If you have technical difficulties logging in or accessing any functionality, please contact please contact the administrator at: <strong>drstrainingresponse@gmail.com</strong>.  </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- END OF FULL FAQ A–D -->
+<!-- ====================================================== -->
+  <!--         BLUE HELP BOX – “STILL NEED ASSISTANCE?”       -->
+  <!-- ====================================================== -->
+  <div class="mt-5 p-4 rounded shadow" style="background:#e3f2ff;">
+    <h4 class="text-primary font-weight-bold">
+      Still Need Assistance? Send a Quick Inquiry.
+    </h4>
+    <p class="mb-4 text-dark">
+      If your question wasn’t answered above, provide some quick context, and we'll generate an email draft for you.
+    </p>
+
+    <form id="inquiryForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Full Name</label>
+          <input type="text" class="form-control" id="inqName" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Rank</label>
+          <input type="text" class="form-control" id="inqRank">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" id="inqEmail" required>
+      </div>
+
+      <div class="form-group">
+        <label>Your Question / Comments</label>
+        <textarea class="form-control" id="inqComments" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Send Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById("inquiryForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Your inquiry has been recorded. The administrator will review it shortly.");
+});
+</script>
+ 
+
+</section>
+
+
+
+
+
+
+
+<!-- footer -->
+<footer>
+   <!-- copyright -->
+  <div class="copyright py-4 bg-footer w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+                  
+            <p class="mb-0" style="color: rgb(161, 161, 161);">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            © Powered by "Oasis Maritime Education"</p>
+        <p class="mb-0" style="color: rgba(255, 197, 71, 0.822); line-height: 1.3;">This project was developed for DRS Marine Services, Mumbai, following the guidelines established by
+Reefership Marine Services, Costa Rica.
+</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://dribbble.com/"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<!-- Custom Script for Accordion Functionality -->
+<!-- JAVASCRIPT & SCRIPTING -->
+<script>
+// Helper function to cleanly close an accordion element
+function closeContent(header, content) {
+    if (header) header.classList.remove('active');
+    if (content) {
+        content.style.maxHeight = '0px';
+        content.style.padding = '0 18px';
+        content.style.overflowY = 'hidden';
+    }
+}
+
+// Function to collapse all accordions on load (Goal 3)
+function collapseAll() {
+    var allContents = document.querySelectorAll('.accordion-content');
+    var allHeaders = document.querySelectorAll('.accordion-header');
+    allContents.forEach(function(content) {
+        // Find the corresponding header and close
+        var header = content.previousElementSibling;
+        closeContent(header, content);
+    });
+}
+
+// Find all accordion headers in the entire document (top-level and nested)
+var allHeaders = document.querySelectorAll('.accordion-container .accordion-header');
+
+// Attach event listeners to all headers
+for (var i = 0; i < allHeaders.length; i++) {
+  allHeaders[i].addEventListener('click', function() {
+    var header = this;
+    var clickedContent = header.nextElementSibling;
+    
+    var chapterId = header.getAttribute('data-chapter');
+    
+    // Check if the chapter ID is '13' or '14' (Top-Level Chapters)
+    var isTopLevelChapter = (chapterId === '13' || chapterId === '14'); 
+    
+    // Check if the clicked content is currently visible
+    var isVisible = clickedContent.style.maxHeight !== '0px' && clickedContent.style.maxHeight !== '';
+
+    // If visible, hide it (Closing logic)
+    if (isVisible) {
+      closeContent(header, clickedContent);
+      
+      // If closing a main chapter, make sure all nested sub-topics are also explicitly closed
+      if (isTopLevelChapter) {
+          clickedContent.querySelectorAll('.accordion-header.active').forEach(function(nestedHeader) {
+              closeContent(nestedHeader, nestedHeader.nextElementSibling);
+          });
+      }
+      
+    } else {
+      // If hidden, expand it (Opening logic)
+      
+      // 1. Enforce only one Top-Level Chapter open (Goal 1)
+      if (isTopLevelChapter) {
+          var topLevelContents = document.querySelectorAll('.accordion-container > .accordion-content');
+          
+          topLevelContents.forEach(function(content) {
+              // Close the other main chapter if it is not the clicked content
+              if (content !== clickedContent && content.style.maxHeight !== '0px') {
+                  var otherHeader = content.previousElementSibling;
+                  closeContent(otherHeader, content);
+                  
+                  // Recursively collapse all nested sub-topics within the closing main chapter
+                  content.querySelectorAll('.accordion-header.active').forEach(function(nestedHeader) {
+                      closeContent(nestedHeader, nestedHeader.nextElementSibling);
+                  });
+              }
+          });
+      }
+      
+      // 2. Enforce only one Sub-Topic open within a chapter (Goal 2)
+      if (!isTopLevelChapter) {
+          // Find the parent container that holds all sub-topic siblings (the main chapter content area)
+          var parentContent = header.parentNode.parentNode;
+          
+          if (parentContent) {
+              // Select all sibling headers within that main chapter content area
+              var siblingContainers = parentContent.querySelectorAll('.accordion-container');
+
+              // Collapse all sibling sub-topics
+              siblingContainers.forEach(function(siblingContainer) {
+                  var siblingHeader = siblingContainer.querySelector('.accordion-header');
+                  var siblingContent = siblingContainer.querySelector('.accordion-content');
+
+                  // Only process if it's a sibling (not the clicked element itself) and it's currently open
+                  if (siblingHeader !== header && siblingContent.style.maxHeight !== '0px') {
+                      closeContent(siblingHeader, siblingContent);
+                  }
+              });
+          }
+      }
+
+      // Finally, open the clicked content
+      header.classList.add('active');
+      
+      if (isTopLevelChapter) {
+          // For the main Chapters (13 or 14), set fixed height and enable scrolling (450px)
+          clickedContent.style.maxHeight = "450px";
+          clickedContent.style.overflowY = "scroll"; 
+      } else {
+          // For all other accordions (nested sub-topics) - Use fixed height (275px) with scrollbar
+          clickedContent.style.maxHeight = "275px"; 
+          clickedContent.style.overflowY = "scroll"; 
+      }
+      
+      clickedContent.style.padding = "18px 18px";
+    }
+  });
+}
+
+// Ensure all content is collapsed on page load (Goal 3)
+window.onload = collapseAll;
+</script>
+
+</body>
+</html>
