@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>DRS Training Portal</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<style>
+        body {
+            padding-top: 00px; 
+        }
+    </style>
+
+
+
+<!-- CUSTOM STYLES FOR ACCORDION REFERENCE -->
+<style>
+/* 1. Basic Accordion Styling */
+.accordion-container {
+    width: 100%;
+    border: 1px solid #0056b3; /* Border to match reference text color */
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+/* 2. The Button/Header that is always visible */
+.accordion-header {
+    background-color: #e6f0ff; /* Light blue header */
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 3. The Content that is hidden by default */
+.accordion-content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0; /* Key CSS to hide content */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-top: 1px solid #ccc;
+}
+
+/* 4. Custom Text Color for the reference material (Maritime Blue) */
+.accordion-content p, 
+.accordion-content h4, 
+.accordion-content li {
+    color: #0056b3; /* Custom Maritime Blue color for reference material */
+}
+.accordion-content h4 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.accordion-content ul {
+    margin-bottom: 15px;
+}
+.accordion-content ul li {
+    margin-bottom: 5px;
+}
+
+
+/* 5. Styling for an active (open) header */
+.active, .accordion-header:hover {
+    background-color: #d6eaff;
+}
+
+/* 6. Arrow indicator */
+.accordion-header::after {
+    content: '\002B'; /* Unicode plus sign */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0056b3;
+    transition: transform 0.3s;
+}
+
+.active::after {
+    content: '\2212'; /* Unicode minus sign */
+    transform: rotate(180deg);
+}
+
+</style>
+</head>
+
+<body>
+  
+
+<!-- header -->
+<!-- </header> -->
+<!-- The navigation bar is included directly in this file for consistency across all pages. -->
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-lg-4 text-center text-lg-left">
+        <a class="text-color mr-3" href="callto:YOUR_SUPPORT_NUMBER"><strong>SUPPORT</strong> +91 123456789</a>
+        </div>
+      
+      <div class="col-lg-8 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="dashboard.html">Dashboard</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="mycourses.html">My Courses</a></li>
+          
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">login</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#signupModal">register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- navbar -->
+  <div class="navigation px-4 w-100">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownabout" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownabout">
+                <a class="dropdown-item" href="About_New.html">BMTI</a>
+                <a class="dropdown-item" href="QSMS_project.html">Project</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Deck</a>
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Engine</a>
+              </div>
+            </li>
+          
+            
+<li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                QSMS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="QSMS_Company_Policy.html">Company Policy</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More....</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+              </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Deck
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="5_JD_MSTR.html">Master</a>
+                <a class="dropdown-item" href="5_JD_CO.html">Chief Officer</a>
+                <a class="dropdown-item" href="constr.html">Second Officer</a>
+                <a class="dropdown-item" href="constr.html">Third Officer</a>
+                <a class="dropdown-item" href="constr.html">Junior Officer</a>
+                <a class="dropdown-item" href="constr.html">Cadet</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEngine" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Engine
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownEngine">
+                <a class="dropdown-item" href="5_JD_CHENG.html">Chief Engineer</a>
+                <a class="dropdown-item" href="constr.html">1 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">2 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">3 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">4 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">Junior Engineer</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownETO" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ETO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownETO">
+                <a class="dropdown-item" href="constr.html">ETO</a>
+                <a class="dropdown-item" href="constr.html">Junior ETO</a>
+                <a class="dropdown-item" href="constr.html">Trainee ETO</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Others
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="constr.html">Reefer Technician</a>
+                <a class="dropdown-item" href="constr.html">Fitter</a>
+                <a class="dropdown-item" href="constr.html">AB</a>
+                <a class="dropdown-item" href="constr.html">OS</a>
+                <a class="dropdown-item" href="constr.html">Oiler</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Help
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="5_FAQ_Template.html">FAQ</a>
+                <a class="dropdown-item" href="constr.html">Contact</a>
+                
+              </div>
+            </li>
+            
+           <!-- <li class="nav-item @@contact">
+              <a class="nav-link" href="constr.html">Contact</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link bg-primary text-white rounded" href="constr.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+</header>
+
+<!-- /header -->
+<!-- /header -->
+<!-- Modal -->
+ 
+ 
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="#">Website under Construction</a></li>
+          
+        </ul>
+        <p class="text-lighten">Coming soon ...</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- about -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img class="img-fluid w-100 mb-4" src="images/backgrounds/fd.png" alt="under construction image">
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /about -->
+
+
+
+<!-- footer -->
+<footer>
+   <!-- copyright -->
+  <div class="copyright py-4 bg-footer w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+                  
+            <p class="mb-0" style="color: rgb(161, 161, 161);">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            © Powered by "Oasis Maritime Education"</p>
+        <p class="mb-0" style="color: rgba(255, 197, 71, 0.822); line-height: 1.3;">This project was developed for DRS Marine Services, Mumbai, following the guidelines established by
+Reefership Marine Services, Costa Rica.
+</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://dribbble.com/"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>DRS Training Portal Ver 1.0</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!--  Plugins Needed for the Project  -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<style>
+        body {
+            padding-top: 00px; 
+        }
+    </style>
+
+
+
+<!-- CUSTOM STYLES FOR ACCORDION REFERENCE -->
+<style>
+        body {
+            padding-top: 00px; 
+            /* FIX: Forces the vertical scrollbar to always be visible, preventing layout shift (jank) */
+            overflow-y: scroll; 
+        }
+    </style>
+
+
+<!-- CUSTOM STYLES FOR ACCORDION -->
+<style>
+/* Accordion Container Styles */
+.accordion-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Accordion Header Styles */
+.accordion-header {
+    background-color: #f7f7f7;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hover effect */
+.accordion-header:hover {
+    background-color: #e9e9e9;
+}
+
+/* Active header style (Chapter 13/14 styling is different) */
+.accordion-header.active:not(#chapter-13-header):not(#chapter-14-header) {
+    background-color: #e0f7fa; /* Light cyan for active non-chapter 13/14 */
+    color: #00796b;
+}
+
+/* Chapter 13 and 14 Specific Header Style (Main Chapters) */
+#chapter-13-header, #chapter-14-header {
+    background-color: #1a73e8; /* Google Blue */
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#chapter-13-header.active, #chapter-14-header.active {
+    background-color: #0d47a1; /* Darker blue on active */
+}
+
+/* Icon (plus/minus) Styles */
+.accordion-header::after {
+    content: '\002B'; /* Plus sign */
+    font-size: 18px;
+    color: #555;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+    content: '\2212'; /* Minus sign */
+    color: #00796b; /* Greenish for active non-chapter 13/14 */
+}
+
+#chapter-13-header::after, #chapter-13-header.active::after, 
+#chapter-14-header::after, #chapter-14-header.active::after {
+    color: white;
+}
+
+
+/* Accordion Content Styles */
+.accordion-content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow-y: hidden; /* Ensure content is hidden when collapsed */
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    border-bottom: 1px solid #eee;
+}
+
+/* Remove bottom border for the very last content in the container */
+.accordion-container > .accordion-content:last-of-type {
+    border-bottom: none;
+}
+
+/* Content List Styles */
+.accordion-content ul {
+    list-style: disc; /* Use standard disc bullets */
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.accordion-content li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 15px;
+    color: #444;
+}
+
+/* Sub-Topic (Nested) Styling */
+.sub-topic-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin: 10px 0;
+    background-color: #fafafa;
+}
+
+.sub-topic-header {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 12px 18px;
+    font-weight: 600;
+    font-size: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sub-topic-content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.sub-topic-content ul {
+    list-style: circle; /* Use circle bullets for nested lists */
+    margin: 10px 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+
+<body>
+  
+
+<!-- header -->
+<!-- </header> -->
+<!-- The navigation bar is included directly in this file for consistency across all pages. -->
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-lg-4 text-center text-lg-left">
+        <a class="text-color mr-3" href="#"><strong>SUPPORT</strong> +91 0123456789</a>
+        </div>
+      
+      <div class="col-lg-8 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">Dashboard</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">My Courses</a></li>
+          
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#">login</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#">register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- navbar -->
+  <div class="navigation px-4 w-100">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownabout" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownabout">
+                <a class="dropdown-item" href="About_New.html">BMTI</a>
+                <a class="dropdown-item" href="QSMS_project.html">Project</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Deck</a>
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Engine</a>
+              </div>
+            </li>
+          
+            
+<li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                QSMS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="QSMS_Company_Policy.html">Company Policy</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More....</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+              </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Deck
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="5_JD_MSTR.html">Master</a>
+                <a class="dropdown-item" href="5_JD_CO.html">Chief Officer</a>
+                <a class="dropdown-item" href="constr.html">Second Officer</a>
+                <a class="dropdown-item" href="constr.html">Third Officer</a>
+                <a class="dropdown-item" href="constr.html">Junior Officer</a>
+                <a class="dropdown-item" href="constr.html">Cadet</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEngine" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Engine
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownEngine">
+                <a class="dropdown-item" href="5_JD_CHENG.html">Chief Engineer</a>
+                <a class="dropdown-item" href="constr.html">1 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">2 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">3 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">4 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">Junior Engineer</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownETO" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ETO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownETO">
+                <a class="dropdown-item" href="constr.html">ETO</a>
+                <a class="dropdown-item" href="constr.html">Junior ETO</a>
+                <a class="dropdown-item" href="constr.html">Trainee ETO</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Others
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="constr.html">Reefer Technician</a>
+                <a class="dropdown-item" href="constr.html">Fitter</a>
+                <a class="dropdown-item" href="constr.html">AB</a>
+                <a class="dropdown-item" href="constr.html">OS</a>
+                <a class="dropdown-item" href="constr.html">Oiler</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Help
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="5_FAQ_Template.html">FAQ</a>
+                <a class="dropdown-item" href="constr.html">Contact</a>
+                
+              </div>
+            </li>
+            
+           <!-- <li class="nav-item @@contact">
+              <a class="nav-link" href="constr.html">Contact</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link bg-primary text-white rounded" href="constr.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+</header>
+
+<!-- /header -->
+<!-- /header -->
+<!-- Modal -->
+ 
+ 
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="#">Captain (Master) </a></li>
+          <!-- <li class="list-inline-item text-white h3 font-secondary nasted"></li> -->
+        </ul>
+        <p class="text-lighten">This section contains all essential job responsibilities, authorities and reference materials <br> for the vessel's Master.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+
+<!-- Do NOT Delete -->
+<section class="section-sm">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <!-- Content now wrapped inside this narrow, centered column -->
+        
+        <div class="row">
+          <div class="col-12">
+            
+          </div>
+          <!-- event image - Placeholder for page-specific image -->
+          <div class="col-12 mb-4">
+            <img src="images/events/event-single.jpg" alt="event thumb" class="img-fluid w-100">
+          </div>
+        </div>
+      
+     </head>
+        <!-- Using Bootstrap's responsive classes for layout -->
+  <!-- HEADER SECTION -->
+        <header class="pb-4 mb-4 border-bottom">
+            <h2 class="display-8 font-weight-bold text-gray-900 mb-1"> Captain (Master)</h2>
+            <p class="h4 text-primary font-weight-semibold">5.0 Responsibility & Authority</p>
+            <p class="text-muted mt-2">Reporting to: Designated Vessel Manager (DVM) </stong></p>
+            </header>         
+       
+<!-- START OF SECTION 5.0: JOB RESPONSIBILITIES (EASY TO FIND) -->
+        <!-- * -->
+        
+        <!-- NEW WRAPPER ADDED TO REDUCE WIDTH FOR JOB RESPONSIBILITIES CARDS ONLY -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-11 col-xl-10">
+            <div class="mt-4 text-secondary">
+                
+               <!-- MAIN SECTION HEADING WITH ACCENT -->
+                <h3 class="h5 font-weight-bold text-gray-900 mb-3 section-title-line">Master's Responsibilities and Authority</h3>
+                <!-- Master's Authority Card -->
+                <div id="master-authority" class="card responsibility-card shadow-lg p-4 mb-4" style="background-color: #060486;">
+                   
+                 <p class="h4 text-primary font-weight-semibold">Master’s Authority</p>
+                    <ul class="list-styled">
+                     <p class="h4 text-primary font-weight-semibold">The master has complete over-riding authority for all matters on board his vessel, for safety of life and property and protection of the environment.</p>   
+                     
+                      
+                    </ul>
+                </div> 
+              
+              <!-- MAIN SECTION HEADING WITH ACCENT -->
+               
+                <!-- Master's Authority Card -->
+                <div id="master-authority" class="card responsibility-card shadow-lg p-4 mb-4" style="background-color: #e6f0ff;">
+                    <h2 class="h5 font-weight-bold text-primary mb-3 section-title-line">Master’s Authority (continued)</h3>
+                    
+                    <ul class="list-styled text-justify">
+                        <li>The Master’s authority is defined in Maritime Law as retaining absolute responsibility for the overall safety and safe operation of the vessel under his command.</li>
+                        <li>The administration onboard shall at all times be in accordance with Maritime Law and Practice. The Master shall be the ultimate disciplinary authority onboard.</li>
+                        <li>A Master who is appointed to Command a Vessel, is the representative of Reefership Marine Services LLC and as such is the only person on board having the authority to act on behalf of the Company. He has the confidence and support of RMS.</li>
+                        <li>The Master shall ensure all rules and regulations are complied with by everyone on board in the execution of their duties and otherwise, and that the vessel is being operated efficiently and cost effectively in line with company instructions.</li>
+                        <li>His authority shall be recognized by all persons on board, including charterer’s representatives, supernumeraries and riding gangs.</li>
+                    </ul>
+                </div> 
+
+                <!-- Master's Duties Card -->
+                <div id="master-duties" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.2 Master’s Duties (General)</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">The Master is responsible for:</p>
+                    
+                    <ul class="list-styled text-justify">
+                        <li>The safe operation of the vessel and its equipment.</li>
+                        <li>Representing the Company when coming into contact with officials from such bodies as Port Authorities, Custom, Immigration, Port State Control, Class and Insurers.</li>
+                        <li>Controlling all communications concerning the operation of the vessel.</li>
+                        <li>Ensuring the company’s policy and instructions are made known to each person on board, and that relevant sections in the manuals of the QSMS and documents are read and understood by the persons concerned.</li>
+                        <li>Convening meetings of his senior officers at monthly intervals for the purpose of discussing maintenance and safety issues.</li>
+                    </ul>
+                </div>
+
+<!-- Ship Cyber Security Officer (SCySO) role -->
+                <div id="navigation-loading" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.3 Ship Cyber Security Officer (SCySO) role</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Key operational responsibilities:</p>
+                    <ul class="list-styled text-justify">
+                        <li>Coordinating with the Chief Company Cyber security officer (CCCySO) on aspects
+relating to Cyber Security.</li>
+                        <li>Ensuring the development and periodic review of the Cyber Security Manual as and
+when required.</li>
+                        <li>Implementing and exercising the Cyber Security Plan on board the vessel.</li>
+                        
+                    </ul>
+                </div>
+
+
+
+                <!-- Go/No Go Decisions Card -->
+                <div id="go-no-go" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.4 "Go/No Go" Authority</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Specific assessment and use of authority:</p>
+                    <p>There may be specific situations in which the Master is expected to carefully assess and use his authority accordingly to ensure safety for his crew, vessel and environment.</p>
+                    <ul class="list-styled">
+                        <li>5.4.1 The Master has full discretion to delay entry or leaving harbor if, by reason of adverse weather or other conditions, he considers it unsafe, even if it is the general practice to enter/leave during darkness.</li>
+                        <li>A report setting out the circumstances of such delay must be forwarded to RMS and OPNS TFEL at the first opportunity.</li>
+                    </ul>
+                </div>
+
+                <!-- Qualification Requirements Card -->
+                <div id="qualifications" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.5 Qualification Requirements for Master</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Key Competencies and Command Mandate:</p>
+                    
+                    <ul class="list-styled text-justify">
+                        <li>The Master must be properly qualified with an internationally recognized and accepted Certificate of Competency supported by all relevant mandatory certificates (STCW’95 and Flag State).</li>
+                        <li>He will typically be promoted from the rank of Chief Officer from within the company pool.</li>
+                        <li>He must have the required level of training, competence, and experience with the type of vessel he is to command.</li>
+                        <li>Required Experience:
+                            <ul>
+                                <li>Experience in Reefer and/or Container Vessels and in the carriage of Fresh Produce.</li>
+                                <li>Familiarity with the trading pattern and area of operation and the working practices of RMS.</li>
+                                <li>Capability to perform at the highest levels.</li>
+                                <li>A full understanding of the company Safety and Quality Management System.</li>
+                            </ul>
+                        <p>In matters concerning the Safety of his Crew, the Ship, her Cargo, and pollution prevention, he has the confidence and support of Reefership Marine Services LLC.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Inspection Card -->
+                <div id="inspection" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.6 Inspection</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Key responsibilities upon taking command:</p>
+                    <ul class="list-styled text-justify">
+                        <li>As soon as possible after taking command, the Master is to make a thorough inspection of the entire vessel, paying particular attention to Ballast Tanks, Cargo Gear, and Cargo Holds.</li>
+                        <li>Any deficiencies noted are to be immediately reported to his DVM.</li>
+                    </ul>
+                </div>
+
+                <!-- Records and Certification Card -->
+                <div id="records-certs" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.7 Log Book / Oil Record Book/Ballast / Waste Management</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Record-keeping and certificate management:</p>
+                    <ul class="list-styled text-justify">
+                        <li>Ensuring that the official log book, oil record book, waste disposal/incinerator log, and ballast water log are maintained as per flag state and international requirements.</li>
+                        
+                    </ul>
+                </div>
+                
+                <!-- Records and Certification Card -->
+                <div id="records-certs" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.8 Certificates / Publications / Company forms </h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Record-keeping and certificate management:</p>
+                    <ul class="list-styled text-justify">
+                         <li>Maintaining the validity of all International, Flag State and Class certificates and coordinating their renewal with his DVM.</li>
+                       
+                        <li>Maintaining the vessel’s library of technical and professional publications as required by the Company.</li>
+                        </ul>
+                </div>
+                
+                
+                 <!-- Navigation and Loading Card -->
+                <div id="navigation-loading" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.9 Navigation and Engine Watch Keeping</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Key operational responsibilities:</p>
+                    <ul class="list-styled text-justify">
+                        <li>Responsible for the overall administration and the safe navigation of the vessel.</li>
+                        <li>The Chief Engineer is responsible for all activities within the engine department including engine watch keeping and related operations.</li>
+                        <li>The Chief Engineer should keep the Master advised of any situation, which may affect the vessels, operation and safety is the responsibility of all officers.</li>
+                        
+                    </ul>
+                </div>
+                
+                <!-- Navigation and Loading Card -->
+                <div id="navigation-loading" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.10 Pilot on Board</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Key operational responsibilities:</p>
+                    <ul class="list-styled text-justify">
+                        <li>The Master is always in command of the vessel; a local Pilot on board is only offering advice.</li>
+                        <li>The check list(s) “Navigation under Pilotage” and “Information given by Pilot to Master” are to be completed.</li>
+                    <li><a href="#key-reference-material" class="text-primary font-weight-bold">See chapter 7 below in section "Key Reference Material"</a></li>
+                            
+                    </ul>
+                </div>
+                
+                <!-- Navigation and Loading Card -->
+                <div id="navigation-loading" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.11 Loading/Stowage/Carriage</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Key operational responsibilities:</p>
+                    <ul class="list-styled text-justify">
+                        <li>The Master is to ensure that his Vessel is always loaded in accordance with the International Loadline convention and that watertight integrity is always maintained.</li>
+                        <li>His Officers must follow the instructions laid down by him through the Chief Officer, taking into account Stability requirements and the proper stowage and carriage of the cargo as per QSMS-RMS and OPNS TFEL Standing Instructions.</li>
+                         <li>The Master and his Department heads are to ensure that each crew member delegated to carry out the duties related to cargo handling can make a knowledgeable contribution to the safe operation of the ship.</li>
+                        <li>Every effort shall be made by the ship management to give reasonable opportunity for the crew, to become familiar with the shipboard equipment and operating procedures for the proper performance of their duties, BEFORE being assigned to those duties.</li>
+                      <li>See checklists 23 through 27 below in Section "QSMS Familiarisation Checklists".</li>
+                    
+                      </ul>
+                </div>
+                
+                
+                <!-- Technical, Financial, and Liaisons Card -->
+                <div id="technical-financial" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.12 Technical and Financial</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">The Master is responsible for:</p>
+                    
+                    <ul class="list-styled text-justify">
+                        <li>For all technical matters, cost control, and the Day-to-Day running of his Vessel, the Master is to liaise closely with, and report to, his DVM to gain access to advice and shore side support.</li>
+                        <li>This liaison includes Crewing, Training, Purchasing, Storing, and reporting all matters related to Safety and Environmental protection.</li>
+                        <li>The Master is fully responsible for the Vessel’s funds and disbursements (detailed in the crewing manual).</li>
+                    </ul>
+                </div>            
+ 
+                <!-- Emergency and Familiarization Card -->
+                <div id="emergency-drills" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.13	Emergency Drills and Vessel Familiarization</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Safety and Training requirements:</p>
+                    <ul class="list-styled text-justify">
+                        <li>The Master is to conduct Emergency Drills with his crew on a regular basis conforming to SOLAS and Flag State requirements.</li>
+                        <li>The Drills are to cover as many different situations as realistically as possible. (Refer to chapter 8).</li>
+                      <!-- MODAL TRIGGER LINK ADDED HERE -->
+                  <li>
+                   
+                    <li>
+                  <!-- MODAL TRIGGER LINK ADDED HERE -->
+                  <a href="#" data-toggle="modal" data-target="#jobFunctionModal" class="text-primary font-weight-bold">
+                    See relevant sections in Chapter 8</a>
+                </li>
+                <li>Newly joined Crew Members (including Riding Squads) are to undergo familiarization concerning elementary but essential Safety matters before being assigned their duties (refer to STCW 2010 Section A-VI/1 Page: 111).</li>
+                    <li>This familiarization is to be done as soon as possible after they arrive on board, but in any eventuality before the departure of the vessel.</li>
+                      
+                <li><a href="#key-reference-material" class="text-primary font-weight-bold">See chapter 6.1.1 - 6.1.6 below below in section "Key Reference Material"</a></li>
+                </ul>
+                </div>
+
+                <!-- Fitness for Duty Card -->
+                <div id="fitness-duty" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.14 Fitness for Duty (Rest Period)</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Monitoring and Compliance:</p>
+                    <ul class="list-styled text-justify">
+                        <li>Monitoring crew regarding fitness for duty, rest periods and working hours (Refer to STCW 1995 Section A-VIII/1 Page 139-162, Fitness for Duty, and Section B-VIII/1 Page 247-Guidance regarding fitness for duty).</li>
+                        <li>Ensuring that Officers and watch keepers, including himself are fit for duty.</li>
+                        <li>If the vessel has to be delayed due to rest period compliance, the Director Vessel Operations and DVM are to be consulted immediately.</li>
+                    </ul>
+                </div>
+
+                <!-- Orders and Transfer of Command Card -->
+                <div id="orders-transfer" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.15 Transfer of Command</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Written instructions and handover procedures:</p>
+                    <ul class="list-styled text-justify">
+                        <li>The off-signing Master shall complete the “Transfer of Command Report” and in additional the “Certificate Status” report.</li>
+                        </li>
+                        <ul>
+                          <li>He has to be very concise when filling in these forms.</li>
+                               </ul>
+                        <li>The Master, in keeping with good seamanlike practice, shall leave for his relief an itemized and brief descriptive statement regarding various shipboard items of equipment, bunker, cargo details and general ship business.</li>
+                        <li>His Hand-Over Report should include details of the vessel’s performance, trade, equipment status, cargo status (if any), personnel and any recent or present problems.</li>
+                        <li>He shall leave for his relief an itemized and brief descriptive statement regarding various shipboard items of equipment, bunker, cargo details and general ship business.</li>    
+                        <li>These reports shall be dispatched to the DVM.</li>  
+                    </ul>
+                </div>
+
+                <!-- QSMS Management Card -->
+                <div id="qsms-management" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.16 QSMS</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">The Master is responsible for maintaining and implementing the QSMS on board. He is to:</p>
+                    <ul class="list-styled text-justify">
+                        <li>Motivate the crew in the observations of the QSMS Policy.</li>
+                        <li>Undertake or arrange training of all personnel.</li>
+                        <li>Prevent human injury or loss of life, avoid damage to the environment and property.</li>
+                        <li>Perform all operations in a safe manner under both normal and abnormal conditions. </li>
+                        <li>Ensure a high standard of maintenance of the vessel and her equipment.</li>
+                        <li>Ensure a high standard of readiness and capability to handle emergency procedures.</li>
+                        <li>Manage his vessel within all International and Flag state regulations.</li>
+                        <li>Be fully aware of the company objectives and strictly follow the company policies.</li>
+                        <li>Ensure crew members are informed as to which part of the QSMS is relevant to each crew member in the performing of his job function. Such as:</li>
+                        <ul>
+                                <li>Procedures</li>
+                                <li>Work Permits</li>
+                                <li>Accident/Incident reporting</li>
+                                <li>Checklists, etc.</li>                                
+                              </ul>
+                       <li>Conducting periodical reviews of the QSMS system (as specified in Chapter 12.2) and reporting any deficiencies to shore management.</li>
+                      <!-- NEW MODAL TRIGGER LINK ADDED HERE for 6.8.6 -->
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#dutyResponsibilityModal" class="text-primary font-weight-bold">
+                    See relevant sections in Chapter 12</a>
+                </li>
+                    </ul>
+
+                            </div>
+
+                            <!-- Drug and Alcohol Policy Card -->
+                <div id="drug-alcohol" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.17 QSMS Understanding</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Compliance and Communication:</p>
+                    <ul class="list-styled text-justify">
+                        
+                        <li>Ensuring that the vessel’s officers meet regularly to discuss and improve their understanding of the QSMS and apply their combined experience and knowledge to the betterment of their vessel.</li>
+                        
+                    
+                </div>
+                
+<!-- Drug and Alcohol Policy Card -->
+                <div id="drug-alcohol" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.18 Information to Crew</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Compliance and Communication:</p>
+                    <ul class="list-styled text-justify">
+                        
+                        <li>Ensuring the crew receives information which is applicable to them in performing their job functions.</li>
+                        <li>For Job Responsibilities See Chapter 3.6.</li>
+                                    
+                </div>
+
+
+<!-- MAIN SECTION HEADING WITH ACCENT -->
+               
+                <!-- Master's Authority Card -->
+                <div id="master-authority" class="card responsibility-card shadow-lg p-4 mb-4" style="background-color: #e6f0ff;">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.19 Implementation and action</h3>
+                    
+                    <ul class="list-styled">
+                        <li>The Master is responsible for continuously verifying that the specified requirements as laid down in this manual are fully observed and complied with.</li>
+                                    
+                </div>
+
+<!-- Drug and Alcohol Policy Card -->
+                <div id="drug-alcohol" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.20 Master’s Standing and Night Orders</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Command Directives:</p>
+                    <ul class="list-styled text-justify">
+                        <li>The Master is to issue clear and concise orders and instructions in writing for key operations in:</li>
+                       <ul>
+                                <li>Master’s Standing Orders. (Deck Officers)</li>
+                                <li>Bridge Night Order Book. (Watch keeping officers) on a night to night basis.</li>
+                                                             
+                              </ul>
+                        
+                        <li>He is to instruct the heads of departments to issue similar orders in writing.</li>
+                        <li>The Master is to prepare his Standing Orders immediately on taking over Command of his Vessel.</li>
+                    </ul>
+                </div>
+
+<!-- Drug and Alcohol Policy Card -->
+                <div id="drug-alcohol" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.21	Required Qualifications</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Master's Verification of Crew Certification:</p>
+                    <ul class="list-styled text-justify">
+                        <li>With the STCW 2010 in full effect the Master is to: </li>
+                       <ul>
+                                <li>Verify all certificates, documents and endorsements of all personnel on board at their time of joining and that all will be valid for the duration of the intended contract.</li>
+                                <li>Ensure these are applicable to his Vessel and the Flag State requirements.</li>
+                                </ul>
+                        
+                        <li>Keep the RMS Crewing Superintendent updated and follow-up all applications as necessary.</li>
+                    </ul>
+                </div>
+
+
+<!-- Drug and Alcohol Policy Card -->
+                <div id="drug-alcohol" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.22	Official Messages</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Communication:</p>
+                    <ul class="list-styled text-justify">
+                        <li>The Master controls all official communications sent from his ship, whether by e-mail, facsimile, telexes, hard copies of letters or mail memos. Refer to chapter 13.</li>
+                    <li><a href="#key-reference-material" class="text-primary font-weight-bold">See chapter 13 below in section "Key Reference Material"</a></li>
+                    </ul>
+                </div>
+
+                
+                <!-- Drug and Alcohol Policy Card -->
+                <div id="drug-alcohol" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.23 Drug and Alcohol Policy</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">Policy on Contraband Prevention:</p>
+                    <ul class="list-styled text-justify">
+                        <li>Regularly reminding his crew of the Drug and Alcohol Policy of the Company (See also chapter 2 and IMO resolution A. 872 (20)).</li>
+                        <li>Conducting a meeting to inform the crew of the dangers of smuggling/contraband activity.</li>
+                     <li><a href="#key-reference-material" class="text-primary font-weight-bold">See chapter 2 below in section "Key Reference Material"</a></li>   
+                    </ul>
+                </div>
+
+                <!-- Succession of Authority Card -->
+                <div id="succession-authority" class="card bg-white responsibility-card shadow-lg p-4 mb-4">
+                    <h3 class="h5 font-weight-bold text-primary mb-3 section-title-line">5.24 Succession to Authority</h3>
+                    <p class="mb-3 text-sm font-weight-medium text-muted">In case of absence or disability of the Master, his duties and authority shall normally rest upon the officer on board in the following order:</p>
+                    <ol class="list-styled">
+                        <li>Chief Officer</li>
+                        <li>Chief Engineer</li>
+                    </ol>
+                </div>
+                
+                <!-- ACCORDION FOR SHIP TO SHORE COMMUNICATION FORMATS (NEW ELEMENT) -->
+               <h3 id="key-reference-material" class="h5 font-weight-bold text-gray-900 mb-3 section-title-line">Key Reference Material</h3>
+
+                <!-- Start of Accordion Structure for Chapter 13 -->
+       <!-- Start of Accordion Structure for Chapter 13 -->
+        <div class="accordion-container">
+            <!-- Chapter 2 Header -->
+            <button class="accordion-header" id="chapter-13-header" data-chapter="13">
+                <span>Chapter 2: Company Policy and Objectives </span>
+            </button>
+            
+            <!-- Chapter 2 Content - Container for Sub-Topics (Scrollable) -->
+            <div class="accordion-content" id="chapter-13-content" data-chapter="13">
+
+                <!-- 13.1 Root Cause Analysis -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.1">
+                        <span>2.1 Policy</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                    Reefership’s international team of seafarers and shore staff is fully committed to the
+                    consistent operation of a safe and efficient fleet of refrigerated ships and refrigerated
+                    container ships whilst protecting the environment in which it operates.
+                  </p>
+                  <p>
+                    Reefership’s dedication to quality is a commitment solidly backed by stringent quality
+                    control measures, state-of-the-art transportation technologies, continuous improvement
+                    through training and education, and dedication to the safety of the employee.
+                  </p>
+                  <p>
+                    The POLICY will be supported by this Quality and Safety Manual and by:
+                  </p>
+                  <ul>
+                    <li>Recognition of the “human element’ and the need to continually motivate personnel
+                      ashore and afloat in order to enjoy their full commitment.
+                    </li>
+                    <li>Provision of the resources required to train and improve the quality of personnel
+                      involved in the operation of the ships.
+                    </li>
+                    <li>Provision of the resources required to maintain the ships in a fully efficient and safe
+                      condition.
+                    </li>
+                    <li>Prevention of accidents through the adoption by the fleet of standard operating
+                      procedures.
+                    </li>
+                    <li>Assess all identified risks to the vessel, personnel and environment, and establish
+                      safeguards against these in the shipboard procedures.
+                    </li>
+                    <li>Provision of the channels by which accidents, near miss situations or non-conformities
+                      must be reported without fear of retribution.
+                    </li>
+                    <li>Audits and inspections by qualified personnel.
+                    </li>
+                    <li>Creation of a working environment in which Quality and Safety always come first.
+                    </li>
+                  </ul>
+                    </div>
+                </div>
+
+                <!-- 13.2 General Troubleshooting Steps -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.2">
+                        <span>2.2 Objectives</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>The objectives of our Quality and Safety Management Policy are to:</p>
+                  <ul>
+                    <li>Prevent accidental loss of life or injury to our seafarers or anyone who has business on board the ship.</li>
+                    <li>Prevent accidents, which can cause damage to the ship, to other ships or injury or loss of life to third parties.</li>
+                    <li>Prevent cargo damage.</li>
+                    <li>Protect the environment and prevent air and sea pollution.</li>
+                    <li>Ensure compliance with International, National, Flag State, Class Society and Company Rules and Regulations.</li>
+                  </ul>
+                    </div>
+                </div>
+
+                <!-- 13.3 System Performance Issues -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.3">
+                        <span>2.3 Environmental Policy </span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Environmental stewardship is an integral part of Reefership’s concept of quality embodied in the DOLE label. We believe that quality products and quality operations are produced in a quality manner.</p>
+                  <p>Some companies treat the environment as public relation issue. At RMS it is an operational issue. We strive to keep the environment in the forefront of everything we do; we invest in environmental protection – making real improvement in our people, our ships and the equipment aboard them, and in our operation.</p>
+                  <p>Every employee of RMS , both ashore and afloat, has a basic responsibility to comply with all rules and regulations designed to protect the environment. Of even greater importance, RMS strives to take a preventative approach by identifying and addressing environmental issues and risks before they become of concern to Dole’s customers, the industry or our vessels.</p>
+                  <p>The cornerstone of good quality and safety management is commitment from the top, but it is the commitment, attitude and motivation of individuals at all levels which determines the end result.</p>
+                  <p>RMS has a zero tolerance towards water pollution and is committed to provide equipment, spare parts and shore side disposal as required.</p>
+                  <p>See also chapters 5 and 7.7.</p>
+                    </div>
+                </div>
+
+                <!-- 13.4 Data Quality & Integrity -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.4">
+                        <span>2.4 Fatigue </span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>The Management of Reefership Marine Services recognizes the fact that bad weather, delays in loading/unloading or other circumstances may affect the Master’s, Officers and watch keepers rest period.</p>
+                  <p>It is the policy of the Company that no commercial considerations should be allowed to change the requirement contained in STCW 95 amendment, section A-VIII/1 Fitness for Duty. Also refer to section B-VIII/1 Guidance regarding fitness for duty. The references to fatigue in the code apply equally to the Master as the Watch Keepers and other officers on duty.</p>
+                
+                    </div>
+                </div>
+
+                <!-- 13.5 User Interface & Experience -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.5">
+                        <span>2.5 Drug and Alcohol </span>
+                    </button>
+                    <div class="accordion-content">
+                        <h6>2.5.1 Drugs</h6>
+                  <p>RMS has a policy of zero tolerance to the use of illegal drugs and anyone found in possession of such drugs or is found to use them will be immediately terminated.</p>
+                  <p>The Company is a signatory to the Sea Carriers Initiative Agreement between the United States Customs and the International Banana Association and as a member of BIMCO, RMS is also a party to Memorandums of Agreement with various European countries, all recognizing our participation in international efforts to prevent the trafficking of illegal drugs.</p>
+                  <p>Attention is drawn to the laws, which exist worldwide regarding trafficking in or the use of illegal drugs. Any seafarer who is prosecuted for infringing the law will not be defended by the company.</p>
+                  
+                  <h6>2.5.2 Alcohol</h6>
+                  <p>The consumption of alcohol on board is discouraged and <strong style="color: red;">seafarers will not consume any alcohol within 4 hours of going on duty, at sea or in port.</strong></p>
+                  <p>The sale of beer from the bonded store to officers and ratings is permitted, always subject to the Master’s discretion and control. The Master may, in his discretion, permit the sale of wines and spirits to officers.</p>
+                  
+                  <h6>2.5.3 Testing</h6>
+                  <li><strong style="color: red;">RMS reserves the right to conduct random testing for alcohol and drugs.</strong></li>
+                  <li>RMS has appointed a company to carry out random drug test onboard all vessels.</li>
+                  <li>Records of such test are available with the appointed company. <br>See chapter 6.</li>
+                  <li><strong style="color: red;">An alcohol concentration of 40mg/100ml (0.04%) when on duty will result in termination.</li>
+               
+                    
+                    </div>
+                </div>
+                
+                <!-- 13.6 Network and Connectivity Diagnostics -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.6">
+                        <span>2.6 Pets on board Vessels</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>It is the policy of the Company that no pets (dogs, cats, parrots, etc) will be carried on board our vessels.</p>
+               
+                    </div>
+                </div>
+
+                <!-- 13.7 Security Incident Response -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.7">
+                        <span>2.7 Data Protection Policy </span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>RMS has a strict Data Protection Policy under which rights of crew members and obligations of the company, with respect to privacy and personal information processing and protection are clearly established. The personal data processed has a limited risk to the privacy of the individual. Personal information collected is for the purpose of ensuring effectiveness of our work and for submissions to comply with international travel and certification requirements.</p>
+                  <p>See Main Manual Appendix 10 for the detailed policy and the Annex A to be filled and signed by custodians of personal data.</p>
+                
+                    </div>
+                </div>
+
+                <!-- 13.8 Application Error Logging and Monitoring -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="13.8">
+                        <span>2.8 Social Media Policy </span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                        RMS has a very strict Social Media Policy to which all individuals working at all levels on board the Company vessels must always comply in order to safeguard the Company’s reputation. This policy describes the restrictions on the use of Social Media during work and non-work hours, on Company supplied or personal devices such as laptop computers and/or cellular smart phones.
+                        <br><br>
+                        The Company recognizes the value of social media and expects all staff to use these tools responsibly.
+                        <br>
+                        RMS also prohibits carrying and use of personal devices to the place of work while on duty
+                        <br><br>
+                        See Main Manual Appendix 11 for the detailed policy.
+                    </p>
+                    </div>
+                </div>
+  
+            </div>
+            <!-- End of Chapter 13 Content -->
+        </div>
+        <!-- End of Accordion Chapter 13 -->
+
+        
+        <!-- Start of Accordion Structure for Chapter 14 -->
+        <div class="accordion-container">
+            <!-- Chapter 14 Header -->
+            <button class="accordion-header" id="chapter-14-header" data-chapter="14">
+                <span>Chapter 6: Resources and Personnel</span>
+            </button>
+            
+           
+            <!-- Chapter 14 Content - Container for Sub-Topics (Scrollable) -->
+            <div class="accordion-content" id="chapter-14-content" data-chapter="14">
+
+                <!-- 14.1 Continuous Integration (CI) Practices -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="14.1">
+                        <span>6.1 Familiarization and Basic Training </span>
+                    </button>
+                    <div class="accordion-content">
+                        <ul>
+                                <li style="font-weight: normal;">Whenever practicable, RMS will reappoint sea personnel to similar types of vessels. </li>
+                                <li style="font-weight: normal;">Before being assigned to shipboard duties, all seafarers should have received approved familiarization
+training in personal survival techniques as required by STCW’95, Section A-VI/1.</li>
+<li style="font-weight: normal;">This familiarization to be undertaken by means of verbal instruction, written materials and visual/practical operations. These requirements are to be documented on the relevant checklists
+to be found in the QSMS-checklists/standing instructions/QSMS forms.</li>
+<li style="font-weight: normal;">Prior departure of the vessel the newly joined crew member must demonstrate his knowledge in elementary safety matters.</li>
+<p>References to be made to STCW’95 section A-VI/1</p>
+<li style="font-weight: normal;">Masters are required to ensure that new joining crewmembers are allotted reasonable time and opportunity to become familiar with the vessel and acquainted with their job responsibilities.
+It is recommended that a knowledgeable crewmember is designated to be responsible for ensuring that each newly employed seafarer receives essential information in a language
+the seafarer understands.</li>
+                            </ul>
+                            <p>
+                                References to be made to regulation I/14 of the STCW convention, or as amended.
+                            </p>
+                    </div>
+                </div>
+
+               
+<!-- 14.2 Continuous Delivery (CD) Pipelines -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="14.2">
+                        <span>6.1.1 Responsibility of Reefership Marine Services LLC for sea going personnel </span>
+                    </button>
+                    <div class="accordion-content">
+                     <ul>
+                             <li style="font-weight: normal;">That the vessel is manned with qualified, certificated and medically fit seafarers in accordance with national and international requirements.</li>
+                                <li style="font-weight: normal;">That the ship’s complement can effectively co-ordinate their activities in an emergency situation and in performing functions vital to safety and to the prevention or limitation of pollution.</li>
+                            </ul>
+                            <p>
+                                References to be made to regulation I/14 of the STCW convention, or as amended.
+                            </p>
+                    </div>
+                </div>
+
+               
+                <!-- 14.2 Continuous Delivery (CD) Pipelines -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="14.2">
+                        <span>6.1.2 Responsibilities of the crewing superintendent and vessel ’s master in relation to new joining crew members</span>
+                    </button>
+                    <div class="accordion-content">
+                        <ol type="a" style="margin-left: 0; padding-left: 20px; font-weight: normal;">
+                                <li>The RMS Crewing Superintendent is to inform the Master of any personnel being appointed to that class of vessel for the first time prior to them coming on board.</li>
+                                <li>Upon boarding each seafarer’s passport and discharge book must be checked by the Master in order to ensure no person below the age of 18 is employed on board his vessel.</li>
+                                <li>The Master should verify each seafarer’s ORIGINAL medical & vaccination, STCW and appropriate competency certificates for validity.</li>
+                                <li>Master is to enquire from all joining seafarers if they were required to pay a fee to the crewing agents for placement. If affirmative, RMS Crewing is to be notified immediately.</li>
+                                <li>The Master should ensure that a suitable period of supervision is provided for when there is any doubt that a newly employed seafarer may be unfamiliar with any aspect of his intended duties.</li>
+                            </ol>
+                    </div>
+                </div>
+
+                <!-- 14.3 Automated Testing in the Pipeline -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="14.3">
+                        <span>6.1.3 Responsibility of the “new” (first time) joining crew member </span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Seafarers who are newly assigned to a ship should take full advantage of every opportunity provided to become familiar with equipment and operating procedures, which are essential for the proper performance of their duties.</p>
+                       
+                    </div>
+                </div>
+
+                <!-- 14.4 Deployment Strategies (Blue/Green, Canary) -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="14.4">
+                        <span>6.1.4 Rest periods/fitness for duty and record of these periods</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                                RMS fleet personnel are to be given adequate rest periods to ensure fitness for watchkeeping duties. Requirements of ILO Maritime Labour Convention (MLC 2006) are to be complied with. Refer QSMS Check list “Shipboard Working Arrangements”.
+                            </p>
+                            <p>
+                                Watch schedules and Shipboard Working Arrangements are to be posted where they are easily accessible.
+                            </p>
+                            <p>
+                                The Master is to maintain a record on a monthly basis of all Rest Periods for all crew assigned to the vessel, including his own. See QSMS: checklists/standing instructions (Rest Hour Record # 48). This record is to be endorsed by the Master and a copy given to the seafarer. For retention period of these records see Ch. 11.9
+                            </p>
+                            <p>
+                                The minimum periods of rest may be overridden for emergencies, but related practice drills must allow for compensatory rest as necessary.
+                            </p>
+                            <p>
+                                Master and senior department heads should always be wary of crew fatigue and its consequences and take timely measures to avoid the same in the crew and themselves.
+                            </p>
+                    </div>
+                </div>
+
+                <!-- 14.5 Version Control and Branching Models -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="14.5">
+                        <span>6.1.5 Review of work & rest hour records, corrective measures</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                                The monthly data file (from Work Rest Hours application) for all ship's crew is updated on a daily basis in the Ship's Manager.
+                            </p>
+                            <p>
+                                Master and Chief Engineer are to monitor the records for violations of rest hour periods on a regular basis, provide a feedback to respective DVMs and Crewing on corrective actions taken to correct persistent or occasional violations, and document same.
+                            </p>
+                            <p>
+                                An annual review of Work & Rest Hour records, and corrective measures implemented is to be reported in the Master’s Review as specified in that report.
+                            </p>
+                    </div>
+                </div>
+                
+                <!-- 14.6 Environment Management -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="14.6">
+                        <span>6.1.6 Safety familiarization (Officers and Ratings) </span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                                All crewmembers must complete the Safety Familiarization Form, apply their signatures and be prepared to respond to questions.
+                            </p>
+                            <p>
+                                If there are any doubts about the questionnaire, the crewmember to contact the department heads immediately. <strong style="color: red;">This is to be done prior to vessel’s departure from the Port.
+                            </strong></p>
+                    </div>
+                </div>
+    
+                
+            </div>
+            <!-- End of Chapter 14 Content -->
+        </div>
+        <!-- End of Accordion Chapter 14 -->
+        
+      <!-- START OF NEW ACCORDION STRUCTURE FOR CHAPTER 15 -->
+        
+      <!-- Start of Accordion Structure for Chapter 14 -->
+        <div class="accordion-container">
+            <!-- Chapter 14 Header -->
+            <button class="accordion-header" id="chapter-14-header" data-chapter="14">
+                <span>Chapter 7: Shipboard Operations</span>
+            </button>
+            
+            <!-- Chapter 14 Content - Container for Sub-Topics (Scrollable) -->
+            <div class="accordion-content" id="chapter-14-content" data-chapter="14">
+
+         
+      
+                <!-- 15.1 Test Planning and Design -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.1">
+                        <span>7.4.1 Bridge Resource Management</span>
+                    </button>
+                    
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <p>An effective bridge organization will include procedures that:</p>
+                            <ul>
+                                <li>Consider unforeseen events which may develop into a serious and difficult situation.</li>
+                                <li>Require the skills, abilities, and effective communication of all bridge team members.</li>
+                                <li>Eliminate the risk that an error on the part of one person may result in a disastrous situation.</li>
+                                <li>Emphasize the necessity to maintain a good visual lookout and to carry out collision avoidance routines.</li>
+                                <li>Encourage the use of all means of establishing the ship’s position so that in the case of one method becoming unreliable others are immediately available.</li>
+                                <li>Make use of passage planning and navigational systems which allow continuous monitoring and detection of deviation from the track when in coastal waters.</li>
+                                <li>Ensure that all instrument errors are known and correctly applied.</li>
+                            </ul>
+                            <p>These procedures can only be achieved by each member of the bridge team realizing that he has a vital part to play in the safe navigation of the ship and that safety depends upon all personnel playing their part to the utmost of their ability.</p>
+                            <p>Each team member must appreciate that the safety of the ship should never depend upon the decision of ONE person only. All decisions and orders should be carefully checked. Junior team members must never hesitate to question a decision made by a senior member if they consider that decision is not in the best interests of the ship.</p>
+                            <p>The watch Officer has responsibility for his watch but must rely upon the assistance of the lookout and or the helmsman. He must ensure that the orders are correctly followed. Calling the Master to the bridge will not automatically transfer the conn from the watch officer to the Master. Until such time as the Master declares that he has taken the conn, the watch officer must still carry out his duties as he was prior to the Masters arrival. Once the Master has taken the conn and event logged, then the watch officer moves into a supportive role.</p>
+                            <p>The Master controls the movements and navigates the vessel in accordance with the rules of the road and recommended traffic schemes. The watch officer continues to report relevant information to the Master, ensuring that such information is acknowledged. He will fix the own vessel, advise the position and other information, record all required entries in the logbook, and perform other duties as required by the Master.</p>
+                            <p>Navigation in confined waters carries extreme risks such as:</p>
+                            <ul>
+                                <li>Grounding</li>
+                                <li>Collision and contact with other ships, floating and fixed objects</li>
+                                <li>Damage to the marine environment</li>
+                            </ul>
+                            <p>These risks can be minimized if the Master operates proper BRM because it focuses on the use and co-operation of all the skills and resources available to the bridge team to achieve goals of:</p>
+                            <ul>
+                                <li>Safety and efficiency</li>
+                            </ul>
+                            <p>It requires delegation of tasks. To avoid any uncertainty or irregularity which could have a disastrous result:</p>
+                            <ul>
+                                <li>The task should be clearly defined</li>
+                                <li>Navigation maneuvers must be monitored</li>
+                                <li>Information should be clearly confirmed by the recipient</li>
+                                <li>Continuous progress reporting is required</li>
+                            </ul>
+                    <!-- Sub-sub-topic 7.4.1.(a) Safe Navigation -->
+
+                                
+                                    <span class="topic-number">7.4.1.(a)</span>
+                                    <span class="topic-title">Safe Navigation</span>
+
+
+                                    <p>The safe navigation of the vessel is of the utmost importance and the safety of the vessel, cargo and the lives of all onboard is always to be considered the primary duty of the Master. The International Chamber of Shipping (ICS) “Bridge Procedures Guide” is to be fully consulted.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(b) Passage Plan -->
+
+                                
+                                    <span class="topic-number">7.4.1.(b)</span>
+                                    <span class="topic-title">Passage Plan</span>
+
+
+                                    <p>It has been adequately demonstrated that failure to prepare a detailed Passage Plan from Berth to Berth can have disastrous consequences. The Master is responsible for the development of the plan for the intended voyage, and continuous monitoring of the vessel’s progress and position during execution of the plan is of essential importance for safety of life at sea, safety and efficiency of navigation and protection of the marine environment.</p>
+                                    <p>There are several factors that may impede the safe navigation of the vessel. These factors will need to be considered in the preparation of the plan and in the subsequent monitoring of the execution of the plan.</p>
+                                    <p>Passage planning includes appraisal, i.e. gathering all information relevant to the contemplated voyage. Based on the fullest possible appraisal a detailed passage plan shall be prepared which shall cover the entire voyage from berth to berth, including those areas necessitating the presence of a pilot, execution of the plan, and monitoring of the progress of the vessel.</p>
+                                    <p>The Master shall plan the voyage to avoid potentially severe weather and sea conditions. In cases where severe weather and sea conditions are unavoidable, master should be conscious of the need to reduce speed and / or alter courses at an early stage to minimize the forces imposed on the vessel, its cargo, and securing.</p>
+                                    <p>Master to refer to publications (such as Ocean Passage, Pilot Books, Tide Tables, light lists, lists of radio signals, appropriate scale, accurate and up-dated charts, Notice to Mariners, Ship’s routing system, Routing Charts, Recommendations from weather routing, etc.) at his disposal.</p>
+                                    <p>And you should consider:</p>
+                                    <ul>
+                                        <li>Condition and state of the vessel, stability, equipment operational limitation, draft, maneuvering data including any restrictions.</li>
+                                        <li>Special characteristics of the cargo, distribution, stowage and securing.</li>
+                                        <li>Provision for the competent and well-rested crew to undertake the voyage.</li>
+                                        <li>Up to date certificates and documents concerning the vessel, its equipment, crew, or cargo.</li>
+                                        <li>Pre-set courses with enough and safe shore clearance – only safe transit lanes should be used for passage.</li>
+                                        <li>Traffic Separation scheme /traffic lines and recommended routes.</li>
+                                        <li>Method and frequency of position fixing include primary and secondary options.</li>
+                                        <li>Safe speed and minimum distances regarding proximity of navigational hazards along the route.</li>
+                                        <li>NO GO areas, and areas to be avoided.</li>
+                                        <li>Danger evaluation between waypoints.</li>
+                                        <li>Speed alterations in route, e.g. where there may be limitations because of night passage, tidal restrictions or due to squat or heel effect when turning etc.</li>
+                                        <li>Positions where pilot embarkation /disembarkation or change in machinery status.</li>
+                                        <li>Areas of high traffic density.</li>
+                                        <li>Prevailing tides, currents, and weather conditions be expected.</li>
+                                        <li>Enough water depths.</li>
+                                        <li>Underwater obstacles.</li>
+                                        <li>Ship’s routing and traffic separation schemes.</li>
+                                        <li>Shore traffic control reporting points.</li>
+                                        <li>Communication channels.</li>
+                                        <li>Any regulations applicable to the waters to be navigated.</li>
+                                        <li>Environmental and marine protected areas.</li>
+                                        <li>Contingency plan for the port of refuge or safe anchorage in the event of any emergencies.</li>
+                                    </ul>
+                                    <p>The passage plan is to be agreed and signed by all officers of the watch and finally approved by the master before the commencement of the voyage to eliminate the risk that an error by one person could result in a dangerous situation.</p>
+                                    <p>If a Pilot is to be used, information relating to pilotage (Pilotage Passage Plan) and embarkation, disembarkation including the exchange of information between Master and Pilot to be agreed upon.</p>
+                                    <p>The Master to ensure that all navigation aids including communication devices are available, the ship propulsion and steering system are fully operational, and their operation and handling are fully understood by the officers in charge of the watch.</p>
+                                    <p>On the time of departure, when estimated time of arrival can be determined with reasonable accuracy, the voyage plan should be executed in accordance with the plan.</p>
+                                    <p>Factors that should be considered when executing the plan.</p>
+                                    <ul>
+                                        <li>Estimated time of arrival at critical points for tide heights.</li>
+                                        <li>Meteorological conditions as well as weather routing information’s.</li>
+                                        <li>Daytime versus nighttime passing of dangerous points, and any effect this may have on position fixing accuracy.</li>
+                                        <li>Traffic conditions, especially at navigational focal points.</li>
+                                    </ul>
+                                    <p>The Master shall also consider at which specific point of the voyage there may be a need to utilize additional deck or engine room personnel.</p>
+                                    <p>The progress of the vessel in accordance with the passage plan should be closely and continuously monitored. Any changes made to the plan should be made consistent with these guidelines and clearly marked and recorded.</p>
+                                    <p>Please also refer to the Key procedures/standing instructions, i.e.:</p>
+                                    <ul>
+                                        <li>Appraisal and checklist for passage planning.</li>
+                                        <li>Bridge pre arrival/departure.</li>
+                                        <li>Navigating in coastal and Congested Waters.</li>
+                                        <li>Navigation under pilotage.</li>
+                                        <li>Heavy weather navigation.</li>
+                                        <li>Navigation in restricted visibility.</li>
+                                        <li>Navigation in Ice.</li>
+                                        <li>Taking over sea watch.</li>
+                                        <li>Information given/received from pilot.</li>
+                                    </ul>
+                                    <p>See checklist and IMO Resolution A 893 (21)</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(c) UNDERKEEL CLEARANCE (UKC) -->
+
+                                
+                                    <span class="topic-number">7.4.1.(c)</span>
+                                    <span class="topic-title">Underkeel Clearance (UKC)</span>
+
+
+                                    <p>At all times (in open sea, in port approaches and while the vessels are alongside) UKC must be commensurate with conditions and where appropriate with Pilots advice. When planning passages and considering UKC the following elements should be taken into consideration:</p>
+                                    <ul>
+                                        <li>The predicted height of tide.</li>
+                                        <li>Changes in the predicted tidal height, which caused by wind speed, its direction and high or low barometric pressure.</li>
+                                        <li>Nature and stability of the bottom- i.e., sand waves, siltation etc.</li>
+                                        <li>Accuracy of Hydrographic data (Including CATZOC), a note as to reliability is often included on charts.</li>
+                                        <li>Change of water density and the increase in draft due to freshwater allowance.</li>
+                                        <li>The vessels size and handling characteristics and increase in draft due to heel.</li>
+                                        <li>Wave response allowance and swells, which is the vertical displacement of the hull due to heave, roll and pitch movements (wave heights divided by 2 and deducted from water depth for UKC calculations).</li>
+                                        <li>The reliability of draft observations and calculations, including estimates of hogging and sagging.</li>
+                                        <li>Reduced depth over obstructions.</li>
+                                        <li>SQUAT- When considering UKC this should always be inclusive of Squat. Ship’s Squat is taken into consideration especially, in confined/Shallow waters, such as canals, rivers, port entry etc.</li>
+                                    </ul>
+                                    <p><strong>Open Sea Passage</strong></p>
+                                    <p>The depth contours of more than twenty meters outside port limits/sea buoys is considered as open water. In open sea passage, the minimum UKC must be at least 50% of the current maximum static draft.</p>
+                                    <p><strong>Coastal waters and within port limits</strong></p>
+                                    <p>The depth contours of less than 20 meters shall be considered as coastal waters. In costal water and within port limits the UKC will be at least 10% of the current maximum static draft. * If Port/Local Coast Guard/Pilot recommended UKC is more than the above then vessels must comply with Port/local Coast Guard/Pilot recommended UKC.</p>
+                                    <p><strong>UKC at Berth</strong></p>
+                                    <p>The minimum UKC must be 1.5/100 to the breath of the vessel. But never less than 30 cm at any time (* Value should also be considering momentarily sinkage due to Listing moment.)</p>
+                                    <p><strong>Anchorage</strong></p>
+                                    <p>The minimal Under Keel Clearance: in calm weather and smooth seas condition, the UKC should be at least 20% of maximum vessel's draft in loaded condition.</p>
+                                    <p>The master will immediately contact the operations department if the above requirements cannot be met.</p>
+                                    <p><strong>Minimum Upper Clearance</strong></p>
+                                    <p>The minimum overhead clearance while passing vertical obstructions (bridges over head cables) must be at least 2 meters.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(d) Rules of the Road -->
+
+                                
+                                    <span class="topic-number">7.4.1.(d)</span>
+                                    <span class="topic-title">Rules of the Road</span>
+
+
+                                    <p>The Master shall assure himself that all Mates are thoroughly familiar with the Inland and International Regulations for the Prevention of Collision at Sea, and he should exercise strict supervision to see that the vessel is handled in accordance with these rules.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(e) Courses -->
+
+                                
+                                    <span class="topic-number">7.4.1.(e)</span>
+                                    <span class="topic-title">Courses</span>
+
+
+                                    <p>The Master must always take the most direct safe track to his destination, taking into consideration such factors as weather, ocean currents, and tidal streams and to this end, will utilize such publications as are available to him. e.g., Ocean Passages of the World and sailing directions, pilot charts, etc.</p>
+                                    <p>Where possible, a wide berth should be given to all navigational hazards, such as rocks, reefs, wrecks, shallow water and any poorly charted areas.</p>
+                                    <p>When passing a vessel at sea on parallel courses and when sufficient sea room permits, a minimum safe distance of one mile must be maintained. Safe distances must always be maintained from headlands, capes and the coastline.</p>
+
+                            
+                            
+                            <!-- Sub-sub-topic 7.4.1.(f) Observations -->
+
+                                
+                                    <span class="topic-number">7.4.1.(f)</span>
+                                    <span class="topic-title">Observations</span>
+
+
+                                    <p>All Deck Officers must take an active part in the navigation of the vessel and shall take stellar observations as the Master requires and voluntarily offer relevant information to the Master.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(g) Pilotage -->
+
+                                
+                                    <span class="topic-number">7.4.1.(g)</span>
+                                    <span class="topic-title">Pilotage</span>
+
+
+                                    <p>Despite the duties and obligations of a Pilot, his presence onboard does not relieve the Master or Officer in charge of the watch from their responsibilities for the safety of the ship.</p>
+                                    <p>The Pilot only offering advises to the Master, the latter always being in command of his Vessel.</p>
+                                    <p>Prior to commencement of the Pilotage the Master should:</p>
+                                    <ul>
+                                        <li>Provide the Pilot with all relevant information concerning vessel’s maneuverability and duly filled Pilot Card.</li>
+                                        <li>Inform Pilot if there are any maneuvering peculiarities including critical engine revolutions.</li>
+                                        <li>Pilot Passage Plan including maneuvers and exchange of information(s) regarding the complete transit is agreed between the Master, his officers, and the Pilot, prior to departure from Pilot Boarding area or Berth.</li>
+                                        <li>Inform the OoW if there are any changes in the Passage Plan.</li>
+                                        <li>See Checklists.</li>
+                                    </ul>
+                                    <p>During the Pilotage, to always be aware of the situation, the Master should:</p>
+                                    <ul>
+                                        <li>Assure that each Officer is at his post, ready to carry out an instruction promptly.</li>
+                                        <li>Assure that the officer of the Watch closely monitors the navigation, keeping a careful check of the vessel’s position. Bearings must continue to be taken and plotted on the chart.</li>
+                                        <li>Assure that the Pilot is given any assistance, which they may require and should always be given courteous consideration.</li>
+                                        <li>Assure that OoW voluntarily offers relevant information to the Master and Pilot.</li>
+                                    </ul>
+                                    <p>The Master should not hesitate to question the Pilot’s action or overrule the Pilot’s decision. If there is any indication of a problem, he should take immediate and appropriate action to safely navigate and maneuver the ship if he is in any doubt about the Pilot’s capability.</p>
+                                    <p><strong>THE MASTER AND THE OFFICER ON WATCH SHOULD NOT FORGET THAT THE BOARDING OF A PILOT IS NOT THE TIME TO RELAX BUT TO BECOME MOST VIGILANT (See Checklist)</strong></p>
+
+                            
+                            
+                            <!-- Sub-sub-topic 7.4.1.(h) Complaints against Pilots (Revised from second 7.4.1.(g)) -->
+
+                                
+                                    <span class="topic-number">7.4.1.(h)</span>
+                                    <span class="topic-title">Complaints against Pilots</span>
+
+
+                                    <p>Complaints against pilots or pilotage services should be made in writing to the authority for the area concerned. Complaints should be brief, formal, and courteous and a copy of the report must be sent to RMS.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(i) Bearings -->
+
+                                
+                                    <span class="topic-number">7.4.1.(i)</span>
+                                    <span class="topic-title">Bearings</span>
+
+
+                                    <p>The three- figure notation shall be used in recording all courses and bearings in the Deck Logbook. All bearings are to be entered as “True Bearings” and when reference is made to lights, buoys, beacons, etc., where necessary the latitude and longitude shall be given in addition to the bearings. All bearings taken by radar for verifying or for establishing the ship’s position shall be entered in the appropriate records.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(j) Radar -->
+
+                                
+                                    <span class="topic-number">7.4.1.(j)</span>
+                                    <span class="topic-title">Radar</span>
+
+
+                                    <p>The officer of the Watch should use the radar when appropriate and whenever restricted visibility is encountered or expected and at all times in congested waters having due regard to its limitations.</p>
+                                    <p>Whenever radar is in use, the Officer of the Watch should select an appropriate range scale, observe the display carefully and plot effectively.</p>
+                                    <p>The Officer of the Watch should ensure that the range of scales employed are changed at sufficiently frequent intervals so that echoes are detected as early as possible and that small or poor echoes do not escape detection.</p>
+                                    <p>The Officer of the Watch should ensure that plotting or systematic analysis commences in ample time, remembering that sufficient time can be made available by reducing speed if necessary.</p>
+                                    <p>In clear weather, whenever possible, the Officer of the Watch should carry out radar plotting practice.</p>
+                                    <p><strong>Radar Log</strong></p>
+                                    <p>The Radar Log should be carefully compiled according to its instructions. It must be remembered that in the case of accidents the Radar Log may be a vital document, and it is important that all relevant details be accurately and promptly entered.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(k) Soundings -->
+
+                                
+                                    <span class="topic-number">7.4.1.(k)</span>
+                                    <span class="topic-title">Soundings</span>
+
+
+                                    <p>Whenever the ship’s position is established or verified by sounding, the fact should be noted in the Deck Logbook. Soundings taken by echo-soundings devices should be frequently compared to the chart. Consider total changes in Rivers / Estuaries.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(l) Navigation Lights -->
+
+                                
+                                    <span class="topic-number">7.4.1.(l)</span>
+                                    <span class="topic-title">Navigation Lights</span>
+
+
+                                    <p>At sea, navigation lights shall be visually signed daily in ample time for any defects to be remedied before sunset. Prior to arrival in pilotage waters, and before leaving harbor, a similar visual inspection should be made and particular attention paid to all portable lights, such as N.U.C., anchor signal and side lights. Navigation lights to be maintained “on” from SBE to FWE.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(m) Reporting of Navigation Lights -->
+
+                                
+                                    <span class="topic-number">7.4.1.(m)</span>
+                                    <span class="topic-title">Reporting of Navigation Lights</span>
+
+
+                                    <p>If the alarm for the navigation lights sounds the Officer on duty should immediately change to the spare light and make an entry in the Deck Logbook. He should report the incident to the Master at the first opportunity. In addition, the Officer of the Watch shall personally satisfy himself regularly that they are showing efficiently and at full brilliance.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(n) Look-Out -->
+
+                                
+                                    <span class="topic-number">7.4.1.(n)</span>
+                                    <span class="topic-title">Look-Out</span>
+
+
+                                    <p>Every ship shall always maintain a proper look-out by sight and hearing as well by all available means appropriate in the prevailing circumstances and conditions so as to make a full appraisal of the situation and of the risk of collision, stranding and other hazards to navigation. Additionally, the duties of the look-out shall include the sighting of ships or aircraft in distress, shipwrecked persons, wrecks and debris.</p>
+                                    <p>In applying these principles, the following shall be observed:</p>
+                                    <ol type="a">
+                                        <li>Both the OoW and the designated A.B are regarded as look–out. Whichever is keeping a look-out must be able to give full attention to that task and no duties shall be assigned or undertaken which would interfere with the keeping of a proper look-out.</li>
+                                        <li>The duties of the person on look-out and helmsman are separate, and the helmsman should not be considered the person on look-out while steering, and.</li>
+                                        <li>There may be circumstances in which the Officer of the Watch can safely be the sole lookout in daylight. However, this practice shall only be followed the situation has been carefully assessed on each occasion and it has been established without doubt that it is safe to do so. Full account shall be taken of all relevant factors including but not limited to the state of weather, conditions of visibility, traffic density, proximity of navigational hazards and if navigating in or near a traffic separation scheme.</li>
+                                    </ol>
+                                    <p>Means of communication between OoW and assigned AB should be established.</p>
+                                    <p>The BNWAS must always be active during navigation at sea (Refer 7.4.1. (w)).</p>
+                                    <p>A lookout should always be posted during hours of darkness.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(o) Maneuvering Equipment -->
+
+                                
+                                    <span class="topic-number">7.4.1.(o)</span>
+                                    <span class="topic-title">Maneuvering Equipment</span>
+
+
+                                    <p>All navigational maneuvering equipment, such as telemeter and steering gear, engine room telegraphs, telephone, whistles, etc., shall be thoroughly tested at least one hour before entering pilotage waters or leaving harbor. At all times during maneuvering two steering motors shall be used. Clocks shall also be synchronized. The closest cooperation between the Deck and Engine Department is required in this matter and on completion of these tests, an appropriate entry shall be made in both Deck and Engine Logbooks. USCG Regulations require specific entries as detailed in the Code of Federal Regulations.</p>
+                                    <p>See Checklist.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(p) Compass Errors -->
+
+                                
+                                    <span class="topic-number">7.4.1.(p)</span>
+                                    <span class="topic-title">Compass Errors</span>
+
+
+                                    <p>When the weather permits the error of both the magnetic and gyrocompasses should be ascertained at least once during every watch. A comparison shall be made between Standard Steering and Gyro Compasses at the commencement of each watch whenever an alteration of course is made and frequently during the watch. The results of compass observations shall be entered in the Compass Observation Record Book.</p>
+                                    <p><strong>Magnetic Compasses</strong></p>
+                                    <p>Although the Company’s ships are fitted with Gyrocompasses, it is essential that the Magnetic compasses are maintained in an efficient condition.</p>
+                                    <p><strong>Calibration & Compass Deviation Curves</strong></p>
+                                    <p>It is RMS policy to have magnetic compasses calibrated by professional adjusters. This should normally take place after dry-docking. Should it not be possible to carry out the services on sailing from dry-docking port (because of departure during the dark hours or poor visibility, etc.), the compasses should be adjusted at the first port where conditions are suitable and service available. Should a Master consider magnetic compasses require adjustment at a time other than following a dry-docking (see below), he should advise RMS stating his reasons.</p>
+                                    <p>The Deviation Curve is to be drawn up by the Master at least once each year, or when deviations recorded in the Compass Observation Record Book indicate they are far off the normal when compared with the previous curve. It should be noted that it is not abnormal for deviations to vary by up to two degrees over time from last “adjustment” of the compass depending on time elapsed, number of crossings between northern and southern hemispheres, or the condition of loading of the vessel. If deviations exceed 5 degrees from the last adjusted curve, a professional compass adjuster’s service may be necessary.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(q) Master’s Night Order Book -->
+
+                                
+                                    <span class="topic-number">7.4.1.(q)</span>
+                                    <span class="topic-title">Master’s Night Order Book</span>
+
+
+                                    <p>The Master’s Night Order Book shall contain specific instructions for the safe navigation of the ship during the hours of darkness. The orders shall be signed by each when taking over the watch.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(r) Bridge Watch -->
+
+                                
+                                    <span class="topic-number">7.4.1.(r)</span>
+                                    <span class="topic-title">Bridge Watch</span>
+
+
+                                    <p>At sea, the Bridge is never to be left without a responsible Officer of the Watch being in charge. (See Checklist)</p>
+                                    <p>During hours of darkness there should always be an OoW and a lookout posted.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(s) Bell Record Book -->
+
+                                
+                                    <span class="topic-number">7.4.1.(s)</span>
+                                    <span class="topic-title">Bell Record Book</span>
+
+
+                                    <p>Except for vessels fitted with an operating bell logger, the Deck Department and Engine Department will maintain a Bell Record Book, in which will be entered all Engine Orders transmitted to the engine room. The Officer may make entries in the Bell Book, which he must also sign. Incorrect entries in the Bell Book are not to be erased but must be rectified by drawing a line through the incorrect entry with the correct entry made alongside. Both the incorrect and corrected entries are to be initialized.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(t) Noon Position Chits -->
+
+                                
+                                    <span class="topic-number">7.4.1.(t)</span>
+                                    <span class="topic-title">Noon Position Chits</span>
+
+
+                                    <p>All sections on the noon position chit must be complete and all entries recorded in the Log Book.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(u) Man Overboard -->
+
+                                
+                                    <span class="topic-number">7.4.1.(u)</span>
+                                    <span class="topic-title">Man Overboard</span>
+
+
+                                    <p>The vessel is always required to search for a man overboard even though there would appear to be no chance of finding him. The Master must be convinced that the seaman cannot be found before the vessel returns to the original course. The Master is to advise RMS with a comprehensive report soonest after the search for the seaman has been abandoned. In the first port, the Master is to mail to RMS a complete report with all the logbook extracts pertinent to the loss of the seaman.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(v) GMDSS Equipment -->
+
+                                
+                                    <span class="topic-number">7.4.1.(v)</span>
+                                    <span class="topic-title">GMDSS Equipment</span>
+
+
+                                    <p>GMDSS is mandatory for all Deck Officers. However, the Master is to ensure that all Deck Officers are fully conversant with the operation of all equipment and the various procedures laid down for Safety Distress.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(w) Bridge Manning -->
+
+                                
+                                    <span class="topic-number">7.4.1.(w)</span>
+                                    <span class="topic-title">Bridge Manning</span>
+
+
+                                    <p>Depending on prevailing factors at each time the Master must apply his sound judgment to ensure that all/additional help is in hand to safeguard the situation....</p>
+                                    <ul>
+                                        <li>Setting double watches whenever circumstances require.</li>
+                                        <li>Precise instruction.</li>
+                                        <li>Posting look-out.</li>
+                                        <li>Manning the wheel.</li>
+                                        <li>Precise instruction regarding reducing speed in the event of reduced visibility/Heavy Weather condition.</li>
+                                    </ul>
+                                    <p>There may be situation/conditions where a second officer is required on the bridge to assist the master and the OOW.</p>
+                                    <p>Restricted visibility: Master to be accompanied by OOW, helmsman, and lookout.</p>
+                                    <p>Restricted waters: Master to be accompanied by an OOW, helmsman and eventually lookout.</p>
+                                    <p>Entering leaving ports: Master to be accompanied by an OOW and helmsman. Normally the OOW is the Chief Officer. 2nd or 3rd Officer in charge of Pilot embarkation/disembarkation.</p>
+
+                            
+
+                            <!-- Sub-sub-topic 7.4.1.(x) BNWAS -->
+
+                                
+                                    <span class="topic-number">7.4.1.(x)</span>
+                                    <span class="topic-title">BNWAS</span>
+
+
+                                    <p>The BRIDGE NAVIGATION WATCH ALARM SYSTEM (BNWAS) must always be set on from commencement to end of sea passage.</p>
+                                    <p>Only the Master should have the means to set the timer, activate or deactivate the system.</p>
+                                    <p>Where a key is provided on the panel switch, the switch should be set to AUTO and key tagged and retained in Master’s safe custody. It should be handed over to relieving Masters.</p>
+                                    <p>The BNWAS system should be tested weekly and the test logged.</p>
+                                    <p>Each activation and deactivation of the system should be logged in the Bridge Log Book.</p>
+
+                        </div>
+                </div>
+
+                <!-- 15.2 Functional Testing -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.2">
+                        <span>7.4.2 Navigation in Restricted Visibility</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <p><strong>7.4.2.(a) General (See checklist Navigating in restricted visibility)</strong></p>
+                                                <p>Masters are reminded that in conditions of restricted visibility the ship shall proceed in strict accordance with the International Regulations for preventing collisions at sea. All precautions shall be taken to preserve the safety of the ship. Speed must be reduced as the visibility decreases and always before approaching and entering fog banks.</p>
+                                                <p>When the Master is not on the Bridge, he should make it clear that the Officer of the Watch has full discretion in any doubtful situation, not merely to ring stand-by but to reduce speed and thereafter call the Master. All Officers, particularly inexperienced junior Officers, should be encouraged to call the Master at the first suggestion of real doubt. It should be clear to them that it is in the Master’s own interest to be called, many times, rather than for him not to be called once, when it is too late.</p>
+
+                                                <p><strong>7.4.2.(b) Plotting in Poor Visibility</strong></p>
+                                                <p>Under all circumstances, the navigators must keep running plots of all vessels in the vicinity. In congested waters, Masters must not hesitate to double the navigation watches if deemed necessary to carry out efficient plotting procedures. One anti-collision Radar is to be running at all times from S.B.E (Standby Engines) to F.W.E (Finished with Engines).</p>
+                                                <p>The use of radar, together with the consequential increase in information available to the navigators, in no way relieves the navigators, of their responsibility to adhere strictly to the International Rules for the Prevention of Collision at Sea.</p>
+                                                <p>In reduced visibility or suspected reduced visibility, the Master must consider the information available to him on radar before deciding on any appropriate action. In deciding on the appropriate action, however, the Master must use his discretion and judgment to the fullest, always bearing in mind the wording of the collision regulations. It should be borne in mind that icebergs, wooden ships, tugs and barges may not show up on radar screens as readily as do most types of ships, so that a clear screen does not necessarily mean a clear seaway.</p>
+
+                                                <p><strong>7.4.2.(c) Navigation in:</strong></p>
+                                                <ul>
+                                                    <li>Confined waters</li>
+                                                    <li>Winter/cold weather precautions</li>
+                                                    <li>Sudden loss of maneuverability</li>
+                                                    <li>Navigation under pilotage</li>
+                                                    <li>Reduced visibility</li>
+                                                    <li>Navigation in costal water</li>
+                                                    <li>Heavy weather condition</li>
+                                                    <li>Navigation in ice</li>
+                                                </ul>
+                                                <p>Refer to Standing Instructions and Checklist.</p>
+                                           
+                    </div>
+                </div>
+
+                <!-- 15.3 Non-Functional Testing -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.3">
+                        <span>7.4.3 Sextants</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>
+Each vessel in the fleet is provided with sextants. </li>
+                            <li>The Second Officer is responsible for its safekeeping and maintenance</li>
+                            <li>When repairs and adjustment are required, the instrument is to be landed for prompt attention by a marine optician in order that it may be in good working order at all times.
+Masters should encourage Mates to practice the art of Solar and Stellar navigation.Usability Testing - Evaluating how easy and intuitive the system is to use.</li>
+                            </ul>
+                    </div>
+                </div>
+
+                <!-- 15.4 Test Automation Frameworks -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.4">
+                        <span>7.4.4 Nautical Publications</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>Our Vessels are continuously updated with all relevant nautical publications. The company has established a source in Europe and the USA from where latest listings of all publications
+are received both at RMS and on board the ship. 
+<li>The routine involved requires close co-ordination between RMS, the Master and the Publication Agency</li>
+                             </ul>
+                    </div>
+                </div>
+
+                <!-- 15.5 Defect Management Lifecycle -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.5">
+                        <span>7.4.5 Nautical Agencies</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>For our Vessels calling worldwide ports with the exception of the USA & Japan, the agency contracted for the purpose is Bogerd Martin, Antwerp.
+For Vessels in Far East Trade, shall use "Cornes & Co., Kobe, Japan".</li>
+                            <li>For our Vessels calling ports in the USA, the company contracted for the purpose is HORIZON NAUTICAL, L.A. USA.
+For ENC’s Bogerd Martin.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 15.6 Test Data Management -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.6">
+                        <span>7.4.6 Procedures</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>The scope of publications and charts has been established between the Master and Officer. The Master has been instructed to coordinate directly with the nautical agent covering his area. </li>
+                            <li>Any extraordinary requirement needs approval from the office/QSMS Department. However, the Master must apply sound judgment when ordering any publications.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 15.7 Environment Setup and Configuration -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.7">
+                        <span>7.4.7 Change in Trade / New Port</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li> In case there is a call for a change in trade area or the inclusion of a new port, the Master is to specify, directly to the nautical publications department on the new requirement.</li>
+                            </ul>
+                    </div>
+                </div>
+
+                <!-- 15.8 Exploratory Testing -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.8">
+                        <span>7.4.8 Updates and New Publications</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>The publication company in turn is to forward directly to the Vessel on a monthly basis the list of all new (and new edition) publications, both admiralty and those related to the International Maritime Organization’s requirements via e-mail. The Master is to determine the actual requirement for his Vessel and revert.</li>
+                             </ul>
+                    </div>
+                </div>
+
+                <!-- 15.9 Mobile Application Testing -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.9">
+                        <span>7.4.9 Anchoring and Anchorages</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <p><strong>7.4.9.(a) Anchoring and Anchorages</strong></p>
+                                                <p>When entering harbors or approaching an anchorage, the master shall ensure that both anchors are ready for letting go and walked back to avoid jamming in the hawse pipe.</p>
+                                                <p>Due attention to be paid to the depth, where there are strong currents or other forces to contend. In deep waters, the anchor should be lowered near to the bottom before letting go. Care should be taken to see that the ship has no way on her at the time.</p>
+                                                <p>See checklist</p>
+
+                                                <p><strong>7.4.9.(b) Loss of Anchor or Cable</strong></p>
+                                                <p>If an anchor is lost, the notification, in accordance with the reporting system laid down here in, must state clearly, the circumstances of the loss, the reference number of the lost anchor and the length of cable lost. To avoid loss of an anchor, all Masters/Chief Offices are instructed to make sure, before sailing from a port, that the anchors are properly housed and that the chain is not twisted and the main stopper is in proper working condition. For additional security, it is good seamanship to have a wire strop with a turnbuckle fitted to take care of possible slack between the main stopper and anchor itself, when in the housed position.</p>
+
+                                                <p><strong>7.4.9.(c) Anchor Watches</strong></p>
+                                                <p>Anchor Watches must maintain on the Bridge when the vessel is at anchor. In all circumstances, the Officer of the Watch should:</p>
+                                                <ul>
+                                                    <li>Determine and plot the ship’s position on the appropriate chart as soon as practical and at sufficiently frequent intervals check when circumstances permit, by taking bearings of fixed navigational marks or readily identifiable shore objects, whether the ship is remaining look-out is maintained.</li>
+                                                    <li>Ensure that an efficient look-out is maintained, especially for illicit boarding.</li>
+                                                    <li>Ensure that inspection rounds of the vessel are made periodically by rating on watch.</li>
+                                                    <li>Observe meteorological and tidal conditions and the state of the sea.</li>
+                                                    <li>Notify the Master and undertake all necessary measures if the vessel drags the anchor.</li>
+                                                    <li>Observe closely the position and proximity of other vessels at anchor, noting always the possibility of another vessel dragging her anchor on to own vessel.</li>
+                                                    <li>Ensure that the state of readiness of the main engines and other machinery is in accordance with the Master’s instructions.</li>
+                                                    <li>If visibility deteriorates notify the Master and comply with the applicable regulations for preventing collisions at sea.</li>
+                                                    <li>Ensure that the vessel exhibits the appropriate lights and shapes and that appropriate sound signals are made at all times.</li>
+                                                    <li>Take measures to protect the environment from pollution by the ship and comply with the applicable pollution by the ship and comply with the applicable pollution regulations.</li>
+                                                </ul>
+                                                <p>See Checklist</p>
+                    </div>
+                </div>
+
+                <!-- 15.10 Cloud-Based Testing -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.10">
+                        <span>7.4.10 Pilot Ladders and Mechanical Hoists</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>Pilot ladders, side doors, deck boarding and transfer arrangements are to be maintained in accordance with regulations laid down in SOLAS 1974 & its protocol of 1988 as amended.
+Ref: SOLAS Chapter V Regulation 23 and IMO Resolution A.1045(27)</li>
+                            <li>The periodical inspection and maintenance of the pilot ladder & boarding arrangement must be conducted in accordance with above IMO resolution and PMS and recorded.</li>
+                            <li>“Required Boarding Arrangement for Pilot” Chart in accordance with IMO requirements must be posted on the Bridge..</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 15.11 API Testing -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="15.11">
+                        <span>7.4.11 Employment</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <p><strong>7.4.11.(a) Voyage Instructions</strong></p>
+                                                <p>Vessels will normally receive their voyage instructions (cargo/bunker requirements) from OPNS/TFA San Jose and Master should refer to and comply with OPNS /TFA Ship’s Instruction Manual. In the event your vessel is chartered to a third party, then full instructions will be given by OPNS/TFA and by the time or voyage charters. In case of any doubt or discrepancy regarding voyage and/or cargo instructions, Masters should contact the Operations Director.</p>
+
+                                                <p><strong>7.4.11.(b) Responsibility for Cargo</strong></p>
+                                                <p>The vessel is responsible for cargo from the moment it passes the ship’s rail at the loading port to the time of leaving the ship’s rail in the discharging port. It is, therefore, of utmost importance that all necessary precautions are taken to see that the cargo is delivered at the discharging ports in the same quantity and quality as when received on board. (Refer to separate instructions issued by service operators.</p>
+
+                                                <p><strong>7.4.11.(c) Loading/Discharging</strong></p>
+                                                <p>The stowage, loading and discharging of cargo, as well as the ballasting of the vessel is to be carried out under the supervision of the Chief Officer, who is directly responsible to the Master. In carrying out this responsibility, he shall pay particular attention to the manner in which the Second Officer and Third Officer perform their duties in this connection. He shall enter in the Deck Order Book the necessary instructions pertinent to the handling of cargo to enable his subordinates, stevedores and others concerned, to understand clearly the manner in which cargo is to be handled. He is to ensure that all safety precautions are taken, including precautions against loss or damage</p>
+
+                                                <p><strong>7.4.11.(d) Cargo Securing</strong></p>
+                                                <p>Cargo Securing to be strictly followed in accordance to Vessel Cargo Securing Manual. Cargo lashings must be checked for security at least once, where necessary twice, each day and recorded in the Deck Log Book, along with any observations made during the checks. Due regard is to be given to safety of personnel keeping in mind the weather conditions and vessel movement when sending crew members on deck to check lashings.</p>
+
+                                                <p><strong>7.4.11.(e) Stability and Trim</strong></p>
+                                                <p>Cargo, bunkers, fresh water and stores will be so loaded that the vessel maintains a safe margin of positive stability and suitable trim throughout the voyage. Vessels equipped with loadicators/Computerized Stability Programs must make full use of these instruments at all times, whether loading/transferring or discharging. Should an error be found in the instrumentation/programs, RMS is to be advised immediately.</p>
+
+                                                <p><strong>7.4.11.(f) Cargo Record Book</strong></p>
+                                                <p>The Chief Mate shall keep a written record of all cargoes loaded, discharged and lightened, indicating the amount of cargo carried in each compartment, the amount discharged, the condition of bunker and freshwater tanks, as well as draft and water density figures.</p>
+
+                                                <p><strong>7.4.11.(g) Sounding Record Book</strong></p>
+                                                <p>All non-cargo carrying spaces and bilges to be sounded on a daily basis and findings recorded in a Daily Sounding Book. Should a vessel be in ballast condition, the cargo compartments should also be checked on a daily basis in addition to the non-cargo carrying spaces and a proper notation entered daily in the Deck Log Book/Engine Log Book</p>
+                                            
+                    </div>
+                </div>
+
+                               
+            </div>
+            <!-- End of Chapter 15 Content -->
+        </div>
+        <!-- END OF NEW ACCORDION STRUCTURE FOR CHAPTER 15 -->
+        
+        <!-- START OF NEW ACCORDION STRUCTURE FOR CHAPTER 16 -->
+       
+       <!-- Start of Accordion Structure for Chapter 14 -->
+        <div class="accordion-container">
+            <!-- Chapter 14 Header -->
+            <button class="accordion-header" id="chapter-14-header" data-chapter="14">
+                <span>Chapter 13: Communication </span>
+            </button>
+            
+            <!-- Chapter 14 Content - Container for Sub-Topics (Scrollable) -->
+            <div class="accordion-content" id="chapter-14-content" data-chapter="14">
+       
+
+                <!-- 16.1 Cloud Migration Strategies -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.1">
+                        <span>13.1 Methods of communication </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                             
+  
+     <li>Instructions for communicating with the RMS/OPNS/TFEL office can be found in the Ship’s </li> 
+     <li>Instruction Manual, which also contains instructions regarding routine reporting, such as PR  
+     messages.</li>
+</ul>
+                    </div>
+                </div>
+
+                <!-- 16.2 Modernizing Data Infrastructure -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.2">
+                        <span>13.2 Vessel Mailbox  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>The Vessel Mailbox (Vessel.Mailbox@dole.com) is the prime route for ALL communications  
+     to and from the ship. </li>
+     
+     <li>The vessel mailbox is accessed by a number of people in the office who  
+     have a direct interest in the operation of the ship.  </li>
+       
+     <li>Since the Vessel Mailbox can be accessed from outside the office,  all messages should be  
+     addressed as follows:  <br> 
+       
+     •     Every communication from ships regarding management issues shall ALWAYS be sent  
+           directly to the DVM responsible for the ship with copies to the office’s Vessel Mailbox  
+           and to the others concerned such as crewing, purchasing or accounting personnel.  
+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 16.3 AI/ML Integration Roadmap -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.3">
+                        <span>13.3           Language</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li> Communications are to be conducted in English.  
+</li>
+                             </ul>
+                    </div>
+                </div>
+
+                <!-- 16.4 New Security Paradigms (Zero Trust) -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.4">
+                        <span>13.4           Shipboard Addressee</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>  All messages to and from the ship will sent via the Master</li>
+                             </ul>
+                    </div>
+                </div>
+
+                <!-- 16.5 Sustainability and Efficiency Goals -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.5">
+                        <span>13.4.1 Cash to Master Message Type (CTM)  to  Crewing Superintendent originating from vessel </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <p><strong>Message format example</strong></p>
+ <ul>                                            
+<p><strong>(CTM1)</strong><br>
+A. USD 15000.00<br>
+B. United States Dollars Fifteen Thousand only<br>
+C. LIVORNO 14 July 96/601<br>
+D. Capt. XYZ.<br>
+E. Z 214452.<br>
+F. Indian.<br>
+G. $100 x 150= $15,000<br>
+  </ul>                                          
+                                                <ul>
+                                                <p><strong>Explanation:</strong><br>
+                                                Cash to Master received (CTM)<br>
+                                                    A. Quantity of cash received in figures.<br>
+                                                    B. Quantity of cash received in words.<br>
+                                                    C. Port with day, month, year where cash received/Voyage number.<br>
+                                                    D. Name of Master.<br>
+                                                    E. Passport No.<br>
+                                                    F. Nationality.<br>
+                                                    G. Denominations required<br>
+                                                </ul>
+                    </div>
+                </div>
+                
+                <!-- 16.6 Edge Computing Integration -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.6">
+                        <span>13.5          Crewing Messages Type: (CRW) </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li> As crewing on board our vessels is a major area of operation and importance, Masters are  
+     hereby  instructed  to  send  all  messages  related  to  Crewing  under  Header  Message  Type:  
+     (CRW) to Vessel Operations/Crewing Superintendent.   
+</li>
+                            </ul>
+                    </div>
+                </div>
+
+                <!-- 16.7 Serverless Architecture Adoption -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.7">
+                        <span>13.5.1        CRW Message Range  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <p>These are to include:</p>
+                                                <p>(CRW) - Crewing Message Type</p>
+                                                <ul>
+                                                    <li>Requests for joining/relieves. (Including Port and ETA/ETD of Vessel).</li>
+                                                    <li>Repatriation information.</li>
+                                                    <li>Contracts/Evaluation reports.</li>
+                                                    <li>Wage accounts.</li>
+                                                    <li>Allotments.</li>
+                                                    <li>Sick Journal Reports.</li>
+                                                    <li>Licenses and other mandatory (STCW’95) documents.</li>
+                                                    <li>P & I Crew and Family Insurance.</li>
+                                                    <li>Requests for families.</li>
+                                                    <li>Copies of all messages to Port Agents, Manning Agents related to Crewing.</li>
+                                                </ul>
+                    </div>
+                </div>
+
+                <!-- 16.8 Advanced Observability and Tracing -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.8">
+                        <span>13.6 Crewing Messages from RMS Vessel Operations/Crewing Superintendent.</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                              
+       
+     <li>All messages originating from RMS Crewing and directed to the Vessel MUST always have </li>  
+                            <li>Header (CRW) </li>
+                            <li>Reference numbers of Vessel’s message and date </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 16.9 Quantum Computing Readiness -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.9">
+                        <span>13.7           Monthly/Single   MPO   (Master   Payment   Order)   Allotments   Request  
+               Message TYPE (MSA1)</span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>  
+       
+     Message originating from vessel for all nationalities is sent to the manning agents with a copy  
+     to RMS Crewing superintendent.  
+       
+</li>
+                             </ul>
+                    </div>
+                </div>
+
+                <!-- 16.10 Decentralized Identity (DID) Systems -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.10">
+                        <span>13.8           Monthly  and  Single  Allotments  Confirmation  Message  TYPE  (MSA2)  
+               originating from RMS Crewing OR NAESS Manila OR to Vessel.  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>Monthly  and  Single  Allotments  Confirmation  Message  TYPE  (MSA2)  
+               originating from RMS Crewing OR NAESS Manila OR to Vessel.  </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 16.11 Hyper-Automation and Process Mining -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.11">
+                        <span>13.9           Allotments and MPO’s  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            
+       
+     Full details on allotments/MPO are available in the QSMS: Crewing Manual .</li>
+                           </ul>
+                    </div>
+                </div>
+
+                <!-- 16.12 Next-Gen UI/UX (VR/AR) -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.12">
+                        <span>13.10          Services / Requisitions / Landing Messages TYPE (SRL) </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li> 
+       
+     For Services, Requisitions, Landing Reports, standard documented company forms are to be  
+     used.  Messages  directed  to  and  from  Vessel  to  RMS   and  our  Agents  for  URGENT  
+     requirements and queries must have Header (SRL).  The Header SRL is to be further specified  
+     to either “S”, “R” or “L”  
+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 16.13 Proactive Compliance Monitoring -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.13">
+                        <span>.11          “S” Service Order </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>The Service order is related for shipboard jobs requiring the assistance of sub-contractors.   </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 16.14 Enhanced Supply Chain Transparency -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.14">
+                        <span>13.12          “R” Requisitions  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+             <li>     
+     Requisitions are to be clearly distinguished between:  
+      “P-Purchase” Orders requiring the approval of the Office.   
+       
+      “LP- Local Purchase” Orders that are authorized by the Master directly for immediate/urgent  
+     purchases. The DVM and Purchasing Superintendent to be informed as soon as possible.  
+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 16.15 Interoperability Standards -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.15">
+                        <span>13.13         “L” Landing Report  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <p>This is related to the Landing Ashore of Vessel parts, stores for forwarding towards service return or transfer (to another vessel).</p>
+                                                
+<p><strong>Example: 1 - Request ("R")</strong></p>
+                                                
+(SRL) <br>
+“R” <br>
+Our Reqn P 023/96 of 04 April96 (Crane Spares) is still pending. Please advise status <br>
+Brgds <br>
+Master’s Name<br>
+<br>
+ <p><strong>Example: 2 - Service ("S")</strong></p>
+
+(SRL) <br>
+“S” <br>
+Please arrange service (S-005/96) for our Radar Kelvin Hughes Concept 3061 at Hamburg on <br>
+26 June’96.<br>
+Brgds<br>
+Master’s Name.<br>
+<br>
+<p><strong>Example: 3 - Landing ("L")</strong></p>
+
+(SRL)<br>
+“L”<br>
+Have landed For’d Turbo charger (L-007/96) with Agents Hamburg to forward to ABB as
+instructed by you.<br>
+Brgds<br>
+Master’s Name.<br>
+<br>
+<p><strong>Explanations:</strong></p>
+<p>Self-explanatory</p>
+                    </div>
+                </div>
+                
+           
+            <!-- End of Chapter 16 Content -->
+        
+       
+       
+            <!-- 16.2 Modernizing Data Infrastructure -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.16">
+                        <span>13.14 Monthly Wage Summary Type: (MWS)  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li> The Monthly Wage Summary is to be sent to the Office, “Att: Crewing Superintendent”   
+
+</li>
+                        </ul>
+                    </div>
+              
+       </div>
+     <!-- 16.2 Modernizing Data Infrastructure -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.16">
+                        <span>13.14.1          Message Format Example </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li> 
+      (MWS)  
+      Attached/zipped please find the Monthly Wage Summary for June 1997.  
+      Master’s Name.  
+        
+      Explanation:  
+      As being sent under standard or Consultas formats. (To be reviewed/clarified).  
+        
+      Note: The Monthly Wage Summary  (MWS) must reach Crewing Superintendent latest 03rd  
+      day of the following month.  
+      i.e. The (MWS) for June 1997 must reach latest 03 July 1997.  
+ 
+</li>
+                        </ul>
+                    </div>
+              
+       </div>
+    <!-- 16.2 Modernizing Data Infrastructure -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.16">
+                        <span>13.15 QSMS Accident / Incident Report </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li> 
+        
+      All reports should be filed with name of vessel Serial Numbers and the year.  
+      Example:  QSMS DCA Acc/Inc: 2/97  
+ 
+</li>
+                        </ul>
+                    </div>
+              
+       </div>
+<!-- 16.2 Modernizing Data Infrastructure -->
+                <div class="accordion-container">
+                    <button class="accordion-header" data-chapter="16.16">
+                        <span>13.16 Messages from Ships personnel to RMS  </span>
+                    </button>
+                    <div class="accordion-content" style="color: black; font-weight: normal;">
+                        <ul>
+                            <li>
+        
+      All messages being sent to RMS by ship personnel must be routed “Through the Master”.  
+
+</li>
+                        </ul>
+                    </div>
+              
+       </div>
+
+    </div>    
+   </div>    
+ </div>    
+</div>        
+        
+      
+        
+        
+  <!-- End of Chapter 16 Content -->       
+        
+        
+        <!-- END OF NEW ACCORDION STRUCTURE FOR CHAPTER 16 -->
+        
+        
+        
+        </div>
+        <!-- END OF DUPLICATED AND UPDATED ACCORDION STRUCTURE FOR CHAPTER 17 -->
+        
+    </div>
+          
+
+
+</section>
+<!-- Do NOT Delete -->
+
+<!-- /Familiarisation Checklists Start -->
+<section class="section-sm">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Main Content Container for Checklists -->
+      <div class="col-lg-10 mx-auto">
+        <div class="text-center">
+          <h2 class="section-title">QSMS Familiarisation Checklists</h2>
+          <p class="mb-5">Review all mandatory familiarisation checklists using the carousel below. Use the arrows to navigate through the 8 pages.</p>
+        </div>
+
+        <!-- NEW IMAGE CAROUSEL FOR FAMILIARISATION CHECKLISTS -->
+        <div id="familiarisationCarousel" class="carousel slide shadow-lg mb-5" data-ride="carousel" data-interval="false">
+          
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#familiarisationCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="1"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="2"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="3"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="4"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="5"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="6"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="7"></li>
+            <li data-target="#familiarisationCarousel" data-slide-to="8"></li>
+          </ol>
+
+          <!-- Slides -->
+          <div class="carousel-inner" oncontextmenu="return false;">
+            
+            <!-- Slide 1: Deck Officer (23.FAM_DK_checklist.jpg) -->
+            <div class="carousel-item active">
+              <img src="QSMS_Material/images/23.FAM_DK_checklist.jpg" class="d-block w-100" alt="Deck Officer Familiarisation Checklist" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+
+            <!-- Slide 2: Engine Room Page 1 (24.FAM_ER_checklist_0.jpg) -->
+            <div class="carousel-item">
+              <img src="QSMS_Material/images/24.FAM_ER_checklist_0.jpg" class="d-block w-100" alt="Engine Room Familiarisation Checklist Page 1" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+            
+            <!-- Slide 3: Engine Room Page 2 (24.FAM_ER_checklist_1.jpg) -->
+            <div class="carousel-item">
+              <img src="QSMS_Material/images/24.FAM_ER_checklist_1.jpg" class="d-block w-100" alt="Engine Room Familiarisation Checklist Page 2" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+
+            <!-- Slide 4: ETO Page 1 (25.FAM_ETO_checklist_0.jpg) -->
+            <div class="carousel-item">
+              <img src="QSMS_Material/images/25.FAM_ETO_checklist_0.jpg" class="d-block w-100" alt="ETO Familiarisation Checklist Page 1" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+
+                      
+            <!-- Slide 6: Safety Page 1 (26.FAM_Safety_checklist_0.jpg) -->
+            <div class="carousel-item">
+              <img src="QSMS_Material/images/26.FAM_Safety_checklist_0.jpg" class="d-block w-100" alt="Safety Familiarisation Checklist Page 1" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+            
+            <!-- Slide 7: Safety Page 2 (26.FAM_Safety_checklist_1.jpg) -->
+            <div class="carousel-item">
+              <img src="QSMS_Material/images/26.FAM_Safety_checklist_1.jpg" class="d-block w-100" alt="Safety Familiarisation Checklist Page 2" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+
+            <!-- Slide 8: Rating Page 1 (27.FAM_Rating_checklist_0.jpg) -->
+            <div class="carousel-item">
+              <img src="QSMS_Material/images/27.FAM_Rating_checklist_0.jpg" class="d-block w-100" alt="Rating Familiarisation Checklist Page 1" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+
+            <!-- Slide 9: Rating Page 2 (27.FAM_Rating_checklist_1.jpg) -->
+            <div class="carousel-item">
+              <img src="QSMS_Material/images/27.FAM_Rating_checklist_1.jpg" class="d-block w-100" alt="Rating Familiarisation Checklist Page 2" style="border: 2px solid #ccc; border-radius: 8px;">
+            </div>
+            
+          </div>
+
+          <!-- Controls -->
+          <a class="carousel-control-prev" href="#familiarisationCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#familiarisationCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <!-- END NEW IMAGE CAROUSEL -->
+
+        <!-- Workflow Completion Button -->
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-primary primary-shadow">
+            Checklist Review Complete
+          </a>
+          <p style="text-align: center; margin-top: 15px; color: #bfbfbf;">Click the button above once you have fully reviewed all 8 checklist pages.</p>
+ </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details section -->
+<!-- /Familiarisation Checklists End -->
+
+
+<!-- ADDED MISSING MODAL STRUCTURES FOR 3.6.1 AND 6.8.6 -->
+
+<!-- Modal for 3.6.1 -->
+<div class="modal fade" id="jobFunctionModal" tabindex="-1" role="dialog" aria-labelledby="jobFunctionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px; width: 90%;">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(201, 239, 250);">
+        <h5 class="modal-title" id="jobFunctionModalLabel">Chapter 8 (Reference: Section 5.12 Emergency Drills and Vessel Familiarization)</h5>
+        <!-- The redundant 'X' close button has been removed from here. -->
+      </div>
+      
+      <!-- Scrollbar style applied below -->
+            <div class="modal-body" style="max-height: 50vh; overflow-y: auto; width: 95%; padding-left: 40px; padding-right: 20px;">  <p>8.1.1 Preparing for an Emergency – On Board</p>
+        
+     <p> All the checklists and standing instructions in the world will not prevent accidents or emergencies, but a well-trained and disciplined crew is key to restricting the situation and preventing damage, loss of life or injury.</p><br>
+<p style="color: #4a4a4a; font-weight: normal;">The Master is responsible for ensuring that checklists and standing instructions are understood and complied with. He is also responsible for conducting regular drills such as FIRE, ABANDON SHIPS, SOPEP (see manual), CONTINGENCY PROCEDURES (see QSMS Checklists/Standing Instructions manual) and MAN OVERBOARD. </p>
+<p style="color: #4a4a4a; font-weight: normal;">These drills are to be closely monitored and reviewed, and comments are to be filed in the master’s Review for forwarding to RMS Management.
+Minimum one SOPEP/Contingency drill to be carried out monthly. See Appendix 6 for Onboard Training Program.</p>
+   <p>8.1.2 Preparing for an Emergency – Ashore</p>
+<p>An EMERGENCY CRISIS TEAM has been established to deal with shipboard emergencies endangering the crew, the vessel and/or the environment, and to alert and mobilize the resources that can advise and assist the Master and his crew. </p><br>
+<p style="color: #4a4a4a; font-weight: normal;">To respond quickly and decisively to an emergency is an essential element of the safety management system.
+<p style="color: #4a4a4a; font-weight: normal;">The seriousness of an emergency is something that only the Master can decide. His judgment and his initial report to his DVM will determine whether the Emergency Crisis Team has to be assembled.</p>    
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for 6.8.6 -->
+<div class="modal fade" id="dutyResponsibilityModal" tabindex="-1" role="dialog" aria-labelledby="dutyResponsibilityModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px; width: 90%;">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(201, 239, 250);">
+        <h5 class="modal-title" id="jobFunctionModalLabel">Chapter 12.2 (Reference: Section 5.16 - QSMS)</h5>
+        <!-- The redundant 'X' close button has been removed from here. -->
+      </div>
+      
+      <!-- Scrollbar style applied below -->
+            <div class="modal-body" style="max-height: 50vh; overflow-y: auto; width: 90%; padding-left: 40px; padding-right: 20px;">      <p>12.2 Master’s Review (Reference Section 5.16 QSMS)</p>
+        <p>
+The Master is responsible for the implementation of the Safety Management System on board, and to ensure that its objectives are met; periodical reviews are to be conducted on board at intervals of no more than 6 months.
+The Master’s Reviews should focus on effectiveness of the Safety Management System (QSMS) and include suggestions for its improvement. In order to obtain an effective evaluation at all levels of operation on board, the Master may delegate responsibilities for the reviews to his department heads. Participation of all the crew in the review process is of paramount importance.</p>
+     <p>Master’s Reviews should include:
+      <ul>
+    <li style="color: #4a4a4a; font-weight: normal;">• Findings of Audits, Class, Port State and Flag inspections.</li>
+    <li style="color: #4a4a4a; font-weight: normal;">• Documented analysis of accident and incidents</li>
+    <li style="color: #4a4a4a; font-weight: normal;">• Feedback on the effectiveness of the Safety Management System, with a focus on any area of concern which is a potential hazard.</li>
+    <li style="color: #4a4a4a; font-weight: normal;">• Recommendations for the improvement of the system, and for amendments to the QSMS manual.</li>
+    <li style="color: #4a4a4a; font-weight: normal;">• Results of the feedback from the Office of Earlier Reviews.</li>
+    <li style="color: #4a4a4a; font-weight: normal;">• Annual Reviews of SOPEP, Work & Rest Hour Records, PMS and SSA/SSP at intervals specified in the form.</li>
+  </ul><br>
+    <p>Master’s Reviews are to be prepared in the format provided twice a year, in March and September, and sent to the QSMS Analyst at RMS, San José who will acknowledge receipt and distribute them within the department. The comments of anyone within the department will be reviewed at routine Management Meetings.</p>
+<p>The DVMs are responsible for responding to the Master’s Review and relaying the conclusions and/or recommendations agreed to at the Management Meeting.
+Amendments to the QSMS manuals will be prepared by the DVM responsible for the QSMS process or DPA and will be circulated by the QSMS Analyst..</p>
+     
+<p>12.2.1 Filing of Master’s Review.<br>
+Master’s review to be filed onboard long with DVM comments and closing date from RMS.
+The Master’s Review shall not be considered closed before this has been done..</p>
+       
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- footer -->
+<footer>
+   <!-- copyright -->
+  <div class="copyright py-4 bg-footer w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+                  
+            <p class="mb-0" style="color: rgb(161, 161, 161);">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            © Powered by "Oasis Maritime Education"</p>
+        <p class="mb-0" style="color: rgba(255, 197, 71, 0.822); line-height: 1.3;">This project was developed for DRS Marine Services, Mumbai, following the guidelines established by
+Reefership Marine Services, Costa Rica.
+</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://dribbble.com/"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<!-- Custom Script for Accordion Functionality -->
+<!-- JAVASCRIPT & SCRIPTING -->
+<script>
+// Helper function to cleanly close an accordion element
+function closeContent(header, content) {
+    if (header) header.classList.remove('active');
+    if (content) {
+        content.style.maxHeight = '0px';
+        content.style.padding = '0 18px';
+        content.style.overflowY = 'hidden';
+    }
+}
+
+// Function to collapse all accordions on load (Goal 3)
+function collapseAll() {
+    var allContents = document.querySelectorAll('.accordion-content');
+    var allHeaders = document.querySelectorAll('.accordion-header');
+    allContents.forEach(function(content) {
+        // Find the corresponding header and close
+        var header = content.previousElementSibling;
+        closeContent(header, content);
+    });
+}
+
+// Find all accordion headers in the entire document (top-level and nested)
+var allHeaders = document.querySelectorAll('.accordion-container .accordion-header');
+
+// Attach event listeners to all headers
+for (var i = 0; i < allHeaders.length; i++) {
+  allHeaders[i].addEventListener('click', function() {
+    var header = this;
+    var clickedContent = header.nextElementSibling;
+    
+    var chapterId = header.getAttribute('data-chapter');
+    
+    // Check if the chapter ID is '13' or '14' (Top-Level Chapters)
+    var isTopLevelChapter = (chapterId === '13' || chapterId === '14'); 
+    
+    // Check if the clicked content is currently visible
+    var isVisible = clickedContent.style.maxHeight !== '0px' && clickedContent.style.maxHeight !== '';
+
+    // If visible, hide it (Closing logic)
+    if (isVisible) {
+      closeContent(header, clickedContent);
+      
+      // If closing a main chapter, make sure all nested sub-topics are also explicitly closed
+      if (isTopLevelChapter) {
+          clickedContent.querySelectorAll('.accordion-header.active').forEach(function(nestedHeader) {
+              closeContent(nestedHeader, nestedHeader.nextElementSibling);
+          });
+      }
+      
+    } else {
+      // If hidden, expand it (Opening logic)
+      
+      // 1. Enforce only one Top-Level Chapter open (Goal 1)
+      if (isTopLevelChapter) {
+          var topLevelContents = document.querySelectorAll('.accordion-container > .accordion-content');
+          
+          topLevelContents.forEach(function(content) {
+              // Close the other main chapter if it is not the clicked content
+              if (content !== clickedContent && content.style.maxHeight !== '0px') {
+                  var otherHeader = content.previousElementSibling;
+                  closeContent(otherHeader, content);
+                  
+                  // Recursively collapse all nested sub-topics within the closing main chapter
+                  content.querySelectorAll('.accordion-header.active').forEach(function(nestedHeader) {
+                      closeContent(nestedHeader, nestedHeader.nextElementSibling);
+                  });
+              }
+          });
+      }
+      
+      // 2. Enforce only one Sub-Topic open within a chapter (Goal 2)
+      if (!isTopLevelChapter) {
+          // Find the parent container that holds all sub-topic siblings (the main chapter content area)
+          var parentContent = header.parentNode.parentNode;
+          
+          if (parentContent) {
+              // Select all sibling headers within that main chapter content area
+              var siblingContainers = parentContent.querySelectorAll('.accordion-container');
+
+              // Collapse all sibling sub-topics
+              siblingContainers.forEach(function(siblingContainer) {
+                  var siblingHeader = siblingContainer.querySelector('.accordion-header');
+                  var siblingContent = siblingContainer.querySelector('.accordion-content');
+
+                  // Only process if it's a sibling (not the clicked element itself) and it's currently open
+                  if (siblingHeader !== header && siblingContent.style.maxHeight !== '0px') {
+                      closeContent(siblingHeader, siblingContent);
+                  }
+              });
+          }
+      }
+
+      // Finally, open the clicked content
+      header.classList.add('active');
+      
+      if (isTopLevelChapter) {
+          // For the main Chapters (13 or 14), set fixed height and enable scrolling (450px)
+          clickedContent.style.maxHeight = "450px";
+          clickedContent.style.overflowY = "scroll"; 
+      } else {
+          // For all other accordions (nested sub-topics) - Use fixed height (275px) with scrollbar
+          clickedContent.style.maxHeight = "275px"; 
+          clickedContent.style.overflowY = "scroll"; 
+      }
+      
+      clickedContent.style.padding = "18px 18px";
+    }
+  });
+}
+
+// Ensure all content is collapsed on page load (Goal 3)
+window.onload = collapseAll;
+</script>
+
+</body>
+</html>

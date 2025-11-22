@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>Educenter</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<style>
+        body {
+            padding-top: 00px; 
+        }
+    </style>
+
+
+
+<!-- CUSTOM STYLES FOR ACCORDION REFERENCE -->
+<style>
+/* 1. Basic Accordion Styling */
+.accordion-container {
+    width: 100%;
+    border: 1px solid #0056b3; /* Border to match reference text color */
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+/* 2. The Button/Header that is always visible */
+.accordion-header {
+    background-color: #e6f0ff; /* Light blue header */
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 3. The Content that is hidden by default */
+.accordion-content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0; /* Key CSS to hide content */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-top: 1px solid #ccc;
+}
+
+/* 4. Custom Text Color for the reference material (Maritime Blue) */
+.accordion-content p, 
+.accordion-content h4, 
+.accordion-content li {
+    color: #0056b3; /* Custom Maritime Blue color for reference material */
+}
+.accordion-content h4 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.accordion-content ul {
+    margin-bottom: 15px;
+}
+.accordion-content ul li {
+    margin-bottom: 5px;
+}
+
+
+/* 5. Styling for an active (open) header */
+.active, .accordion-header:hover {
+    background-color: #d6eaff;
+}
+
+/* 6. Arrow indicator */
+.accordion-header::after {
+    content: '\002B'; /* Unicode plus sign */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0056b3;
+    transition: transform 0.3s;
+}
+
+.active::after {
+    content: '\2212'; /* Unicode minus sign */
+    transform: rotate(180deg);
+}
+
+</style>
+</head>
+
+<body>
+  
+
+<!-- header -->
+<!-- </header> -->
+<!-- The navigation bar is included directly in this file for consistency across all pages. -->
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-lg-4 text-center text-lg-left">
+        <a class="text-color mr-3" href="#"><strong>SUPPORT</strong> +91 0123456789</a>
+        </div>
+      
+      <div class="col-lg-8 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">Dashboard</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">My Courses</a></li>
+          
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#">login</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#">register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- navbar -->
+  <div class="navigation px-4 w-100">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownabout" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownabout">
+                <a class="dropdown-item" href="About_New.html">BMTI</a>
+                <a class="dropdown-item" href="QSMS_project.html">Project</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Deck</a>
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Engine</a>
+              </div>
+            </li>
+          
+            
+<li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                QSMS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="QSMS_Company_Policy.html">Company Policy</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More....</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+              </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Deck
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="5_JD_MSTR.html">Master</a>
+                <a class="dropdown-item" href="5_JD_CO.html">Chief Officer</a>
+                <a class="dropdown-item" href="constr.html">Second Officer</a>
+                <a class="dropdown-item" href="constr.html">Third Officer</a>
+                <a class="dropdown-item" href="constr.html">Junior Officer</a>
+                <a class="dropdown-item" href="constr.html">Cadet</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEngine" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Engine
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownEngine">
+                <a class="dropdown-item" href="5_JD_CHENG.html">Chief Engineer</a>
+                <a class="dropdown-item" href="constr.html">1 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">2 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">3 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">4 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">Junior Engineer</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownETO" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ETO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownETO">
+                <a class="dropdown-item" href="constr.html">ETO</a>
+                <a class="dropdown-item" href="constr.html">Junior ETO</a>
+                <a class="dropdown-item" href="constr.html">Trainee ETO</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Others
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="constr.html">Reefer Technician</a>
+                <a class="dropdown-item" href="constr.html">Fitter</a>
+                <a class="dropdown-item" href="constr.html">AB</a>
+                <a class="dropdown-item" href="constr.html">OS</a>
+                <a class="dropdown-item" href="constr.html">Oiler</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Help
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="5_FAQ_Template.html">FAQ</a>
+                <a class="dropdown-item" href="constr.html">Contact</a>
+                
+              </div>
+            </li>
+            
+           <!-- <li class="nav-item @@contact">
+              <a class="nav-link" href="constr.html">Contact</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link bg-primary text-white rounded" href="constr.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+</header>
+
+<!-- /header -->
+<!-- /header -->
+<!-- Modal -->
+ 
+ 
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="events.html">QSMS Company Policy</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted"></li>
+        </ul>
+        <p class="text-lighten">This portal contains all essential reference materials for the Company Policy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+
+<!-- Do NOT Delete -->
+<section class="section-sm">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <!-- Content now wrapped inside this narrow, centered column -->
+        
+        <div class="row">
+          <div class="col-12">
+            
+          </div>
+          <!-- event image - Placeholder for page-specific image -->
+          <div class="col-12 mb-4">
+            <img src="images/events/event-single.jpg" alt="event thumb" class="img-fluid w-100">
+          </div>
+        </div>
+      
+     </head>
+        <!-- Using Bootstrap's responsive classes for layout -->
+  <!-- HEADER SECTION -->
+        <header class="pb-4 mb-4 border-bottom">
+            <h2 class="display-8 font-weight-bold text-gray-900 mb-1">QSMS</h2>
+            <p class="h4 text-primary font-weight-semibold">Company Policy</p>
+            <p class="text-muted mt-2"></stong></p>
+            </header>         
+       
+<!-- START OF SECTION 3.6.4: JOB RESPONSIBILITIES (EASY TO FIND) -->
+        <!-- *************************************************************** -->
+        
+        <!-- notice -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-unstyled">
+          <!-- notice item 1: Overall Company Policy -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 1 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">1</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">Overall Company Policy</a>
+              <p class="mb-0">RMS is fully committed to the consistent operation of a safe and efficient fleet of refrigerated ships and container units, maintaining high quality standards, and actively protecting the environment.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalOverallPolicy" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+<!-- notice item 2: QSMS Objectives -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 2 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">2</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">QSMS Objectives</a>
+              <p class="mb-0">Our Quality and Safety Management System (QSMS) is centered on five key goals covering safety, vessel integrity, environmental protection, and regulatory compliance.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalQualitySupport" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+                
+                <!-- notice item 3: Environmental Policy -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 3 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">3</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">Environmental Policy</a>
+              <p class="mb-0">Environmental stewardship is a core operational issue at RMS, integral to our concept of quality (DOLE label), and supported by a zero-tolerance policy towards water pollution.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalResourceProvision" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+
+                <!-- notice item 4: Fatigue Management Policy -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 4 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">4</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">Fatigue Management Policy</a>
+              <p class="mb-0">The Fatigue Management Policy ensures safety by strictly adhering to rest requirements, even when facing operational pressures like bad weather or loading delays.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalDataProtection" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+
+                <!-- New notice item 5: Drug and Alcohol Policy -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 5 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">5</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">Drug and Alcohol Policy</a>
+              <p class="mb-0">RMS maintains a stringent policy with zero tolerance for illegal drugs and strict limits on alcohol consumption and testing to ensure fitness for duty.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalSocialMedia" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+                
+                <!-- New notice item 6: Pets on Board Vessels -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 6 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">6</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">Pets on Board Vessels</a>
+              <p class="mb-0">The Company maintains a clear prohibition against carrying any pets onboard vessels to uphold health, safety, and operational standards.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalPetsOnBoard" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+                
+                <!-- New notice item 7: Data Protection Policy -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 7 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">7</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">Data Protection Policy</a>
+              <p class="mb-0">A strict Data Protection Policy establishes the rights of crew members and the Company’s obligations regarding the privacy and secure processing of personal information.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalDataProtectionNew" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+
+                <!-- New notice item 8: Social Media Policy -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <!-- SERIAL NUMBER 8 -->
+            <div class="d-md-table-cell serial-number-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">8</span></div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="notice-single.html" class="h4 mb-3 d-block">Social Media Policy</a>
+              <p class="mb-0">RMS enforces a very strict Social Media Policy on all personnel to safeguard the Company’s reputation and outlines restrictions on device usage during work and non-work hours.</p>
+            </div>
+            <!-- Link for modal (now static modal ID) -->
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="#" data-toggle="modal" data-target="#modalSocialMediaNew" 
+                 class="btn btn-primary">read more</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /notice -->
+<!-- Policy Detail Modals (Multiple Static Modals) -->
+
+<!-- Modal 1: Overall Company Policy -->
+<div class="modal fade policy-modal" id="modalOverallPolicy" tabindex="-1" role="dialog" aria-labelledby="modalOverallPolicyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalOverallPolicyLabel">Overall Company Policy (Sec. 2.1)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <!-- Text updated to accurately match PDF Section 2.1 -->
+        <p class="mb-3"><strong>Reefership's international team of seafarers and shore staff is fully committed to the consistent operation of a safe and efficient fleet of refrigerated ships and container units, maintaining high quality standards, and actively protecting the environment.</strong></p>
+        
+        <!-- START MODIFIED BULLET POINTS -->
+        <ul class="list-disc list-inside ml-4">
+            <li><strong>Personnel Safety:</strong> Prevent accidental loss of life or injury to seafarers or third parties onboard.</li>
+            <li><strong>Vessel Safety:</strong> Prevent accidents that can cause damage to the ship or other ships.</li>
+            <li><strong>Cargo Protection:</strong> Prevent all forms of cargo damage.</li>
+            <li><strong>Environmental Protection:</strong> Protect the environment and prevent air and sea pollution.</li>
+            <li><strong>Compliance:</strong> Ensure adherence to all International, National, Flag State, Class Society, and Company Rules and Regulations.</li>
+        </ul>
+        <!-- END MODIFIED BULLET POINTS -->
+        
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 2: Quality Support (QSMS Objectives) -->
+<div class="modal fade policy-modal" id="modalQualitySupport" tabindex="-1" role="dialog" aria-labelledby="modalQualitySupportLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalQualitySupportLabel">QSMS Objectives (Sec. 2.2)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <!-- QSMS Objectives content -->
+        <p class="mb-3"><strong>The Quality and Safety Management System (QSMS) has five main objectives that form the basis of all activities related to safety, protection of the environment, and the quality of services provided.</strong></p>
+        <ul class="list-disc list-inside ml-4">
+            <li><strong>Personnel Safety:</strong> Prevent accidental loss of life or injury to seafarers or third parties onboard.</li>
+            <li><strong>Vessel Safety:</strong> Prevent accidents that can cause damage to the ship or other ships.</li>
+            <li><strong>Cargo Protection:</strong> Prevent all forms of cargo damage.</li>
+            <li><strong>Environmental Protection:</strong> Protect the environment and prevent air and sea pollution.</li>
+            <li><strong>Compliance:</strong> Ensure adherence to all International, National, Flag State, Class Society, and Company Rules and Regulations.</li>
+        </ul>
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 3: Resource Provision (Environmental Policy) -->
+<div class="modal fade policy-modal" id="modalResourceProvision" tabindex="-1" role="dialog" aria-labelledby="modalResourceProvisionLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalResourceProvisionLabel">Environmental Policy (Sec. 2.3)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <!-- New Environmental Policy content -->
+        <p class="mb-3"><strong>Environmental stewardship is a core operational issue at RMS, integral to our concept of quality (DOLE label), and supported by a commitment to zero-tolerance for pollution.</strong></p>
+        <ul class="list-disc list-inside ml-4">
+            <li><strong>Core Philosophy:</strong> Environmental protection is an operational issue and an integral part of Reefership's concept of quality.</li>
+            <li><strong>Approach:</strong> RMS takes a preventative approach to identify and address environmental issues before they become a concern.</li>
+            <li><strong>Pollution:</strong> There is a zero tolerance towards water pollution, and necessary disposal facilities will be provided.</li>
+            <li><strong>Responsibility:</strong> Every employee has a basic responsibility to comply with all environmental rules and regulations.</li>
+        </ul>
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 4: Fatigue Management Policy (Target ID: modalDataProtection for consistency) -->
+<div class="modal fade policy-modal" id="modalDataProtection" tabindex="-1" role="dialog" aria-labelledby="modalDataProtectionLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalDataProtectionLabel">Fatigue Management Policy (Sec. 2.4)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <p><strong>The Fatigue Management Policy ensures safety by strictly adhering to rest requirements, even when facing operational pressures like bad weather or loading delays.</strong></p>
+        <ul class="list-disc list-inside ml-4">
+            <li><strong>Recognition:</strong> Management recognizes that circumstances like bad weather or delays may affect rest periods.</li>
+            <li><strong>Overriding Rule:</strong> No commercial considerations are allowed to override the rest requirements.</li>
+            <li><strong>Standard:</strong> Requirements contained in the STCW 95 amendment, section A-VIII/1 (Fitness for Duty) must be strictly followed.</li>
+            <li><strong>Application:</strong> This rule applies equally to the Master and all other officers and watch keepers on duty.</li>
+        </ul>
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 5: Drug and Alcohol Policy (Target ID: modalSocialMedia for consistency) -->
+<div class="modal fade policy-modal" id="modalSocialMedia" tabindex="-1" role="dialog" aria-labelledby="modalSocialMediaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalSocialMediaLabel">Drug and Alcohol Policy (Sec. 2.5)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <p><strong>RMS maintains a stringent policy with zero tolerance for illegal drugs and strict limits on alcohol consumption and testing to ensure fitness for duty.</strong></p>
+        <p class="mt-3">The policy outlines:</p>
+        <!-- START MODIFIED BULLET POINTS (Previously modified) -->
+        <ul class="list-disc list-inside ml-4">
+            <li><strong>Illegal Drugs:</strong> Zero tolerance for use or possession of illegal drugs; infringement results in immediate termination.</li>
+            <li><strong>Legal Risk:</strong> The Company will not defend any seafarer prosecuted for infringing worldwide drug trafficking/use laws.</li>
+            <li><strong>Alcohol Restriction:</strong> Seafarers will not consume any alcohol within 4 hours of going on duty, whether at sea or in port.</li>
+            <li><strong>Testing & Threshold:</strong> Random testing may be conducted; an alcohol concentration of () when on duty will result in termination.</li>
+        </ul>
+        <!-- END MODIFIED BULLET POINTS -->
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 6: Pets on Board Vessels -->
+<div class="modal fade policy-modal" id="modalPetsOnBoard" tabindex="-1" role="dialog" aria-labelledby="modalPetsOnBoardLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalPetsOnBoardLabel">Pets on Board Vessels (Sec. 2.6)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <p class="mb-3"><strong>The Company maintains a clear prohibition against carrying any pets onboard vessels to uphold health, safety, and operational standards.</strong></p>
+        <p>The policy states:</p>
+        <!-- START MODIFIED BULLET POINTS (from previous request) -->
+        <ul class="list-disc list-inside ml-4">
+            <li><strong>Prohibition:</strong> It is the strict policy of the Company that no pets (including dogs, cats, parrots, etc.) will be carried on board the vessels.</li>
+        </ul>
+        <!-- END MODIFIED BULLET POINTS -->
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 7: Data Protection Policy (New) -->
+<div class="modal fade policy-modal" id="modalDataProtectionNew" tabindex="-1" role="dialog" aria-labelledby="modalDataProtectionNewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalDataProtectionNewLabel">Data Protection Policy (Sec. 2.7)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <p><strong>RMS has a strict Data Protection Policy under which rights of crew members and obligations of the company, with respect to privacy and personal information processing and protection are clearly established.</strong></p>
+        
+        <!-- START REPLACED CONTENT for Data Protection Policy -->
+        <ul class="list-disc list-inside ml-4 mt-3">
+            <li><strong>Purpose:</strong> Personal information is collected only for ensuring work effectiveness and for submissions required for international travel and certification requirements.</li>
+            <li><strong>Scope:</strong> The data processed has a limited risk to the privacy of the individual.</li>
+        </ul>
+        <p class="mt-3"><strong>Reference:</strong> The detailed policy is available in the Main Manual Appendix 10.</p>
+        <!-- END REPLACED CONTENT for Data Protection Policy -->
+        
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 8: Social Media Policy (New) -->
+<div class="modal fade policy-modal" id="modalSocialMediaNew" tabindex="-1" role="dialog" aria-labelledby="modalSocialMediaNewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-lg">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title font-secondary text-primary" id="modalSocialMediaNewLabel">Social Media Policy (Sec. 2.8)</h5>
+        <!-- REMOVED CLOSE BUTTON -->
+      </div>
+      <div class="modal-body">
+        <p><strong>RMS has a very strict Social Media Policy to which all individuals working at all levels on board the Company vessels must always comply in order to safeguard the Company&#39;s reputation.</strong></p>
+        
+        <!-- START REPLACED CONTENT for Social Media Policy -->
+        <ul class="list-disc list-inside ml-4 mt-3">
+            <li><strong>Compliance:</strong> All individuals working at all levels must comply to safeguard the Company's reputation.</li>
+            <li><strong>Restrictions:</strong> Describes restrictions on the use of Social Media during both work and non-work hours, on Company-supplied or personal devices.</li>
+            <li><strong>Device Prohibition:</strong> RMS prohibits carrying and use of personal devices to the place of work while on duty.</li>
+        </ul>
+        <p class="mt-3"><strong>Reference:</strong> The detailed policy is available in the Main Manual Appendix 11</p>
+        <!-- END REPLACED CONTENT for Social Media Policy -->
+
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Policy Detail Modals -->       
+
+
+
+                
+                        <!-- End of Chapter 13 Content -->
+                    </div>
+                </div>
+                
+                <!-- *************************************************************** -->
+                <!-- END OF SECTION 3.6.4: JOB RESPONSIBILITIES -->
+                
+            </div> <!-- closing div class="mt-4 text-secondary" -->
+          </div> <!-- closing col-12 col-lg-11 col-xl-10 -->
+        </div> <!-- closing row justify-content-center -->
+
+
+    </div> <!-- closing col-lg-10 col-xl-8 -->
+    </div> <!-- closing row justify-content-center -->
+    <!-- END CLOSING TAGS -->
+
+
+</section>
+<!-- Do NOT Delete -->
+
+<!-- /Familiarisation Checklists Start -->
+
+
+
+
+<!-- footer -->
+<footer>
+   <!-- copyright -->
+  <div class="copyright py-4 bg-footer w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+                  
+            <p class="mb-0" style="color: rgb(161, 161, 161);">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            © Powered by "Oasis Maritime Education"</p>
+        <p class="mb-0" style="color: rgba(255, 197, 71, 0.822); line-height: 1.3;">This project was developed for DRS Marine Services, Mumbai, following the guidelines established by
+Reefership Marine Services, Costa Rica.
+</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://dribbble.com/"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<!-- Custom Script for Accordion Functionality -->
+<script>
+// Simple JavaScript to toggle the accordion (required to make it work)
+var acc = document.getElementsByClassName("accordion-header");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      content.style.paddingTop = '0';
+      content.style.paddingBottom = '0';
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.paddingTop = '18px';
+      content.style.paddingBottom = '18px';
+    } 
+  });
+}
+</script>
+
+</body>
+</html>
