@@ -1,0 +1,19 @@
+{
+  "package": {
+    "productName": "DRS Training Portal",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "windows": [
+      {
+        "title": "DRS Training Portal"
+      }
+    ],
+    "bundle": {
+      "identifier": "com.drs.portal",
+      "icon": [
+        "icons/icon.png"
+      ]
+    }
+  }
+}

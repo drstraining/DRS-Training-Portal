@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>DRS Training Portal Ver 1.0</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<style>
+        body {
+            padding-top: 00px; 
+        }
+    </style>
+
+<!-- Vertical BLUE Line -->
+<style>
+    /* Custom CSS added to create the blue vertical line effect (border-left) 
+       since we cannot edit the external style.css file. */
+    .section-title-line {
+        border-left: 4px solid #3b82f6; /* Blue vertical line */
+        padding-left: 0.75rem; /* Space between line and text */
+    }
+</style>
+
+<!-- Vertical BLUE Line -->
+
+
+<!-- CUSTOM STYLES FOR ACCORDION REFERENCE -->
+<style>
+/* 1. Basic Accordion Styling */
+.accordion-container {
+    width: 100%;
+    border: 1px solid #0056b3; /* Border to match reference text color */
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+/* 2. The Button/Header that is always visible */
+.accordion-header {
+    background-color: #e6f0ff; /* Light blue header */
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 3. The Content that is hidden by default */
+.accordion-content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0; /* Key CSS to hide content */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-top: 1px solid #ccc;
+}
+
+/* 4. Custom Text Color for the reference material (Maritime Blue) */
+.accordion-content p, 
+.accordion-content h4, 
+.accordion-content li {
+    color: #0056b3; /* Custom Maritime Blue color for reference material */
+}
+.accordion-content h4 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.accordion-content ul {
+    margin-bottom: 15px;
+}
+.accordion-content ul li {
+    margin-bottom: 5px;
+}
+
+
+/* 5. Styling for an active (open) header */
+.active, .accordion-header:hover {
+    background-color: #d6eaff;
+}
+
+/* 6. Arrow indicator */
+.accordion-header::after {
+    content: '\002B'; /* Unicode plus sign */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0056b3;
+    transition: transform 0.3s;
+}
+
+.active::after {
+    content: '\2212'; /* Unicode minus sign */
+    transform: rotate(180deg);
+}
+
+</style>
+<!-- START: NEW INLINE STYLES FOR SYNCED BACKGROUND SLIDER -->
+<style>
+  /* Ensure the main hero section is positioned relatively to contain the background slider */
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+    /* Adding a minimum height to ensure the section is visible even if content is brief */
+    min-height: 500px;
+  }
+  
+  /* Style for the background slider container to cover the entire section */
+  #hero-background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Below the content */
+  }
+  
+  /* CRITICAL FIX: Ensure all Slick-generated containers take up 100% height */
+  #hero-background-slider .slick-list,
+  #hero-background-slider .slick-track,
+  #hero-background-slider .slick-slide {
+      height: 100%;
+  }
+
+  /* Style for each background image slide */
+  .background-slide {
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  /* Recreate the dark overlay effect for better text contrast */
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 50% dark overlay */
+    z-index: 2; /* Between background and content */
+  }
+
+  /* Ensure the content container sits on top of the overlay */
+  .hero-section .container {
+    position: relative;
+    z-index: 3;
+  }
+</style>
+<!-- END: NEW INLINE STYLES FOR SYNCED BACKGROUND SLIDER -->
+
+<style>
+/* Modal overlay */
+#betaNoticeModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(70, 0, 120, 0.45);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* When modal opens */
+#betaNoticeModal.show {
+  display: flex;
+  opacity: 1;
+}
+
+/* Modal box */
+.beta-modal-box {
+  width: 60vw;
+  max-width: 900px;
+  background: rgba(240, 225, 255, 0.7); /* 70% transparent */
+  border-radius: 18px;
+  padding: 24px 32px;
+  box-shadow: 0 0 40px rgba(80, 0, 140, 0.35);
+  backdrop-filter: blur(12px);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* When opening */
+.beta-modal-box.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Fade-out animation */
+.beta-modal-box.fade-out {
+  opacity: 0 !important;
+  transform: scale(0.92) !important;
+}
+
+/* Header */
+.beta-modal-header {
+  background: #d8c2ff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  color: #2b0066;
+}
+
+/* Body */
+.beta-modal-body {
+  margin-top: 18px;
+  font-size: 16px;
+  color: #2a0b4f;
+  line-height: 1.6;
+}
+
+/* Footer */
+.beta-modal-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Button */
+.beta-ok-btn {
+  background: #6733cc;
+  color: white;
+  padding: 10px 28px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.beta-ok-btn:hover {
+  background: #5427aa;
+}
+
+/* Collapsible text */
+.change-log-toggle {
+  margin-top: 16px;
+  cursor: pointer;
+  color: #4a0080;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#chevron {
+  transition: transform 0.3s;
+}
+
+.change-log-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  margin-top: 10px;
+  padding-left: 14px;
+  border-left: 3px solid #9b7cff55;
+  border-radius: 4px;
+}
+
+.change-log-content.glow {
+  animation: changeLogGlow 1s ease-out;
+}
+
+@keyframes changeLogGlow {
+  0% { background-color: rgba(180, 150, 255, 0.25); }
+  100% { background-color: transparent; }
+}
+
+/* Responsive rules */
+@media (max-width: 900px) {
+  .beta-modal-box {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .beta-modal-box {
+    width: 90vw;
+    padding: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+  <!-- BETA NOTICE MODAL -->
+<div id="betaNoticeModal">
+  <div class="beta-modal-box">
+
+    <div class="beta-modal-header">
+      Welcome to the BETA Version of the <br> DRS Training Portal
+    </div>
+
+    <div class="beta-modal-body">
+
+      <p>
+        Greetings!!<br>
+        You are viewing the <strong>BETA version (v1)</strong> of our new DRS Training Portal.
+        Several sections are fully functional, while others are still being prepared.
+      </p>
+
+      <p><strong>Working Sections:</strong></p>
+      <ul>
+        <li>✓ Home</li>
+        <li>✓ About > BMTI & Project </li>
+         <li>✓ Courses (Part)</li>
+        <li>✓ QSMS (Part)</li>
+        <li>✓ Deck > Master, Chief Officer & Chief Engineer (Part) </li>
+        <li>✓ Help </li>
+      </ul>
+
+      <p>
+        A detailed online feedback form link will be shared separately.
+        Your feedback will help shape the final production release.
+      </p>
+
+      <!-- Collapsible "View Changes" Panel -->
+      <div class="change-log-toggle" onclick="toggleChangeLog()">
+        <span>View changes in this update</span>
+        <span id="chevron">▼</span>
+      </div>
+
+      <div id="changeLogContent" class="change-log-content">
+        <p><strong>Beta v1 Updates:</strong></p>
+        <ul>
+          <li>• Updated Course Tables & Placeholder Structure</li>
+          <li>• New Universal Modal Framework</li>
+          <li>• Improved animations & UI styles</li>
+          <li>• Added “Don’t Show Again” Version Cookie</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="beta-modal-footer">
+      <label style="display:flex; align-items:center; gap:6px;">
+        <input type="checkbox" id="dontShowAgain"> Don’t show again
+      </label>
+      <button class="beta-ok-btn" onclick="closeBetaModal()">OK</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- header -->
+<!-- </header> -->
+<!-- The navigation bar is included directly in this file for consistency across all pages. -->
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2">
+  <div class="container">
+    <div class="row no-gutters">
+      
+      <div class="col-lg-4 text-center text-lg-left">
+        <a class="text-color mr-3" href="#"><strong>SUPPORT</strong> +91 0123456789</a>
+        </div>
+      
+      <div class="col-lg-8 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">Dashboard</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#">My Courses</a></li>
+          
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#">login</a></li>
+          <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#">register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- navbar -->
+  <div class="navigation px-4 w-100">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownabout" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownabout">
+                <a class="dropdown-item" href="About_New.html">BMTI</a>
+                <a class="dropdown-item" href="QSMS_project.html">Project</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Deck</a>
+                <a class="dropdown-item" href="QSMS_Courses_final.html">Engine</a>
+              </div>
+            </li>
+          
+            
+<li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                QSMS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="QSMS_Company_Policy.html">Company Policy</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More....</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+                <a class="dropdown-item" href="constr.html">More...</a>
+              </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDeck" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Deck
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownDeck">
+                <a class="dropdown-item" href="5_JD_MSTR.html">Master</a>
+                <a class="dropdown-item" href="5_JD_CO.html">Chief Officer</a>
+                <a class="dropdown-item" href="constr.html">Second Officer</a>
+                <a class="dropdown-item" href="constr.html">Third Officer</a>
+                <a class="dropdown-item" href="constr.html">Junior Officer</a>
+                <a class="dropdown-item" href="constr.html">Cadet</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEngine" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Engine
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownEngine">
+                <a class="dropdown-item" href="5_JD_CHENG.html">Chief Engineer</a>
+                <a class="dropdown-item" href="constr.html">1 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">2 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">3 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">4 A/Eng</a>
+                <a class="dropdown-item" href="constr.html">Junior Engineer</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownETO" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                ETO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownETO">
+                <a class="dropdown-item" href="constr.html">ETO</a>
+                <a class="dropdown-item" href="constr.html">Junior ETO</a>
+                <a class="dropdown-item" href="constr.html">Trainee ETO</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Others
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="constr.html">Reefer Technician</a>
+                <a class="dropdown-item" href="constr.html">Fitter</a>
+                <a class="dropdown-item" href="constr.html">AB</a>
+                <a class="dropdown-item" href="constr.html">OS</a>
+                <a class="dropdown-item" href="constr.html">Oiler</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOthers" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Help
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownOthers">
+                <a class="dropdown-item" href="5_FAQ_Template.html">FAQ</a>
+                <a class="dropdown-item" href="constr.html">Contact</a>
+                
+              </div>
+            </li>
+            
+           <!-- <li class="nav-item @@contact">
+              <a class="nav-link" href="constr.html">Contact</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link bg-primary text-white rounded" href="constr.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+</header>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Register</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login">
+                    <form action="#" class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupPhone" name="signupPhone" placeholder="Phone">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupName" name="signupName" placeholder="Name">
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control mb-3" id="signupEmail" name="signupEmail" placeholder="Email">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" class="form-control mb-3" id="signupPassword" name="signupPassword" placeholder="Password">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">SIGN UP</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="row">
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginPhone" name="loginPhone" placeholder="Phone">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginName" name="loginName" placeholder="Name">
+                    </div>
+                    <div class="col-12">
+                        <input type="password" class="form-control mb-3" id="loginPassword" name="loginPassword" placeholder="Password">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hero slider (MODIFIED) -->
+<section class="hero-section bg-cover">
+  
+  <!-- START: New Background Slider for images to slide in sync -->
+  <div id="hero-background-slider">
+    <!-- Background Image 1 (Original) -->
+    <div class="background-slide" style="background-image: url('images/banner/banner-1.jpg');"></div>
+    <!-- Background Image 2 (Original next) -->
+    <div class="background-slide" style="background-image: url('images/banner/banner-2.jpg');"></div>
+    <!-- Background Image 3 (Original next) -->
+    <div class="background-slide" style="background-image: url('images/banner/banner-3.jpg');"></div>
+    <!-- Background Image 4 (NEW) -->
+    <div class="background-slide" style="background-image: url('images/banner/banner-4.jpg');"></div>
+  </div>
+  <!-- END: New Background Slider -->
+
+  <div class="container">
+    <div class="hero-slider">
+      <!-- slider item 1 (Original) -->
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Excellence is the Only Standard</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">We don't just meet minimum requirements; we exceed them. Commit to continuous learning and uphold the highest safety standards, every watch, every day.
+</p>
+            <a href="constr.html" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">Explore Courses</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- slider item 2 (Original) -->
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">Future Vision</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4">Shift from reactive compliance to proactive risk mitigation. Create a streamlined process to train our seafarers to a high standard before they are recruited.
+</p>
+            <a href="constr.html" class="btn btn-primary" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".7">Explore Courses</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- slider item 3 (Original) -->
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Risk Zero</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">When Seconds Count, Training Takes Over. Know your emergency procedures (fire, abandon ship, man overboard) by heart. Rapid, coordinated action saves lives and assets.	Emergency Response
+</p>
+            <a href="constr.html" class="btn btn-primary" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7">Explore Courses</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- slider item 4 (NEW) -->
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutLeft" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInRight" data-delay-in=".1">Master Safety & Compliance at Sea</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutLeft" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInRight" data-delay-in=".4">Comprehensive training modules ensure every crew member is prepared for critical operations, regulatory inspections and emergency response.</p>
+            <a href="constr.html" class="btn btn-primary" data-animation-out="fadeOutLeft" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInRight" data-delay-in=".7">Explore Courses</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /hero slider -->
+
+<!-- banner-feature -->
+<section class="bg-gray" style="position: relative; z-index: 4;">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
+      <div class="col-xl-4 col-lg-5 align-self-end">
+        <img class="img-fluid w-100" src="images/banner/banner-feature.png" alt="banner-feature">
+      </div>
+      <div class="col-xl-6 col-lg-7">
+        <div class="row feature-blocks bg-gray justify-content-between">
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-justify">
+            <i class="ti-blackboard mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Upgrade Your Professional Skills</h3>
+            <p>Training is critical for safety and efficiency. Stay ahead of industry changes & ensure the entire fleet adheres to the highest operational standards.</p>
+          </div>
+          <div class="col-sm-6 col-xl-5 offset-xl-1 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-justify">
+            <i class="ti-book mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Job Responsibilities Onboard</h3>
+            <p>Get instant access to your exact duties, key performance expectations & all delegated tasks specific to your rank & vessel type immediately.</p>
+          </div>
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-justify">
+            <i class="ti-write mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Critical Checklists & Procedures</h3>
+            <p>Quickly access all essential checklists for Safety, Cargo Operations & Critical Equipment. Ensure compliance & prevent human error every time.</p>
+          </div>
+          <div class="col-sm-6 col-xl-5 offset-xl-1 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-justify">
+            <i class="ti-agenda mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Assess Your Grasp of Knowledge</h3>
+            <p>Take automated proficiency checks to identify any knowledge gaps. Receive immediate feedback & link to corrective training modules as needed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /banner-feature -->
+
+<!-- about us -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col-md-6 order-2 order-md-1">
+        <h2 class="section-title">About DRS Marine Services</h2>
+        <p class="text-justify">DRS Marine, established in 2002, is dedicated to upholding the highest safety standards for both shipowners and our seafarers. Our core mission is the prevention of accidental loss, environmental protection, and strict compliance with all international and company regulations. We believe that proactive, continuous training is the foundation of our world-class safety management system.</p>
+        <p class="text-justify">We focus intensely on developing our people through specialized training, creating an environment where every crew member achieves their highest professional potential and masters safety at sea.</p>
+        <a href="constr.html" class="btn btn-primary-outline">Learn more</a>
+      </div>
+      <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+        <img class="img-fluid w-100" src="images/about/about-us.jpg" alt="about image">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /about us -->
+
+<!-- courses -->
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          <h2 class="mb-0 text-nowrap mr-3">Our Training Partner - BMTI</h2>
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          <div>
+            <a href="constr.html" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- course list -->
+<div class="row justify-content-center">
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          
+        </ul>
+        <a href="constr.html">
+          <h4 class="card-title">LR 6G Certification</h4>
+        </a>
+        <p class="card-text mb-4"> Get Lloyd's 6G Welding Certified – Expert Training, Advanced Techniques & Practical Tests.</p>
+        <a href="constr.html" class="btn btn-primary btn-sm">Apply now</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="images/courses/course-2.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          
+        </ul>
+        <a href="constr.html">
+          <h4 class="card-title">Enclosed Space Entry Procedure</h4>
+        </a>
+        <p class="card-text mb-4"> Understanding Enclosed Spaces & Associated Hazards
+Safety Procedures & Risk Assessment.</p>
+        <a href="constr.html" class="btn btn-primary btn-sm">Apply now</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="images/courses/course-3.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          
+        </ul>
+        <a href="constr.html">
+          <h4 class="card-title">Generator Overhauling Course</h4>
+        </a>
+        <p class="card-text mb-4"> Crank deflection, rocker arm & tappet clearance, FO & LO filter cleaning, head removal, bearing & piston withdrawal.</p>
+        <a href="constr.html" class="btn btn-primary btn-sm">Apply now</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="images/courses/course-4.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+     
+        </ul>
+        <a href="constr.html">
+          <h4 class="card-title">LSA-FFA-Seamanship</h4>
+        </a>
+        <p class="card-text mb-4"> Overview of LSA equipment Life jackets, immersion suits, and life buoys.</p>
+        <a href="constr.html" class="btn btn-primary btn-sm">Apply now</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="images/courses/course-5.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+      
+        </ul>
+        <a href="constr.html">
+          <h4 class="card-title">Machinery Skill Enhancement</h4>
+        </a>
+        <p class="card-text mb-4"> Overview of pumps and valves, including types, functions, operations, and maintenance essentials.</p>
+        <a href="constr.html" class="btn btn-primary btn-sm">Apply now</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="images/courses/course-6.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+   
+        </ul>
+        <a href="constr.html">
+          <h4 class="card-title">Reefer Container Maintenance</h4>
+        </a>
+        <p class="card-text mb-4"> Reefer Container Types & Applications Basic Refrigeration & Cooling Principles.</p>
+        <a href="constr.html" class="btn btn-primary btn-sm">Apply now</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /course list -->
+    <!-- mobile see all button -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <a href="constr.html" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /courses -->
+
+<!-- Company Info / Summary Section -->
+<section id="company-summary-cta" class="section py-5">
+  
+
+
+
+
+<!-- cta -->
+<section class="section bg-primary" style="margin-bottom: 95px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- START: White Container Wrapper (New) -->
+        <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+          
+          <div class="row align-items-center">
+            <!-- Left Column: Logo Placeholder (Logo max-height adjusted as per previous request) -->
+            <div class="col-md-3 mb-4 mb-md-0 text-center">
+              <div class="logo-placeholder">
+                <!-- Placeholder for Company Logo (replace with actual image) -->
+                <img src="images/logos/Logo_OME.png" alt="Company Logo" class="img-fluid" style="max-height: 150px; width: auto;">
+              </div>
+            </div>
+            <!-- Right Column: Write-up -->
+            <div class="col-md-9">
+              <h2 class="font-weight-bold mb-3 text-center">Oasis Maritime Education</h2>
+<h5 class="mb-3 text-center">
+  <span style="font-weight: normal !important;">Mastering the Shift to Proactive Risk Mitigation</span>
+</h3>
+              
+              <p class="text-justify mb-0"><strong>Driven by Dual Expertise:</strong> Founded by a seasoned ship captain with extensive years of experience at sea and proven expertise in training mariners ashore, Oasis Maritime Education understands that true safety is a mindset. Our mission is to move every seafarer beyond the daily routine to a state of daily safety vigilance.<br>
+
+<strong>Training Beyond Competence:</strong> We deliver highly curated training material that goes beyond mandated requirements. This content is engineered to instill the rigor, discipline, and proactive risk mitigation skills essential for professional excellence and a lifetime of safe service.</p>
+            </div>
+          </div>
+
+        </div>
+        <!-- END: White Container Wrapper -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /cta -->
+
+<!-- success story -->
+<section class="section bg-cover" style="margin-bottom: 90px;" data-background="images/backgrounds/success-story.jpg">
+  <div class="container">
+    <div class="row">
+
+      <div id="video-placeholder" class="col-lg-6 col-sm-4 position-relative success-video" 
+           style="background-image: url('images/video/calm-poster.jpg'); 
+                  background-size: cover; 
+                  background-position: center; 
+                  min-height: 300px;">
+        
+        <a id="play-btn-local" class="play-btn" href="#">
+          <i class="ti-control-play"></i>
+        </a>
+      </div>
+
+      <div id="text-content" class="col-lg-6 col-sm-8">
+        <div class="bg-white p-5">
+          <h2 class="section-title">Safety, Quality and Training</h2>
+          <p class="text-justify">Our operations are governed by the International Safety Management (ISM) Company Quality Safety Management Systems(QSMS) Codes, ensuring absolute regulatory compliance and a culture of continuous improvement fleet-wide.</p>
+          <p class="text-justify">We invest in continuous, practical Shipboard Training to guarantee that our crew is not only competent but proactively prepared. This commitment to highly trained personnel translates directly into maximum safety, efficiency, and operational integrity for every voyage.</p>
+        </div>
+      </div>
+      
+      <div id="video-player-container" class="ratio ratio-16x9 position-relative" style="display:none; margin-top: 15px;">
+        
+    <button id="close-video-btn" 
+            class="btn btn-dark text-white opacity-75 rounded-circle p-2 position-absolute top-0 end-0 m-2" 
+            aria-label="Close video" 
+            style="width: 35px; height: 35px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center;">
+        &times;
+    </button>
+
+    <video id="local-video" controls controlsList="nodownload" class="w-100 h-100">
+      <source src="images/video/calm.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+</div>
+
+    </div>
+  </div>
+</section>
+<!-- /success story -->
+
+
+<!-- /success story -->
+
+
+</section>
+<!-- /Company Info / Summary Section -->
+
+
+
+<!-- footer -->
+<footer>
+  
+  <!-- footer -->
+<footer>
+   <!-- copyright -->
+  <div class="copyright py-4 bg-footer w-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+                  
+            <p class="mb-0" style="color: rgb(161, 161, 161);">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            © Powered by "Oasis Maritime Education"</p>
+        <p class="mb-0" style="color: rgba(255, 197, 71, 0.822); line-height: 1.3;">This project was developed for DRS Marine Services, Mumbai, following the guidelines established by
+Reefership Marine Services, Costa Rica.
+</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://dribbble.com/"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<!-- START: NEW INLINE SCRIPT FOR SLIDER SYNCHRONIZATION (FIXED) -->
+<script>
+    // FIX: Using window.onload and an explicit check for jQuery ensures the library 
+    // is fully loaded before attempting to use the Slick initialization logic.
+    window.onload = function() {
+        // Check if jQuery and Slick are both defined
+        if (typeof jQuery !== 'undefined' && jQuery.fn.slick) {
+            var $ = jQuery; // Alias $ inside this function scope
+
+            // 1. Initialize the new Background Slider
+            $('#hero-background-slider').slick({
+                dots: false,
+                arrows: false,
+                infinite: true,
+                speed: 1000,
+                fade: true, // Use fade effect for seamless background transition
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 5000, // Match the content slider's potential speed
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                asNavFor: '.hero-slider' // Link this slider to control the content slider
+            });
+
+            // 2. Re-initialize the Content Slider and sync it
+            $('.hero-slider').slick({
+                dots: false,
+                arrows: false,
+                infinite: true,
+                speed: 1000,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                asNavFor: '#hero-background-slider' // Link the content slider to the background slider
+            });
+        }
+    };
+</script>
+<!-- END: NEW INLINE SCRIPT FOR SLIDER SYNCHRONIZATION (FIXED) -->
+
+
+<!-- for vidoes -->
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const playBtn = document.getElementById('play-btn-local');
+    const closeBtn = document.getElementById('close-video-btn');
+    const placeholder = document.getElementById('video-placeholder');
+    const textContent = document.getElementById('text-content');
+    const videoContainer = document.getElementById('video-player-container');
+    const videoElement = document.getElementById('local-video');
+    const row = placeholder.closest('.row');
+
+    // FIX: Explicitly ensure the video player and close button are hidden on load
+    videoContainer.style.display = 'none';
+
+    // --- PLAY BUTTON LOGIC (Takeover) ---
+    playBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Hide original content
+        placeholder.style.display = 'none';
+        textContent.style.display = 'none';
+
+        // Adjust row spacing for clean takeover
+        if (row) {
+          row.style.setProperty('margin-left', '0');
+          row.style.setProperty('margin-right', '0');
+        }
+
+        // Show and resize video container to full width (col-12)
+        videoContainer.style.display = 'block';
+        videoContainer.classList.add('col-12');
+
+        // Start the video playback
+        // Added a short delay for robust browser handling
+        setTimeout(() => {
+          videoElement.play();
+        }, 100); 
+    });
+
+    // --- CLOSE BUTTON LOGIC (Restore) ---
+    closeBtn.addEventListener('click', function() {
+        // Pause and reset video position
+        videoElement.pause();
+        videoElement.currentTime = 0;
+
+        // Hide video container
+        videoContainer.style.display = 'none';
+        videoContainer.classList.remove('col-12');
+
+        // Restore original content
+        placeholder.style.display = 'block';
+        textContent.style.display = 'block';
+
+        // Restore row spacing
+        if (row) {
+          row.style.removeProperty('margin-left');
+          row.style.removeProperty('margin-right');
+        }
+    });
+});
+</script>
+
+
+<script>
+const BETA_NOTICE_VERSION = "beta_notice_v2";
+
+/* OPEN MODAL ON PAGE LOAD */
+window.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem(BETA_NOTICE_VERSION)) {
+        const modal = document.getElementById("betaNoticeModal");
+        const box = modal.querySelector(".beta-modal-box");
+
+        modal.style.display = "flex";
+
+        setTimeout(() => {
+            modal.classList.add("show");
+            box.classList.add("show");
+        }, 20);
+    }
+});
+
+/* CLOSE MODAL WITH FADE-OUT */
+function closeBetaModal() {
+    const modal = document.getElementById("betaNoticeModal");
+    const box = modal.querySelector(".beta-modal-box");
+
+    // Save cookie if checked
+    if (document.getElementById("dontShowAgain").checked) {
+        localStorage.setItem(BETA_NOTICE_VERSION, "hidden");
+    }
+
+    // Fade out animation
+    box.classList.add("fade-out");
+    modal.style.opacity = "0";
+
+    // Remove from view after animation
+    setTimeout(() => {
+        modal.style.display = "none";
+        box.classList.remove("fade-out");
+    }, 450);
+}
+
+/* COLLAPSIBLE CHANGE LOG */
+function toggleChangeLog() {
+  const content = document.getElementById("changeLogContent");
+  const chevron = document.getElementById("chevron");
+
+  if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+      content.style.maxHeight = "0px";
+      chevron.style.transform = "rotate(0deg)";
+  } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      chevron.style.transform = "rotate(180deg)";
+      content.classList.add("glow");
+      setTimeout(() => content.classList.remove("glow"), 1200);
+
+      setTimeout(() => {
+          content.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 150);
+  }
+}
+</script>
+</body>
+</html>

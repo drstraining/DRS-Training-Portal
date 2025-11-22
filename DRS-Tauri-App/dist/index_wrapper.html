@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset='utf-8'><title>Secure Launch</title>
+<style>body{font-family:Arial;background:#001428;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh}
+.card{background:#062042;padding:25px;border-radius:10px;width:360px}
+input,button{width:100%;padding:12px;margin-top:10px;border-radius:6px}
+button{background:#ff3b3b;color:#fff;border:none}</style></head>
+<body><div class='card'>
+<h2>DRS Training Portal</h2>
+<p>Enter password</p>
+<input id='p' type='password'><button onclick="go()">Open</button>
+<p id='e' style='color:#f99;display:none'>Wrong password</p>
+</div>
+<script>
+function go(){
+ if(document.getElementById('p').value==='doleCR'){
+   location='index.html';
+ } else { document.getElementById('e').style.display='block'; }
+}
+</script>
+</body></html>

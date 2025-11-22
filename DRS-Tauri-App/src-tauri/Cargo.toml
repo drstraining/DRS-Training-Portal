@@ -1,0 +1,9 @@
+
+[package]
+name="drs_training_portal"
+version="1.0.0"
+edition="2021"
+
+[dependencies]
+tauri = { version = "2" }
+sha2 = "0.10"
